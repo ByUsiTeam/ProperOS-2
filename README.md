@@ -38,6 +38,6 @@ zip -r ProperOS.iApp .
 
 ### 分发须知
 修改或二次分发时，必须在项目中标注原始仓库地址：  
-[https://gitee.com/properos/properos](https://gitee.com/properos/properos2)  
+[https://gitee.com/properos/properos2](https://gitee.com/properos/properos2)  
 或者  
-[https://github.com/ByUsiTeam/ProperOS](https://github.com/ByUsiTeam/ProperOS-2)
+[https://github.com/ByUsiTeam/ProperOS-2](https://github.com/ByUsiTeam/ProperOS-2)
