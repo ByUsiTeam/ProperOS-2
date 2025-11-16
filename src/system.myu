@@ -1,0 +1,142 @@
+fn install(jspk)
+
+f(jspk != null)
+{
+	time(4,time)
+	fuz(jspk,"MainIndex.json","$temp/"+time,fuzjspk)
+	f(fuzjspk == true)
+	{
+		fr("$temp/"+time+"/MainIndex.json",nr)
+		json(nr,json)
+		json(json,"get","system",system)
+		f(system == true)
+		{
+			json(json,"get","sign",sign)
+			json(sign,"get","byusi",byusi_user_system)
+			json(byusi_user_system,"get","uuid",uuid)
+			json(byusi_user_system,"get","email",email)
+			t()
+			{
+				hs("https://api.www.cdifit.cn/user/query.php","action=query_username&uuid="+uuid,"utf-8",name1)
+				hs("https://api.www.cdifit.cn/user/query.php","action=query_username&email="+email,"utf-8",name2)
+				json(name1,name1)
+				json(name2,name2)
+				f(name1 != null && name2 != null)
+				{
+					json(name1,"get","status",status)
+					f(status == "success")
+					{
+						json(name1,"get","username",username)
+						syso("UserName："+username)
+						json(sign,"get","uuid",sign_uuid)
+						fc("$temp/"+time+"/MainIndex.json","$ProperOS/home/Desktop/"+sign_uuid+".plink",true,yzfc)
+						f(yzfc == true)
+						{
+							json(json,"get","package",package)
+							fuzs(jspk,"$App/"+package,true,fuzs)
+							f(yzfc == true && fuzs == true)
+							{
+								ufnsui()
+								{
+									fn tw.tw("安装完成")
+								}
+							}
+						}
+					}
+					else
+					{
+						ufnsui()
+						{
+							fn tw.tw2("非法应用无法进行安装",1)
+						}
+					}
+				}
+				else
+				{
+					ufnsui()
+					{
+						fn tw.tw2("请联网进行应用安装",1)
+					}
+				}
+			}
+		}
+		else
+		{
+			json(json,"get","name",app_name)
+			json(json,"get","package",app_package)
+			json(json,"get","sign",app_sign)
+			f(app_sign != null && app_name != null && app_package != null)
+			{
+				json(app_sign,"get","uuid",app_uuid)
+				json(app_sign,"get","byusi",user_byusi)
+				json(user_byusi,"get","uuid",byusi_uuid)
+				t()
+				{
+					hs("https://api.www.cdifit.cn/user/query.php","action=query_username&uuid="+byusi_uuid,"utf-8",hd)
+					json(hd,hdd)
+					f(hdd != null)
+					{
+						json(hdd,"get","status",status)
+						f(status == "success")
+						{
+							json(hdd,"get","username",username)
+							ufnsui()
+							{
+								utw(null,"","应用名："+app_name+"\n包名："+app_package+"\n开发者："+username+"\n\n确定安装该应用吗？","确定","取消",true,v)
+								{
+									endutw()
+									utw(null,"","安装中...",true,vv)
+									{
+									}
+									fc("$temp/"+time+"/MainIndex.json","$ProperOS/home/Desktop/"+app_uuid+".plink",true,yzfc)
+									fuzs(jspk,"$App/"+app_package,true,fuzs)
+									endutw()
+									f(yzfc == true && fuzs == true)
+									{
+										fn tw.tw("安装成功")
+									}
+									else
+									{
+										fn tw.tw2("安装失败",1)
+									}
+								}
+								else
+								{
+									endutw()
+								}
+							}
+						}
+						else
+						{
+							ufnsui()
+							{
+								fn tw.tw2("查询失败，非法安装包",1)
+							}
+						}
+					}
+					else
+					{
+						ufnsui()
+						{
+							fn tw.tw2("服务端错误",1)
+						}
+					}
+				}
+			}
+			else
+			{
+				fn tw.tw2("错误的安装包",1)
+			}
+		}
+	}
+	else
+	{
+		fn tw.tw("主文件解压失败")
+	}
+}
+else
+{
+	fn tw.tw("无 .jspk 文件路径")
+}
+
+end fn

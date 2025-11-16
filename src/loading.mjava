@@ -1,0 +1,10 @@
+public static void setupProgressBar(android.widget.ProgressBar progressBar) {
+    progressBar.setIndeterminate(true);
+}
+/*
+
+Made by Avery Chims
+
+Official Website: 'https://www.viqu.com'
+
+*/

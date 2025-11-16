@@ -1,0 +1,39 @@
+<View id="1" did="0" type="LinearLayout">
+<ppt>width=-2
+height=-2
+orientation=vertical
+gravity=center_vertical
+layout_marginBottom=60dp</ppt>
+<event>
+</event>
+</View>
+<View id="2" did="1" type="LinearLayout">
+<ppt>width=-2
+height=-2
+orientation=horizontal
+gravity=center
+layout_margin=10dp</ppt>
+<event>
+</event>
+</View>
+<View id="3" did="2" type="ImageView">
+<ppt>width=20dp
+height=20dp
+src=@ts0.png
+layout_marginRight=8dp</ppt>
+<event>
+</event>
+</View>
+<View id="4" did="2" type="TextView">
+<ppt>width=-2
+height=-2
+text=提示内容
+textstyle=bold
+textsize=16sp
+textColor=#ffffffff</ppt>
+<event>
+</event>
+</View>
+<UIEventset>
+
+</UIEventset>

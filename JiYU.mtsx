@@ -1,0 +1,70 @@
+{
+    name: ["JiYU",".jiyu", ".iyu", ".myu", ".jush", ".tps", ".cuk", ".service"]
+    ignoreCase: true
+    comment: {startsWith: "//"}
+    comment: {startsWith: "/.", endsWith: "./"}
+    comment: {startsWith: "<!--", endsWith: "-->"}
+    hide: false
+    ignoreCase: true
+    styles: [
+        "g", #FF51A9, #9876AA
+        "t", #FF0000, #CC7832
+        "arf", #60E2FF, #60E2FF
+        "tagNameDef", #4D00FF, #E8BF6A
+        "operator", #CC7832, #CC7832
+    ]
+    defines: [
+        "colorMatcher": {
+            match: /(?<![;&])#([a-fA-F0-9]{3,8})\b/, 0: "parseColor(auto,1,HEX)"
+        }
+    ]
+    lineBackground: {match: /[\t ]*\fn */, style: "atf"}
+    contains: [
+        {match: /(\|\|\*|\/|%|==|!=|>=|<=|&&|\|\||!|&|\||\^|~)/, 0: "operator"}
+        
+        {match: /(#)([0-9A-Fa-f]{6})\b/, 0: "parseColor(auto,2,HEX,default)"}
+        {match: /\b(else|else f|end|ends|t|fn|w|for|fi|f|endcode|break|endutw|null|true|false|endkeyboard)\b/, 0: "t"}
+        
+        {match: /\b(s|ss|sss)\s+([\w$]+)\b/, 0:"g", 1:"g", 2:"tagNameDef"}
+        
+        {match: /\b(fn)\s+([\w$]+)\s*\(/, 0:"arf", 1:"arf", 2:"meta"}
+        
+        {match: keywordsToRegex(
+            "s ss sss f for w t ssj syso tw fd fe fs fr fc fw fl ft fdir fuz fuzs fo fj s s2 sn s+ s- s* s/ s% ss sr sj sl siof slof ssg slg strim slower supper stop sran nsz sgsz sssz sgszl hs hd hw hws ug us uigo utw endutw end ends bfm bfms ula uls ulas ulag usms ucall time fi stobm sutf8to uycl ushsp bfv bfvs bfvss ftz uapp uapplist uapplistgo uninapp huf nvw uall urvw sbp sdeg bfs tot tzz tsf tfz sxb shb tcc usjxm addv gvs aslist sslist gslist gslistl dslist gslistsz gslistis gslistiof gslistlof nuibs ngde sit uit git uqr zdp zpd zps zsp zsp lan sjxx simsi simei endkeyboard hdfl hdfla hdd hdda hddgl hddg hdds hdduigo swh ufnsui se usg uzd usxq usxh usx ujp bly sqlite sql sqlsele dha dhs dht dhr dhset dhas dhast dh dhon dhb hsas has uxf tts blp otob btoo sot sota loadso loadjar cls javacb javanew java javax javags javass res clssm zj call json utb tws uht cast yul case"
+            ), 0: "g"
+        }
+        {
+            style: "string"
+            start: {match: /"/}
+            end: {match: /"/}
+        }
+        {
+            style: "number"
+            start: {match: /'/}
+            end: {match: /'/}
+        }
+        {
+            start: {match: "<\\??([^/>\\s]+)", 0: "tagNameDef", 1: "tagName"}
+            end: {match: "[?/]?>|$", 0: "tagNameDef"}
+            contains: [
+                {match: /(?s)<!--.*?(-->|$)/, 0: "comment"}
+                {match: /(xmlns:)([^='"\s]+)/, 1: "attrName", 2: "namespace"}
+                {match: /(?:([^='"<\/>\s]+)(:))?([^='"<\/>\s]+)/, 1: "namespace", 2: "attrName", 3: "attrName"}
+                {
+                    group: link
+                    contains: [
+                        {match: /=\s*/, 0: "string"}
+                        {match: /(?s)(["'])(.*?)\1/, 0: "string", 2: {include: "colorMatcher"}}
+                    ]
+                }
+            ]
+        }
+        {
+            match: "</\\s*([^>\\s]+)\\s*>", 0: "tagNameDef", 1: "tagName"
+        }
+        {
+            include: "colorMatcher"
+        }
+    ]
+    codeFormatter: #BUILT_IN_XML_FORMATTER#
+}

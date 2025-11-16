@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<title>ProperOS 2</title>
+<icon>icon.png</icon>
+<packageName>miao.byusi.properos.two</packageName>
+<versionName>2.1.0</versionName>
+<versionint>1</versionint>
+<sdk>26</sdk>
+<yuv>3</yuv>
+
+<remark></remark>
+<Permissions>android.permission.REQUEST_INSTALL_PACKAGES
+android.permission.READ_EXTERNAL_STORAGE
+android.permission.WRITE_EXTERNAL_STORAGE
+android.permission.INTERNET
+android.permission.READ_PHONE_STATE
+android.permission.CAMERA
+android.permission.VIBRATE
+android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+android.permission.RECORD_AUDIO
+android.permission.SYSTEM_ALERT_WINDOW
+android.permission.ACCESS_NETWORK_STATE
+android.hardware.camera
+android.hardware.camera2
+android.hardware.camera.front
+android.hardware.camera.autofocus
+android.permission.FLASHLIGHT</Permissions>
+<createTime>2025-11-16 20:48:02</createTime>
+<upTime>2025-11-16 20:48:02</upTime>

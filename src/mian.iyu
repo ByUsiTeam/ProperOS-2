@@ -1,0 +1,93 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1
+background=white</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center
+ps=ByUsi logo展示</ppt>
+<event></event>
+</View>
+<View id="3" did="2" type="RoundImageView">
+<ppt>width=-2
+height=-2
+src=@logo/byusi.png</ppt>
+<event></event>
+</View>
+<View id="4" did="2" type="TextView">
+<ppt>width=-2
+height=-2
+text=ByUsi
+textColor=#ff000000
+textSize=20sp
+typeface=@fontFile/acbt80.ttf
+layout_marginTop=10dp</ppt>
+<event></event>
+</View>
+<View id="5" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center
+visibility=gone
+ps=ProperOS Logo 展示
+background=#1F6BFF</ppt>
+<event></event>
+</View>
+<View id="6" did="5" type="RoundImageView">
+<ppt>width=-2
+height=-2
+src=@logo/properos.png</ppt>
+<event></event>
+</View>
+<View id="7" did="5" type="TextView">
+<ppt>width=-2
+height=-2
+text=ProperOS 2
+textColor=#ffffffff
+textSize=20sp
+typeface=@fontFile/acbt80.ttf
+layout_marginTop=10dp</ppt>
+<event></event>
+</View>
+<UIEventset><eventItme type="loading">fn byusi.ztl()</eventItme><eventItme type="loadingComplete">t()
+{
+	stop(2000)
+    ufnsui()
+    {
+    	us(2,"visibility","gone")
+        dha(dh,false,true)
+        dh(dh, "duration",500)
+        us(5,"dh",dh)
+        us(5,"visibility","visible")
+    }
+    stop(2000)
+    ufnsui()
+    {
+    	fr("@about.json",about)
+        json(about,data)
+        json(data,"get","version",version)
+    	fe("$System/Config/Initialization.sett",isett)
+        f(isett == true)
+        {
+        	fr("$System/Config/Initialization.sett",iisett)
+            f(iisett == version)
+            {
+            	fn core.uigo("home.iyu")
+            }
+            else
+            {
+            	fn core.uigo("initialization.iyu")
+            }
+        }
+        else
+        {
+            fn core.uigo("initialization.iyu")
+        }
+        end()
+    }
+}</eventItme></UIEventset>

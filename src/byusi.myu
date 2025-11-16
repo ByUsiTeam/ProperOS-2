@@ -1,0 +1,43 @@
+fn ztl()
+javags(sdk,null,"android.os.Build$VERSION","RELEASE")
+f(sdk&lt;=10)
+{
+	uycl(true)
+	java(win, activity, "android.app.Activity.getWindow")
+	java(winn, win, "android.view.Window.getDecorView")
+	java(null, winn, "android.view.View.setSystemUiVisibility", "int", "8192")
+	java(null, win, "android.view.Window.addFlags", "int", "67108864")
+	java(window,activity,"android.app.Activity.getWindow")
+	java(dow,window,"android.view.Window.getDecorView")
+	java(null,dow,"android.view.View.setSystemUiVisibility","int",4098)
+}
+else f(sdk&gt;=13)
+{
+	java(window,activity,"android.app.Activity.getWindow")
+	java(attribute,window,"android.view.Window.getAttributes")
+	javass(null,attribute,"android.view.WindowManager$LayoutParams","layoutInDisplayCutoutMode",3)
+	java(null,window,"android.view.Window.setAttributes","android.view.WindowManager$LayoutParams",attribute)
+	java(get,window,"android.view.Window.getDecorView")
+	java(null,get,"android.view.View.setSystemUiVisibility","int",-1)
+	java(null,window,"android.view.Window.setSoftInputMode","int",-1)
+}
+else f(sdk==11||sdk==12)
+{
+	java(win, activity, "android.app.Activity.getWindow")
+	java(winn, win, "android.view.Window.getDecorView")
+	java(null, winn, "android.view.View.setSystemUiVisibility", "int", "8192")
+	java(null, win, "android.view.Window.addFlags", "int", "67108864")
+	java(window,activity,"android.app.Activity.getWindow")
+	java(dow,window,"android.view.Window.getDecorView")
+	java(null,dow,"android.view.View.setSystemUiVisibility","int",4098)
+}
+end fn
+
+fn uycl()
+
+fr("@about.json",about)
+json(about,data)
+json(data,"get","defaultColor",defaultColor)
+uycl(defaultColor,true)
+
+end fn

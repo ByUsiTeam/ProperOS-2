@@ -1,0 +1,41 @@
+//作者QQ:2279389547
+//未经允许禁止转载共享空间变现积分
+//开源项目仅供参考学习
+//完美让v3实现Lottie动画文件加载
+//Lottie类库封装作者QQ:204403418
+//转载请注明
+//加载dex
+fn loaddex()
+loadjar("Lottiesx" ,lottiedex)
+sss lottiedex=lottiedex
+end fn
+
+
+//加载动画
+fn setImageLottie(ss.view,data,repeat,start)
+gvs(ss.view,ss.view)
+cls(sss.lottiedex,"com.airbnb.lottie.LottieDrawable",ld)
+cls(sss.lottiedex,"com.airbnb.lottie.LottieComposition",lc)
+cls(sss.lottiedex,"com.airbnb.lottie.LottieCompositionFactory",lcf)
+cls(sss.lottiedex,"com.airbnb.lottie.LottieResult",lr)
+javanew(lottieDrawable,ld)
+javax(null,ss.view,"android.widget.ImageView","setImageDrawable","android.graphics.drawable.Drawable",lottieDrawable)
+javax(composition,null,lcf,"fromJsonStringSync","String",data,"String",null)
+javax(composition,composition,lr,"getValue")
+javax(null,lottieDrawable,ld,"setComposition",lc,composition)
+
+javax(null,lottieDrawable,ld,"setRepeatCount","int",repeat)
+f(start)
+{
+	javax(null,lottieDrawable,ld,"start")
+}
+end fn
+
+//开始动画
+fn startLottie(ss.view)
+gvs(ss.view,ss.view)
+cls(sss.lottiedex,"com.airbnb.lottie.LottieDrawable",ld)
+javax(d,ss.view,"android.widget.ImageView","getDrawable")
+cast(ld,d)
+javax(null,d,ld,"start")
+end fn

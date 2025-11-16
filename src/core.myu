@@ -1,0 +1,13 @@
+fn uigo(iyu)
+
+uigo(iyu)
+call(null,"mjava","ui.tz")
+
+end fn
+
+fn loading(id)
+
+gvs(id,vw)
+call(null,"mjava","loading.setupProgressBar",vw)
+
+end fn

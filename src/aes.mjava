@@ -1,0 +1,434 @@
+import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public String md5(byte[] btInput) {
+	
+	char[] hexDigits = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
+	
+	try {
+		
+		java.security.MessageDigest mdInst = java.security.MessageDigest.getInstance("MD5");
+		
+		mdInst.update(btInput);
+		
+		byte[] md = mdInst.digest();
+		
+		int j = md.length;
+		
+		char[] str = new char[j * 2];
+		
+		int k = 0;
+		
+		for (int i = 0; i < j; i++) {
+			
+			byte byte0 = md[i];
+			
+			str[k++] = hexDigits[byte0 >>> 4 & 0xf];
+			
+			str[k++] = hexDigits[byte0 & 0xf];
+			
+		}
+		
+		return new String(str);
+		
+	} catch (java.lang.Exception e) {
+		
+		e.printStackTrace();
+		
+		return null;
+		
+	}
+	
+}
+
+
+
+/**
+
+* md5加密
+，输入字符串
+
+* */
+
+public String md5st(String btInput) {
+	md5(btInput.getBytes());
+	
+}
+
+
+
+/**
+
+* AES加密， 输入字节组 和 一个自定义密钥。输出加密字符
+
+*/
+
+public String encrypt(byte[] st, String key)
+
+{
+	
+	javax.crypto.Cipher localCipher = null;
+	
+	try {
+		
+		localCipher = javax.crypto.Cipher.getInstance("AES/CBC/PKCS5Padding");
+		
+	} catch (java.lang.Exception e) {
+		
+		e.printStackTrace();
+		
+	}
+	
+	if(localCipher != null)
+	
+	{
+		
+		try {
+			
+			localCipher.init(1, new javax.crypto.spec.SecretKeySpec(key.getBytes(), "AES"), new javax.crypto.spec.IvParameterSpec(key.getBytes()));
+			
+			return android.util.Base64.encodeToString(localCipher.doFinal(st), 4).trim();
+			
+		} catch (java.lang.Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
+	return null;
+	
+}
+
+/**
+
+* AES解密， 输入加密字符 和 一个自定义密钥。输出字节组
+
+*/
+
+public byte[] decrypt(String st, String key)
+
+{
+	
+	javax.crypto.Cipher localCipher = null;
+	
+	try {
+		
+		localCipher = javax.crypto.Cipher.getInstance("AES/CBC/PKCS5Padding");
+		
+	} catch (java.lang.Exception e) {
+		
+		e.printStackTrace();
+		
+	}
+	
+	if(localCipher != null)
+	
+	{
+		
+		try {
+			
+			localCipher.init(2, new javax.crypto.spec.SecretKeySpec(key.getBytes(), "AES"), new javax.crypto.spec.IvParameterSpec(key.getBytes()));
+			
+			return localCipher.doFinal(android.util.Base64.decode(st, 4));
+			
+		} catch (java.lang.Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
+	return null;
+	
+}
+
+/**
+
+* 获取文件字节组， 输入文件绝对路径。输出文件字节组
+
+*/
+
+public byte[] toFileByte(String file) {
+	
+	java.io.File f = new java.io.File(file);
+	
+	if(!f.exists())
+	
+	return null;
+	
+	java.io.ByteArrayOutputStream bos = new java.io.ByteArrayOutputStream((int) f.length());
+	
+	java.io.BufferedInputStream in = null;
+	
+	byte[] b = null;
+	
+	try {
+		
+		in = new java.io.BufferedInputStream(new java.io.FileInputStream(f));
+		
+		int buf_size = 1024;
+		
+		byte[] buffer = new byte[buf_size];
+		
+		int len = 0;
+		
+		while (-1 != (len = in.read(buffer, 0, buf_size))) {
+			
+			bos.write(buffer, 0, len);
+			
+		}
+		
+		b = bos.toByteArray();
+		
+	} catch (java.lang.Exception e) {
+		
+		e.printStackTrace();
+		
+	} finally {
+		
+		try {
+			
+			in.close();
+			
+		} catch (java.lang.Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		try {
+			
+			bos.close();
+			
+		} catch (java.lang.Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
+	return b;
+	
+}
+
+/**
+
+* 写入字节组至文件。输入文件绝对路径 和 输入字节组， 输出是否成功
+
+*	注意， 这里的文件绝对路径 如果目录或文件夹会保存失败
+
+*/
+
+public boolean writebyteFile(String filename, byte[] b) {
+	
+	boolean s = true;
+	
+	java.io.FileOutputStream fos = null;
+	
+	java.io.File f = new java.io.File(filename);
+	
+	
+	
+	if (f.exists())
+	
+	f.delete();
+	
+	try {
+		
+		fos = new java.io.FileOutputStream(f);
+		
+	} catch (java.lang.Exception e) {
+		
+		e.printStackTrace();
+		
+		return false;
+		
+	}
+	
+	try {
+		
+		fos.write(b, 0, b.length);
+		
+	} catch (java.lang.Exception e) {
+		
+		s = false;
+		
+		e.printStackTrace();
+		
+	}
+	
+	try {
+		
+		fos.close();
+		
+	} catch (java.lang.Exception e) {
+		
+		s = false;
+		
+		e.printStackTrace();
+		
+	}
+	
+	return s;
+	
+}
+
+
+
+
+
+/**
+
+* AES加密， 输入原字符串 和 一个自定义密钥。输出加密字符串
+
+*/
+
+public String encryptString(String st, String key)
+
+{
+	
+	return encrypt(st.getBytes(), md5st(key).substring(16));
+	
+}
+/**
+
+* AES解密， 输入加密字符 和 一个自定义密钥。输出原字符串
+
+*/
+
+public String decryptString(String st, String key)
+
+{
+	
+		return new String(decrypt(st, md5st(key).substring(16)));
+	
+}
+/**
+
+* AES加密， 输入原字符串 和 一个自定义16位密钥。输出加密字符串
+
+*/
+
+public String encryptString16(String st, String key)
+
+{
+	
+	return encrypt(st.getBytes(), key);
+	
+}
+
+/**
+
+* AES解密， 输入加密字符 和 一个自定义16位密钥。输出原字符串
+
+*/
+
+public String decryptString16(String st, String key)
+
+{
+	try{
+		return new String(decrypt(st, key));
+	}catch (IOException e) {
+		e.printStackTrace();
+		return null;
+	}
+}
+
+
+
+/**
+
+* AES加密，文件加密。 输入原文件路径 和 输入加密后文件路径 和 自定义密钥
+
+*/
+
+public boolean encryptFile(String file, String savefile, String key)
+
+{
+	
+	java.io.File f = new java.io.File(file);
+	
+	if (!f.exists())
+	
+	return false;
+	
+	writebyteFile(savefile, encrypt(toFileByte(file), md5st(key).substring(16)).getBytes());
+	
+	return true;
+	
+}
+
+
+
+/**
+
+* AES解密，文件解密。 输入加密后文件路径 和 输入解密后文件路径 和 自定义密钥
+
+*/
+
+public boolean decryptFile(String file, String savefile, String key)
+
+{
+	
+	java.io.File f = new java.io.File(file);
+	
+	if (!f.exists())
+	
+	return false;
+	
+	writebyteFile(savefile, decrypt(new String(toFileByte(file)), md5st(key).substring(16)));
+	
+	return true;
+	
+}
+
+/**
+
+* AES加密，文件加密。 输入原文件路径 和 输入加密后文件路径 和 自定义密钥
+
+*/
+
+public boolean encryptFile16(String file, String savefile, String key)
+
+{
+	
+	java.io.File f = new java.io.File(file);
+	
+	if (!f.exists())
+	
+	return false;
+	
+	writebyteFile(savefile, encrypt(toFileByte(file), key).getBytes());
+	
+	return true;
+	
+}
+
+
+
+/**
+
+* AES解密，文件解密。 输入加密后文件路径 和 输入解密后文件路径 和 自定义密钥
+
+*/
+
+public boolean decryptFile16(String file, String savefile, String key)
+
+{
+	
+	java.io.File f = new java.io.File(file);
+	
+	if (!f.exists())
+	
+	return false;
+	
+	writebyteFile(savefile, decrypt(new String(toFileByte(file)), key));
+	
+	return true;
+	
+}

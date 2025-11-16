@@ -1,0 +1,5 @@
+import android.app.Activity;
+
+public void tz() {
+	activity.overridePendingTransition(0, 0);
+}
