@@ -25,7 +25,8 @@ text=ByUsi
 textColor=#ff000000
 textSize=20sp
 typeface=@fontFile/acbt80.ttf
-layout_marginTop=10dp</ppt>
+layout_marginTop=10dp
+visibility=gone</ppt>
 <event></event>
 </View>
 <View id="5" did="1" type="LinearLayout">
@@ -51,7 +52,8 @@ text=ProperOS 2
 textColor=#ffffffff
 textSize=20sp
 typeface=@fontFile/acbt80.ttf
-layout_marginTop=10dp</ppt>
+layout_marginTop=10dp
+visibility=gone</ppt>
 <event></event>
 </View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()</eventItme><eventItme type="loadingComplete">t()
