@@ -1,5 +1,5 @@
 fn tw(内容)
-s bb="@JuOS/src/tw/twtb.png"
+s bb="@picture/twtb.png"
 //图片
 loadjar("tw",a)
 cls(a,"com.padi.MainActivity",b)

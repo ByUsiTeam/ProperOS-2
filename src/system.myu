@@ -33,7 +33,7 @@ f(jspk != null)
 						f(yzfc == true)
 						{
 							json(json,"get","package",package)
-							fuzs(jspk,"$App/"+package,true,fuzs)
+							fuzs(jspk,"$user/data/software/"+package,true,fuzs)
 							f(yzfc == true && fuzs == true)
 							{
 								ufnsui()
@@ -89,7 +89,7 @@ f(jspk != null)
 									{
 									}
 									fc("$temp/"+time+"/MainIndex.json","$ProperOS/home/Desktop/"+app_uuid+".plink",true,yzfc)
-									fuzs(jspk,"$App/"+app_package,true,fuzs)
+									fuzs(jspk,"$user/data/software/"+app_package,true,fuzs)
 									endutw()
 									f(yzfc == true && fuzs == true)
 									{

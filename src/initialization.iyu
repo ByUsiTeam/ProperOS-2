@@ -1,2 +1,66 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="ImageView">
+<ppt>width=-1
+height=-1
+src=17301567
+scaleType=centercrop
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="3" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="4" did="3" type="RoundImageView">
+<ppt>width=-2
+height=-2
+src=@logo/properos.png</ppt>
+<event></event>
+</View>
+<View id="5" did="3" type="TextView">
+<ppt>width=-2
+height=-2
+text=ProperOS 初始化中...
+textColor=#ff000000
+typeface=@fontFile/acbt80.ttf
+textSize=25sp
+layout_marginTop=10dp</ppt>
+<event></event>
+</View>
+<View id="6" did="3" type="ProgressBar">
+<ppt>width=-1
+height=-2
+layout_marginLeft=50dp
+layout_marginRight=50dp
+layout_marginTop=10dp</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
-fn byusi.uycl()</eventItme></UIEventset>
+fn byusi.uycl()
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn core.loading(6)
+t()
+{
+	fuzs("@resources/icon.zip","$System/icon/",true,fuzs)
+	fr("@PLink/plink-system.json",pksm)
+    json(pksm,pksm_setting)
+    json(pksm_setting,"set","name","设置")
+    json(pksm_setting,"set","package","properos.two.setting")
+    json(pksm_setting,"set","icon","$System/icon/ic_app_icon_settings.png")
+    json(pksm_setting,"get","systemUi",systemUi)
+    json(systemUi,"set","qiyue",true)
+    json(systemUi,"set","ui","setting.iyu")
+    json(pksm_setting,"set","systemUi",systemUi)
+    json(pksm_setting,"set","guide","")
+    time(4,ttime)
+    fw("$ProperOS/home/Desktop/"+ttime+".plink",pksm_setting)
+}</eventItme><eventItme type="downkey">f(st_kC == 4)
+{
+	//拦截返回操作
+}</eventItme></UIEventset>

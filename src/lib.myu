@@ -1,1 +1,16 @@
-fn wp()
+fn wp(id)
+
+s dir_file ="$System/wallpaper/config.sett"
+fe(dir_file,wpp)
+f(wpp == true)
+{
+	us(id,"visibility","visible")
+	us(id,"src",dir_file)
+}
+else f(wpp == false)
+{
+	us(id,"visibility","visible")
+	us(id,"src","@DefaultWallpaper/1763199229776.png")
+}
+
+end fn
