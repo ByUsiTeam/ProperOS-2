@@ -31,12 +31,12 @@ else
 }</eventItme><eventItme type="downkey">f(st_kC == 4)
 {
 	ug(3,"cangoback",cangoback)
-    f(cangoback == true)
-    {
-    	us(3,"gobackorforward",-1)
-    }
-    else
-    {
-    	end()
-    }
+	f(cangoback == true)
+	{
+		us(3,"gobackorforward",-1)
+	}
+	else
+	{
+		end()
+	}
 }</eventItme></UIEventset>

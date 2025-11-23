@@ -39,39 +39,39 @@ ulag(st_vW,12,fileDir)
 f(fileDir *? ".plink")
 {
 	fr(fileDir,plinkData)
-    json(plinkData,data)
-    json(data,"get","startUrl",startUrl)
-    json(startUrl,"get","qiyue",startUrl_qiyue)
-    json(data,"get","systemUi",systemUi)
-    json(systemUi,"get","qiyue",systemUi_qiyue)
-    f(startUrl_qiyue == true)
-    {
-    	json(startUrl,"get","url",url)
-        sss url =url
-        fn core.uigo("startApp.iyu")
-    }
-    else f(systemUi_qiyue == true)
-    {
-    	json(systemUi,"get","ui",ui)
-        json(systemUi,"get","variable",variable)
-        fn core.uigo(ui)
-        sss url =variable
-    }
-    else
-    {
-    	json(data,"get","package",package)
-        json(data,"get","guide",guide)
-        ss("$user/data/software/"+package+"/src/"+guide,url)
-        sss url =url
-        fn core.uigo("startApp.iyu")
-    }
+	json(plinkData,data)
+	json(data,"get","startUrl",startUrl)
+	json(startUrl,"get","qiyue",startUrl_qiyue)
+	json(data,"get","systemUi",systemUi)
+	json(systemUi,"get","qiyue",systemUi_qiyue)
+	f(startUrl_qiyue == true)
+	{
+		json(startUrl,"get","url",url)
+		sss url =url
+		fn core.uigo("startApp.iyu")
+	}
+	else f(systemUi_qiyue == true)
+	{
+		json(systemUi,"get","ui",ui)
+		json(systemUi,"get","variable",variable)
+		fn core.uigo(ui)
+		sss url =variable
+	}
+	else
+	{
+		json(data,"get","package",package)
+		json(data,"get","guide",guide)
+		ss("$user/data/software/"+package+"/src/"+guide,url)
+		sss url =url
+		fn core.uigo("startApp.iyu")
+	}
 }
 else
 {
 	utw("@fail.png","提醒","[ERROR] 无法打开文件 \""+fileDir+"\" 请检查\n\n\n点击 \"确定\" 关闭","确定",true,v)
-    {
-    	endutw()
-    }
+	{
+		endutw()
+	}
 }</eventItme></event>
 </View>
 <View id="7" did="1" type="LinearLayout">

@@ -1,5 +1,5 @@
 public static void setupProgressBar(android.widget.ProgressBar progressBar) {
-    progressBar.setIndeterminate(true);
+	progressBar.setIndeterminate(true);
 }
 /*
 

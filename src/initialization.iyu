@@ -50,7 +50,7 @@ t()
 	fuzs("@resources/icon.zip","$System/icon/",true,fuzs)
 	fr("@PLink/plink-system.json",pksm)
 	json(pksm,pksm_setting)
-    //初始化设置应用
+	//初始化设置应用
 	json(pksm_setting,"set","name","设置")
 	json(pksm_setting,"set","package","properos.two.setting")
 	json(pksm_setting,"set","icon","$System/icon/ic_app_icon_settings.png")
@@ -60,11 +60,11 @@ t()
 	json(pksm_setting,"set","systemUi",systemUi)
 	json(pksm_setting,"set","guide","")
 	fw("$ProperOS/home/Desktop/ac8d0330-7afa-4f18-aff5-b9f7db6d4de0.plink",pksm_setting)
-    ufnsui()
-    {
-    	fn core.uigo("home.iyu")
-        end()
-    }
+	ufnsui()
+	{
+		fn core.uigo("home.iyu")
+		end()
+	}
 }</eventItme><eventItme type="downkey">f(st_kC == 4)
 {
 	//拦截返回操作
