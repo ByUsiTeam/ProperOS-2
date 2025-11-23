@@ -59,37 +59,37 @@ visibility=gone</ppt>
 <UIEventset><eventItme type="loading">fn byusi.ztl()</eventItme><eventItme type="loadingComplete">t()
 {
 	stop(2000)
-    ufnsui()
-    {
-    	us(2,"visibility","gone")
-        dha(dh,false,true)
-        dh(dh, "duration",500)
-        us(5,"dh",dh)
-        us(5,"visibility","visible")
-    }
-    stop(2000)
-    ufnsui()
-    {
-    	fr("@about.json",about)
-        json(about,data)
-        json(data,"get","version",version)
-    	fe("$System/Config/Initialization.sett",isett)
-        f(isett == true)
-        {
-        	fr("$System/Config/Initialization.sett",iisett)
-            f(iisett == version)
-            {
-            	fn core.uigo("home.iyu")
-            }
-            else
-            {
-            	fn core.uigo("initialization.iyu")
-            }
-        }
-        else
-        {
-            fn core.uigo("initialization.iyu")
-        }
-        end()
-    }
+	ufnsui()
+	{
+		us(2,"visibility","gone")
+		dha(dh,false,true)
+		dh(dh, "duration",500)
+		us(5,"dh",dh)
+		us(5,"visibility","visible")
+	}
+	stop(2000)
+	ufnsui()
+	{
+		fr("@about.json",about)
+		json(about,data)
+		json(data,"get","version",version)
+		fe("$System/Config/Initialization.sett",isett)
+		f(isett == true)
+		{
+			fr("$System/Config/Initialization.sett",iisett)
+			f(iisett == version)
+			{
+				fn core.uigo("home.iyu")
+			}
+			else
+			{
+				fn core.uigo("initialization.iyu")
+			}
+		}
+		else
+		{
+			fn core.uigo("initialization.iyu")
+		}
+		end()
+	}
 }</eventItme></UIEventset>

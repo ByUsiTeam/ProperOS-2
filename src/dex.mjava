@@ -1,0 +1,20 @@
+import android.content.Context;
+import dalvik.system.DexClassLoader;
+import java.lang.Class;
+import java.io.File;
+import java.lang.reflect.Method;
+
+public static String deXml(Context context, String path) {
+	String dexPath = i.fdir("$deXml/awzx.dex");
+	String optimizedDir = context.getCacheDir().getPath();
+	ClassLoader parentClassLoader = context.getClassLoader();
+	DexClassLoader dexClassLoader = new DexClassLoader(
+	dexPath,
+	optimizedDir,
+	null,
+	parentClassLoader
+	);
+	Class loadedClass = dexClassLoader.loadClass("awzx.deXML");
+	String 结果 = i.javax(null,loadedClass,"outPut",new Object[]{"String",path});
+	return 结果;
+}

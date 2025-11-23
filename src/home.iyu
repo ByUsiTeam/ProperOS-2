@@ -1,2 +1,43 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1
+background=white</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="ImageView">
+<ppt>width=-1
+height=-1
+src=17301567
+scaleType=centercrop
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="3" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical</ppt>
+<event></event>
+</View>
+<View id="5" did="3" type="CardView">
+<ppt>width=-1
+height=55dp
+app_CardcornerRadius=25dp
+layout_marginLeft=6dp
+layout_marginTop=6dp
+layout_marginRight=6dp</ppt>
+<event></event>
+</View>
+<View id="7" did="3" type="SwipeRefreshLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="6" did="7" type="GridView">
+<ppt>width=-1
+height=-1
+columnWidth=45dp</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
-fn byusi.uycl()</eventItme></UIEventset>
+fn byusi.uycl()
+fn lib.wp(2)</eventItme></UIEventset>
