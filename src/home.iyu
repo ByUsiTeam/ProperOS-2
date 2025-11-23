@@ -29,15 +29,16 @@ layout_marginRight=6dp</ppt>
 </View>
 <View id="7" did="3" type="SwipeRefreshLayout">
 <ppt>width=-1
-height=-1</ppt>
-<event></event>
+height=-1
+ColorSchemecolors=#ffff0000|#ff0088ff|#ffeaff00|#ff00ff55</ppt>
+<event><eventItme type="onrefresh">fn homeLib.list()</eventItme></event>
 </View>
 <View id="6" did="7" type="GridView">
 <ppt>width=-1
 height=-1
-columnWidth=45dp</ppt>
+columnWidth=75dp</ppt>
 <event></event>
 </View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
-fn lib.wp(2)</eventItme></UIEventset>
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn homeLib.list()</eventItme></UIEventset>

@@ -1,0 +1,126 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=75dp
+height=75dp</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center
+ps=图标显示区</ppt>
+<event></event>
+</View>
+<View id="3" did="2" type="CardView">
+<ppt>width=55dp
+height=55dp
+app_CardcornerRadius=15dp</ppt>
+<event></event>
+</View>
+<View id="4" did="3" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="5" did="4" type="ImageView">
+<ppt>width=-1
+height=-1
+src=17301567
+scaleType=centercrop</ppt>
+<event></event>
+</View>
+<View id="6" did="4" type="Button">
+<ppt>width=-1
+height=-1
+text=
+background=through</ppt>
+<event><eventItme type="clicki">ulag(st_vW,11,plink)
+ulag(st_vW,12,fileDir)
+f(fileDir *? ".plink")
+{
+	fr(fileDir,plinkData)
+    json(plinkData,data)
+    json(data,"get","startUrl",startUrl)
+    json(startUrl,"get","qiyue",startUrl_qiyue)
+    json(data,"get","systemUi",systemUi)
+    json(systemUi,"get","qiyue",systemUi_qiyue)
+    f(startUrl_qiyue == true)
+    {
+    	json(startUrl,"get","url",url)
+        sss url =url
+        fn core.uigo("startApp.iyu")
+    }
+    else f(systemUi_qiyue == true)
+    {
+    	json(systemUi,"get","ui",ui)
+        json(systemUi,"get","variable",variable)
+        fn core.uigo(ui)
+        sss url =variable
+    }
+    else
+    {
+    	json(data,"get","package",package)
+        json(data,"get","guide",guide)
+        ss("$user/data/software/"+package+"/src/"+guide,url)
+        sss url =url
+        fn core.uigo("startApp.iyu")
+    }
+}
+else
+{
+	utw("@fail.png","提醒","[ERROR] 无法打开文件 \""+fileDir+"\" 请检查\n\n\n点击 \"确定\" 关闭","确定",true,v)
+    {
+    	endutw()
+    }
+}</eventItme></event>
+</View>
+<View id="7" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=bottom|center
+ps=名称显示区</ppt>
+<event></event>
+</View>
+<View id="8" did="7" type="TextView">
+<ppt>width=-1
+height=-2
+text=appName
+gravity=center
+typeface=@fontFile/acbt80.ttf
+textSize=8sp
+singleLine=true
+layout_marginLeft=3dp
+layout_marginRight=3dp
+ellipsize=end</ppt>
+<event></event>
+</View>
+<View id="9" did="1" type="LinearLayout">
+<ppt>width=0dp
+height=0dp
+orientation=vertical
+ps=隐藏数据存放区域</ppt>
+<event></event>
+</View>
+<View id="10" did="9" type="TextView">
+<ppt>width=-2
+height=-2
+text=
+ps=PLink快捷方式uuid</ppt>
+<event></event>
+</View>
+<View id="11" did="9" type="TextView">
+<ppt>width=-2
+height=-2
+text=
+ps=是否使用PLink</ppt>
+<event></event>
+</View>
+<View id="12" did="9" type="TextView">
+<ppt>width=-2
+height=-2
+text=
+ps=文件完整路径</ppt>
+<event></event>
+</View>
+<UIEventset></UIEventset>

@@ -1,0 +1,69 @@
+fn list()
+
+s dir ="$ProperOS/home/Desktop/"
+t()
+{
+	fl(dir,false,list)
+    for(content;list)
+    {
+    	ss(dir+content,fileDir)
+    	syso("扫描到文件："+content)
+    	f(content *? ".plink")
+    	{
+    		s plink =true
+    		fr(dir+content,shortcut)
+            json(shortcut,data)
+            json(data,"get","system",jy_system)
+            f(jy_system == "true")
+            {
+            	//解析基本数据用于图标和系统开启应用
+            	json(data,"get","name",appName)
+                json(data,"get","icon",icon)
+                sbp(icon,icon)
+                json(data,"get","sign",signData)
+                json(signData,"get","uuid",plink_uuid)
+            }
+            else
+            {
+            	json(data,"get","name",appName)
+                json(data,"get","icon",iconConfig)
+                json(iconConfig,"get","systemIcon",systemIcon)
+                f(systemIcon == "false")
+                {
+                	json(data,"get","package",package)
+                	json(iconConfig,"get","icon",icon)
+                    ss("$user/data/software/"+package+"/"+icon,dir_icon)
+                    sbp(dir_icon,icon)
+                }
+                else
+                {
+                	json(iconConfig,"get","icon",icon)
+                    sbp(icon,icon)
+                }
+            }
+    	}
+        else
+        {
+        	s icon ="@fail.png"
+            sbp(icon,icon)
+            s appName ="暂不支持解析该文件"
+        }
+        //数据变量集合化
+        f(plink == true)
+        {
+        	ula(homeList,5=icon,8=appName,10=plink_uuid,11="true",12=fileDir)
+        }
+        else
+        {
+        	ula(homeList,5=icon,8=appName,11="false",12=fileDir)
+        }
+    }
+    ufnsui()
+    {
+    	uls(6,homeList,"appList.iyu",-2,-2)
+        us(7,"refreshing",false)
+        sss homeList =homeList
+    }
+}
+
+end fn

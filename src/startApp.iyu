@@ -1,0 +1,42 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="ImageView">
+<ppt>width=-1
+height=-1
+src=17301567
+scaleType=centercrop
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="3" did="1" type="WebView">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<UIEventset><eventItme type="loading">fn byusi.ztl()
+fn byusi.uycl()
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">f(sss.url != null && sss.url != "")
+{
+	us(3,"url",sss.url)
+}
+else
+{
+	utw("@fail.png","错误","并没有传入参数","确定",true,v)
+	{
+		endutw()
+	}
+}</eventItme><eventItme type="downkey">f(st_kC == 4)
+{
+	ug(3,"cangoback",cangoback)
+    f(cangoback == true)
+    {
+    	us(3,"gobackorforward",-1)
+    }
+    else
+    {
+    	end()
+    }
+}</eventItme></UIEventset>
