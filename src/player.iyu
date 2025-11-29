@@ -1,0 +1,376 @@
+<View id="23" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="25" did="23" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical</ppt>
+<event></event>
+</View>
+<View id="16" did="25" type="LinearLayout">
+<ppt>width=-1
+height=-2
+orientation=vertical
+padding=20dp
+background=#ffffff
+elevation=8dp
+</ppt>
+<event></event>
+</View>
+<View id="17" did="16" type="TextView">
+<ppt>width=-2
+height=-2
+text=ProperOS 2视频播放器
+typeface=normal
+textSize=16sp
+typeface=@fontFile/acbt80.ttf</ppt>
+<event></event>
+</View>
+<View id="15" did="25" type="ScrollView">
+<ppt>width=-1
+height=-1
+background=#f1f1f1</ppt>
+<event></event>
+</View>
+<View id="5" did="15" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+background=#f1f1f1</ppt>
+<event></event>
+</View>
+<View id="2" did="5" type="CardView">
+<ppt>width=-1
+height=-2
+app_CardcornerRadius=10dp
+layout_margin=5dp
+app_CardElevation=0
+layout_marginTop=15dp</ppt>
+<event></event>
+</View>
+<View id="1" did="2" type="WebView">
+<ppt>width=-1
+height=300dp
+layout_margin=5dp
+url=$System/VideoPlayer2/index.htm</ppt>
+<event></event>
+</View>
+<View id="8" did="5" type="LinearLayout">
+<ppt>width=-1
+height=-2
+orientation=vertical
+layout_marginLeft=5dp
+layout_marginRight=5dp
+layout_marginTop=5dp</ppt>
+<event></event>
+</View>
+<View id="6" did="8" type="CardView">
+<ppt>width=-1
+height=-1
+app_CardBackgroundColor=#ffffff
+app_CardElevation=0
+app_CardcornerRadius=10dp
+layout_marginTop=0dp</ppt>
+<event></event>
+</View>
+<View id="7" did="6" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical</ppt>
+<event></event>
+</View>
+<View id="9" did="7" type="LinearLayout">
+<ppt>width=-1
+height=55dp
+orientation=vertical</ppt>
+<event></event>
+</View>
+<View id="3" did="9" type="EditText">
+<ppt>width=-1
+height=-1
+text=
+background=
+hint=请输入视频地址
+textColor=#424242
+textColorHint=#42424242
+textSize=16sp
+layout_marginLeft=10dp
+layout_marginRight=10dp
+textCursorDrawable=#000000
+singleLine=true
+typeface=normal</ppt>
+<event></event>
+</View>
+<View id="13" did="5" type="LinearLayout">
+<ppt>width=-1
+height=55dp
+orientation=vertical
+layout_marginTop=20dp
+layout_marginLeft=20dp
+layout_marginRight=20dp</ppt>
+<event></event>
+</View>
+<View id="11" did="13" type="CardView">
+<ppt>width=-1
+height=-1
+app_CardBackgroundColor=#FF2285FC
+app_CardElevation=0
+app_CardcornerRadius=10dp</ppt>
+<event></event>
+</View>
+<View id="12" did="11" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event><eventItme type="clicki">ug(3,"text",a)
+fn byusi.qt(11)
+f(a ? "http://" || a ? "https://")
+{
+	has(1,"setURL('"+a+"')")
+}else
+{
+	has(1,"setURL('http://"+a+"')")
+}</eventItme></event>
+</View>
+<View id="14" did="12" type="TextView">
+<ppt>width=-2
+height=-2
+text=开始播放
+textColor=#ffffffff
+textSize=16sp</ppt>
+<event></event>
+</View>
+<View id="18" did="5" type="LinearLayout">
+<ppt>width=-1
+height=55dp
+orientation=vertical
+layout_marginTop=20dp
+layout_marginLeft=20dp
+layout_marginRight=20dp
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="19" did="18" type="CardView">
+<ppt>width=-1
+height=-1
+app_CardBackgroundColor=#FF2285FC
+app_CardElevation=0
+app_CardcornerRadius=10dp</ppt>
+<event></event>
+</View>
+<View id="20" did="19" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event><eventItme type="clicki">
+
+ug(3,"text",a)
+us(24,"visibility",0)
+t()
+{
+	ufnsui()
+	{
+		hsas(22,true)
+		us(22,"url",a)
+		s 处理="javascript:function mk(){iapp.s("ss.视频",document.getElementsByTagName('video')[0].src);}"
+		t()
+		{
+			w(true)
+			{
+				ufnsui()
+				{
+					us(22,"url",处理)
+				}
+				stop(500)
+				ufnsui()
+				{
+					has(22,"mk()")
+				}
+				f(ss.视频!=null)
+				{
+					break
+				}
+			}
+			ufnsui()
+			{
+				us(3,"text",ss.视频)
+				us(24,"visibility",8)
+				ufnsui()
+				{
+					ss 视频=null
+				}
+			}
+		}
+	}
+}</eventItme></event>
+</View>
+<View id="21" did="20" type="TextView">
+<ppt>width=-2
+height=-2
+text=解析视频
+textColor=#ffffffff
+textSize=16sp</ppt>
+<event></event>
+</View>
+<View id="28" did="5" type="LinearLayout">
+<ppt>width=-1
+height=55dp
+orientation=vertical
+layout_marginTop=20dp
+layout_marginLeft=20dp
+layout_marginRight=20dp
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="29" did="28" type="CardView">
+<ppt>width=-1
+height=-1
+app_CardBackgroundColor=#FF2285FC
+app_CardElevation=0
+app_CardcornerRadius=10dp</ppt>
+<event></event>
+</View>
+<View id="30" did="29" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event><eventItme type="clicki">
+
+ug(3,"text",a)
+us(24,"visibility",0)
+t()
+{
+	ufnsui()
+	{
+		hsas(22,true)
+		us(22,"url",a)
+		s 处理="javascript:function mk(){iapp.s("ss.视频",document.getElementsByTagName('video')[0].src);}"
+		t()
+		{
+			w(true)
+			{
+				ufnsui()
+				{
+					us(22,"url",处理)
+				}
+				stop(500)
+				ufnsui()
+				{
+					has(22,"mk()")
+				}
+				f(ss.视频!=null)
+				}
+					break
+				}
+			}
+			ufnsui()
+			{
+				us(3,"text",ss.视频)
+				us(24,"visibility",8)
+				ufnsui()
+				{
+					ss 视频=null
+				}
+			}
+		}
+	}
+}</eventItme></event>
+</View>
+<View id="31" did="30" type="TextView">
+<ppt>width=-2
+height=-2
+text=解析视频
+textColor=#ffffffff
+textSize=16sp</ppt>
+<event></event>
+</View>
+<View id="24" did="23" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+background=#6DFFFFFF
+gravity=center
+clickable=true
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="26" did="24" type="ProgressBar">
+<ppt>width=-2
+height=-2
+style=16842874</ppt>
+<event></event>
+</View>
+<View id="27" did="24" type="TextView">
+<ppt>width=-2
+height=-2
+text=正在进行解析...
+textColor=#222222
+textStyle=bold
+typeface=normal
+textSize=17sp</ppt>
+<event></event>
+</View>
+<View id="22" did="0" type="WebView">
+<ppt>width=-2
+height=-2
+visibility=gone</ppt>
+<event></event>
+</View>
+<UIEventset><eventItme type="loading">fuzs("@resources/sdk/player.sdk","$",yz)
+
+fuzs("@resources/sdk/VideoPlayer2.zip","$System/VideoPlayer2",yz)
+fr("$System/VideoPlayer2/index.htm",html)
+
+f(sss.url != null)
+{
+	fdir(sss.url,uuuu)
+	sr(html,"{VideoAddress}",uuuu,html)
+	fw("$System/VideoPlayer2/index.htm",html)
+}
+us(1,"url","$System/VideoPlayer2/index.htm")
+
+
+gvs(1,wv)
+java(ws,wv,"android.webkit.WebView.getSettings")
+java(null,ws,"android.webkit.WebSettings.setBuiltInZoomControls","boolean",true)
+java(null,ws,"android.webkit.WebSettings.setDisplayZoomControls","boolean",false)
+
+fn byusi.ztl()
+
+s color = "#ffffff"
+uycl(color,true)
+f(color=="#ffffff")
+{
+	s c="8192"
+}
+else
+{
+	s c="81920"
+}
+java(cs,activity,"android.app.Activity.getWindow")
+java(cs2,cs,"android.view.Window.getDecorView")
+java(null,cs2,"android.view.View.setSystemUiVisibility","int",c)
+
+fn view.sdk()
+fn view.set(1)</eventItme><eventItme type="loadingComplete">hsas(1,true)
+
+s color = "#000000"
+gvs(26,id)
+java(color,null,"android.graphics.Color.parseColor","String",color)
+java(drawable,id,"android.widget.ProgressBar.getIndeterminateDrawable")
+javags(atop,null,"android.graphics.PorterDuff$Mode","SRC_ATOP")
+javanew(pdcf,"android.graphics.PorterDuffColorFilter","int",color,"android.graphics.PorterDuff$Mode",atop)
+java(null,drawable,"android.graphics.drawable.Drawable.setColorFilter","android.graphics.ColorFilter",pdcf)</eventItme><eventItme type="downkey">f(st_kC==4)
+{
+	cls(sss.dex,"viek.dmpap.WebViewUtil",webViewUtilCls)
+	javax(is,null,webViewUtilCls,"isVideoState")
+	f(!is)
+	{
+		end()
+	}
+}</eventItme></UIEventset>

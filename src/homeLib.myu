@@ -45,18 +45,22 @@ t()
 		}
 		else f(houyi *? ".mp3" || content *? ".flac" || content *? ".ogg")
 		{
+			s plink =false
 			s icon ="@resources/icon/6e.png"
 			sbp(icon,icon)
 			s appName =content
 		}
 		else f(houyi *? ".mp4")
 		{
-			s icon ="@resources/icon/mp4.png"
-			sbp(icon,icon)
+			s plink =false
+			fdir("$ProperOS/home/Desktop/"+content,videoFileDir)
+            call(icon,"videoCover.get",videoFileDir,"1")
+            sbp(icon,icon)
 			s appName =content
 		}
 		else
 		{
+			s plink =false
 			s icon ="@fail.png"
 			sbp(icon,icon)
 			s appName ="暂不支持解析该文件"
@@ -76,6 +80,7 @@ t()
 		uls(6,homeList,"appList.iyu",-2,-2)
 		us(7,"refreshing",false)
 		sss homeList =homeList
+        syso("主桌面列表："+sss.homeList)
 	}
 }
 

@@ -1,0 +1,17 @@
+import android.graphics.Bitmap;
+import android.media.MediaMetadataRetriever;
+
+
+public static Bitmap get(String videoPath, String second) {
+	MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+	try {
+		retriever.setDataSource(videoPath);
+		long timeUs = Integer.parseInt(second) * 1000000;
+		Bitmap bitmap = retriever.getFrameAtTime(timeUs, MediaMetadataRetriever.OPTION_CLOSEST);
+		return bitmap;
+	} catch (Exception e) {
+		syso(e);
+		e.printStackTrace();
+		return null;
+	}
+}

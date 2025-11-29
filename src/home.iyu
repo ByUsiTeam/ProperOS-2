@@ -30,7 +30,8 @@ layout_marginRight=6dp</ppt>
 <View id="7" did="3" type="SwipeRefreshLayout">
 <ppt>width=-1
 height=-1
-ColorSchemecolors=#ffff0000|#ff0088ff|#ffeaff00|#ff00ff55</ppt>
+ColorSchemecolors=#ffff0000|#ff0088ff|#ffeaff00|#ff00ff55
+Refreshing=true</ppt>
 <event><eventItme type="onrefresh">fn homeLib.list()</eventItme></event>
 </View>
 <View id="6" did="7" type="GridView">

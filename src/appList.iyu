@@ -76,7 +76,7 @@ else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg")
 else f(houyi *? ".mp4")
 {
 	sss url =fileDir
-	fn core.uigo("startApp.iyu")
+	fn core.uigo("player.iyu")
 }
 else
 {

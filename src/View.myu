@@ -1,0 +1,68 @@
+fn sdk()
+javags(map,null,"com.iapp.app.Aid_javaCode","ss_dim")
+f(map==null)
+{
+	javanew(hm,"java.util.HashMap")
+	javass(c, null, "com.iapp.app.Aid_javaCode", "ss_dim", hm)
+}
+javags(dataMap,null,"com.iapp.app.Aid_javaCode","ss_dim")
+javax(sss.dex,dataMap,"java.util.HashMap","get","Object","dex")
+javax(name,activity,"android.content.ContextWrapper","getPackageName")
+javax(dex,dataMap,"java.util.HashMap","get","Object","dex")
+f(dex==null)
+{
+	javax(cachePath,activity,"android.content.ContextWrapper","getCacheDir")
+	javax(filePath,activity,"android.content.ContextWrapper","getFilesDir")
+	ss(cachePath+"/",cachePath)
+	ss(filePath+"/x.dex",filePath)
+	fc("$x",filePath,r)
+	javax(classLoader,activity,"android.content.ContextWrapper","getClassLoader")
+	javanew(dexClassLoader,"dalvik.system.DexClassLoader","String",filePath,"String",cachePath,"String",null,"java.lang.ClassLoader",classLoader)
+	javax(null,dataMap,"java.util.HashMap","put","Object","dex","Object",dexClassLoader)
+}
+javax(sss.dex,dataMap,"java.util.HashMap","get","Object","dex")
+s yyy = "Android"
+s hhh = "Manifest"
+fe("$"+yyy+hhh+".xml",is)
+f(is)
+{
+	javax(filePath,activity,"android.content.ContextWrapper","getFilesDir")
+	ss(filePath+"/Cache/frame/0/apk/"+yyy+hhh+".xml",filePath)
+	fc("$"+yyy+hhh+".xml",filePath,r)
+}
+end fn
+
+fn set(id)
+gvs(id,web)
+cls(sss.dex,"viek.dmpap.WebChromeClient",clientCls)
+cls(sss.dex,"viek.dmpap.WebViewUtil",webViewUtilCls)
+javacb(client,clientCls)
+{
+	f(st_mD?"onShowCustomView")
+	{
+		syso("进入全屏")
+	}
+	else f(st_mD?"onHideCustomView")
+	{
+		/.
+		状态栏
+		./
+		
+		//状态栏颜色
+		fn byusi.uycl()
+		f(color=="#ffffff")
+		{
+			s c="8192"
+		}
+		else
+		{
+			s c="81920"
+		}
+		java(cs,activity,"android.app.Activity.getWindow")
+		java(cs2,cs,"android.view.Window.getDecorView")
+		java(null,cs2,"android.view.View.setSystemUiVisibility","int",c)
+		syso("退出全屏")
+	}
+}
+javax(null,null,webViewUtilCls,"setWebChromeClient","android.app.Activity",activity,"android.webkit.WebView",web,clientCls,client)
+end fn
