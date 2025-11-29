@@ -60,8 +60,13 @@ t()
 	json(pksm_setting,"set","systemUi",systemUi)
 	json(pksm_setting,"set","guide","")
 	fw("$ProperOS/home/Desktop/ac8d0330-7afa-4f18-aff5-b9f7db6d4de0.plink",pksm_setting)
+	fuzs("@resources/application/Install applications by default.zip","$",true,b)
 	ufnsui()
 	{
+		fr("@about.json",data)
+		json(data,data)
+		json(data,"get","version",version)
+		fw("$System/Config/Initialization.sett",version)
 		fn core.uigo("home.iyu")
 		end()
 	}

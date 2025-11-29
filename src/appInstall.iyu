@@ -38,32 +38,32 @@ f(st_lC==er)
 	{
 		java(uri,st_iT,"android.content.Intent.getData")
 		call(path, "mjava", "uri.getFilePathFromUri", activity, uri)
-        syso(path)
-        f(uri *? ".jspk")
-        {
-        	fn system.install(path)
-        }
-        else
-        {
-        	utw(null,"","确定导入该文件吗？","确定","取消",true,v)
-        	{
-        		sss path =path
-                call(dirName,"mjava","uri.getFileDirectoryName",activity,uri)
-                syso(dirName)
-                sj(path,dirName,null,dir)
-                sr(dir,"/","",dir)
-                dha(dh,false,true)
-                dh(dh,"duration",250)
-                us(importFile.1,"dh",dh)
-        		us(importFile.1,"visibility","visible")
-                us(importFile.17,"text",dir)
-        		endutw()
-        	}
-            else
-            {
-            	endutw()
-            }
-        }
+		syso(path)
+		f(uri *? ".jspk")
+		{
+			fn system.install(path)
+		}
+		else
+		{
+			utw(null,"","确定导入该文件吗？","确定","取消",true,v)
+			{
+				sss path =path
+				call(dirName,"mjava","uri.getFileDirectoryName",activity,uri)
+				syso(dirName)
+				sj(path,dirName,null,dir)
+				sr(dir,"/","",dir)
+				dha(dh,false,true)
+				dh(dh,"duration",250)
+				us(importFile.1,"dh",dh)
+				us(importFile.1,"visibility","visible")
+				us(importFile.17,"text",dir)
+				endutw()
+			}
+			else
+			{
+				endutw()
+			}
+		}
 	}
 }</eventItme><eventItme type="loadingComplete">addv(1,"importFile.iyu")
 us(importFile.1,"visibility","gone")</eventItme></UIEventset>
