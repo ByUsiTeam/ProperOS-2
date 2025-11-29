@@ -1,0 +1,69 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="ImageView">
+<ppt>width=-1
+height=-1
+src=17301567
+scaleType=centercrop
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="3" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="4" did="3" type="Button">
+<ppt>width=-2
+height=-2
+text=安装应用或导入文件</ppt>
+<event><eventItme type="clicki">javags(agc,"android.content.Intent","android.content.Intent.ACTION_GET_CONTENT")
+javanew(it,"android.content.Intent","String",agc)
+java(c,it,"android.content.Intent.setType","String","*/*")
+javags(ca,"android.content.Intent","android.content.Intent.CATEGORY_OPENABLE")
+java(c,it,"android.content.Intent.addCategory","String",ca)
+java(c,activity,"android.app.Activity.startActivityForResult","android.content.Intent",it,"int",2)</eventItme></event>
+</View>
+<UIEventset><eventItme type="loading">fn byusi.ztl()
+fn byusi.uycl()
+fn lib.wp(2)</eventItme><eventItme type="onactivityresult">javags(er,activity,"android.app.Activity","RESULT_OK")
+f(st_lC==er)
+{
+	f(st_sC==2)
+	{
+		java(uri,st_iT,"android.content.Intent.getData")
+		call(path, "mjava", "uri.getFilePathFromUri", activity, uri)
+        syso(path)
+        f(uri *? ".jspk")
+        {
+        	fn system.install(path)
+        }
+        else
+        {
+        	utw(null,"","确定导入该文件吗？","确定","取消",true,v)
+        	{
+        		sss path =path
+                call(dirName,"mjava","uri.getFileDirectoryName",activity,uri)
+                syso(dirName)
+                sj(path,dirName,null,dir)
+                sr(dir,"/","",dir)
+                dha(dh,false,true)
+                dh(dh,"duration",250)
+                us(importFile.1,"dh",dh)
+        		us(importFile.1,"visibility","visible")
+                us(importFile.17,"text",dir)
+        		endutw()
+        	}
+            else
+            {
+            	endutw()
+            }
+        }
+	}
+}</eventItme><eventItme type="loadingComplete">addv(1,"importFile.iyu")
+us(importFile.1,"visibility","gone")</eventItme></UIEventset>

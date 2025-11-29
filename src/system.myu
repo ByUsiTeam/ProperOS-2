@@ -1,5 +1,6 @@
 fn install(jspk)
 
+syso("传入路径："+jspk)
 f(jspk != null)
 {
 	time(4,time)

@@ -33,9 +33,11 @@ scaleType=centercrop</ppt>
 <ppt>width=-1
 height=-1
 text=
-background=through</ppt>
+background=through
+ps=点击事件处理处</ppt>
 <event><eventItme type="clicki">ulag(st_vW,11,plink)
 ulag(st_vW,12,fileDir)
+slower(fileDir,houyi)
 f(fileDir *? ".plink")
 {
 	fr(fileDir,plinkData)
@@ -65,6 +67,16 @@ f(fileDir *? ".plink")
 		sss url =url
 		fn core.uigo("startApp.iyu")
 	}
+}
+else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg")
+{
+	sss url =fileDir
+	fn core.uigo("startApp.iyu")
+}
+else f(houyi *? ".mp4")
+{
+	sss url =fileDir
+	fn core.uigo("startApp.iyu")
 }
 else
 {

@@ -1,0 +1,152 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event><eventItme type="clicki">syso("")</eventItme></event>
+</View>
+<View id="2" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="3" did="2" type="CardView">
+<ppt>width=-1
+height=240dp
+layout_marginLeft=25dp
+layout_marginRight=25dp
+app_CardcornerRadius=25dp</ppt>
+<event></event>
+</View>
+<View id="4" did="3" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="5" did="4" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical</ppt>
+<event></event>
+</View>
+<View id="12" did="5" type="CardView">
+<ppt>width=-1
+height=55dp
+app_CardcornerRadius=8dp</ppt>
+<event></event>
+</View>
+<View id="6" did="12" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="7" did="6" type="CardView">
+<ppt>width=45dp
+height=45dp
+app_CardcornerRadius=15dp
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="8" did="7" type="ImageButton">
+<ppt>width=-1
+height=-1
+src=17301533
+background=through</ppt>
+<event><eventItme type="clicki">us(importFile.1,"visibility","gone")</eventItme></event>
+</View>
+<View id="9" did="6" type="CardView">
+<ppt>width=-1
+height=25dp
+app_CardcornerRadius=10dp
+layout_marginLeft=10dp
+layout_marginRight=20dp</ppt>
+<event></event>
+</View>
+<View id="11" did="9" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="10" did="11" type="TextView">
+<ppt>width=-1
+height=-1
+text=修改文件名称
+textColor=#ff000000
+typeface=@fontFile/acbt80.ttf
+textSize=15sp
+gravity=left|center
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="13" did="5" type="CardView">
+<ppt>width=-1
+height=-1
+layout_marginTop=5dp
+app_CardcornerRadius=5dp</ppt>
+<event></event>
+</View>
+<View id="14" did="13" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="15" did="14" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="16" did="15" type="CardView">
+<ppt>width=-1
+height=45dp
+app_CardcornerRadius=8dp
+layout_marginLeft=10dp
+layout_marginRight=10dp</ppt>
+<event></event>
+</View>
+<View id="17" did="16" type="EditText">
+<ppt>width=-1
+height=-1
+text=
+background=
+textColorHighlight=#a600bfff
+gravity=center
+typeface=@fontFile/acbt80.ttf
+singleLine=true
+imeOptions=actiondone
+hint=导入后文件的文件名称</ppt>
+<event></event>
+</View>
+<View id="18" did="15" type="CardView">
+<ppt>width=77dp
+height=45dp
+layout_marginTop=10dp</ppt>
+<event></event>
+</View>
+<View id="19" did="18" type="Button">
+<ppt>width=-1
+height=-1
+text=确定并导入
+typeface=@fontFile/acbt80.ttf
+gravity=center
+background=through
+textColor=#ff000000</ppt>
+<event><eventItme type="clicki">ug(importFile.17,"text",fileName)
+fc(sss.path,"$ProperOS/home/Desktop/"+fileName,true,yz)
+f(yz == true)
+{
+	fn tw.tw("完成")
+    us(importFile.1,"visibility","gone")
+}
+else
+{
+	fn tw.tw2("失败了",1)
+    us(importFile.1,"visibility","gone")
+}</eventItme></event>
+</View>
+<UIEventset></UIEventset>

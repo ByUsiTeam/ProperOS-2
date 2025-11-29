@@ -6,9 +6,10 @@ t()
 	fl(dir,false,list)
 	for(content;list)
 	{
+		slower(content,houyi)
 		ss(dir+content,fileDir)
 		syso("扫描到文件："+content)
-		f(content *? ".plink")
+		f(houyi *? ".plink")
 		{
 			s plink =true
 			fr(dir+content,shortcut)
@@ -41,6 +42,18 @@ t()
 					sbp(icon,icon)
 				}
 			}
+		}
+		else f(houyi *? ".mp3" || content *? ".flac" || content *? ".ogg")
+		{
+			s icon ="@resources/icon/6e.png"
+			sbp(icon,icon)
+			s appName =content
+		}
+		else f(houyi *? ".mp4")
+		{
+			s icon ="@resources/icon/mp4.png"
+			sbp(icon,icon)
+			s appName =content
 		}
 		else
 		{
