@@ -141,12 +141,12 @@ fc(sss.path,"$ProperOS/home/Desktop/"+fileName,true,yz)
 f(yz == true)
 {
 	fn tw.tw("完成")
-    us(importFile.1,"visibility","gone")
+	us(importFile.1,"visibility","gone")
 }
 else
 {
 	fn tw.tw2("失败了",1)
-    us(importFile.1,"visibility","gone")
+	us(importFile.1,"visibility","gone")
 }</eventItme></event>
 </View>
 <UIEventset></UIEventset>

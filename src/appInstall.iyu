@@ -39,6 +39,13 @@ f(st_lC==er)
 		java(uri,st_iT,"android.content.Intent.getData")
 		call(path, "mjava", "uri.getFilePathFromUri", activity, uri)
 		syso(path)
+		fe(path,yanzquanx)
+		f(yanzquanx == false)
+		{
+			fn tw.tw2("请给与管理所有文件的权限",1)
+			end()
+			endcode
+		}
 		f(uri *? ".jspk")
 		{
 			fn system.install(path)

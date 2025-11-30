@@ -1,6 +1,6 @@
 fn wp(id)
 
-s dir_file ="$System/wallpaper/config.sett"
+s dir_file ="$System/Settings/backgrounds.sett"
 fe(dir_file,wpp)
 f(wpp == true)
 {

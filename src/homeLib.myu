@@ -79,6 +79,7 @@ t()
 	{
 		uls(6,homeList,"appList.iyu",-2,-2)
 		us(7,"refreshing",false)
+        fn lib.wp(2)
         ula(homeList,"list",homeList)
 		sss homeList =homeList
         syso("主桌面列表："+sss.homeList)

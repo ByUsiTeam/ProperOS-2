@@ -1,0 +1,50 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="ImageView">
+<ppt>width=-1
+height=-1
+src=17301567
+scaleType=centercrop
+visibility=gone</ppt>
+<event></event>
+</View>
+<UIEventset><eventItme type="loading">fn byusi.ztl()
+fn byusi.uycl()
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">call(null,"mlua","picture.getSrc")</eventItme><eventItme type="onactivityresult">javags(io,activity,"android.app.Activity","RESULT_OK")
+f(st_lC==io)
+{
+	f(st_sC==2)
+	{
+		java(uri,st_iT,"android.content.Intent.getData")
+		call(path,"mlua","picture.getPath",uri)
+		ufnsui()
+		{
+			fdir(sd)
+			ss(sd+"/",sd)
+			sr(path,sd,"%",ss.path)
+			utw(null,"","确定选择："+ss.path+" 为背景图片吗？","确定","取消",false,v)
+			{
+				fe("$System/Settings/backgrounds.sett",yuancz)
+				fc(ss.path,"$System/Settings/backgrounds.sett",true,yz)
+				f(yz == true)
+				{
+					fn tw.tw("导入壁纸成功")
+					fn lib.wp(2)
+					end()
+				}
+				else
+				{
+					fn tw.tw2("导入壁纸失败，出错了",1)
+					end()
+				}
+			}
+			else
+			{
+				endutw()
+			}
+		}
+	}
+}</eventItme></UIEventset>
