@@ -54,8 +54,8 @@ t()
 		{
 			s plink =false
 			fdir("$ProperOS/home/Desktop/"+content,videoFileDir)
-            call(icon,"videoCover.get",videoFileDir,"1")
-            sbp(icon,icon)
+            call(mpi,"mjava","videoCover.get",videoFileDir,"2")
+            sbp(mpi,icon)
 			s appName =content
 		}
 		else
@@ -79,6 +79,7 @@ t()
 	{
 		uls(6,homeList,"appList.iyu",-2,-2)
 		us(7,"refreshing",false)
+        ula(homeList,"list",homeList)
 		sss homeList =homeList
         syso("主桌面列表："+sss.homeList)
 	}
