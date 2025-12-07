@@ -32,6 +32,7 @@ t()
 				f(systemIcon == "false")
 				{
 					json(data,"get","package",package)
+					sss package =package
 					json(iconConfig,"get","icon",icon)
 					ss("$user/data/software/"+package+"/"+icon,dir_icon)
 					sbp(dir_icon,icon)
@@ -68,7 +69,7 @@ t()
 		//数据变量集合化
 		f(plink == true)
 		{
-			ula(homeList,5=icon,8=appName,10=plink_uuid,11="true",12=fileDir)
+			ula(homeList,5=icon,8=appName,10=plink_uuid,11="true",12=fileDir,13=sss.package)
 		}
 		else
 		{
@@ -82,6 +83,8 @@ t()
 		fn lib.wp(2)
 		ula(homeList,"list",homeList)
 		sss homeList =homeList
+		call(json,"mjava","homeJson.change",homeJson)
+		syso(json)
 		syso("主桌面列表："+sss.homeList)
 	}
 }

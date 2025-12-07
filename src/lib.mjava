@@ -1,0 +1,6 @@
+private static variable(String bl,Object bl1)
+{
+	String bl = i.sr(bl, "sss.", "");
+	i.sss(bl, bl1);
+}
+

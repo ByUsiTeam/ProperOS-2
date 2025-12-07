@@ -63,7 +63,9 @@ f(fileDir *? ".plink")
 	{
 		json(data,"get","package",package)
 		json(data,"get","guide",guide)
+		ss("$user/data/software/"+package+"/src/",catalogue)
 		ss("$user/data/software/"+package+"/src/"+guide,url)
+		//sss catalogue =catalogue
 		sss url =url
 		fn core.uigo("startApp.iyu")
 	}
@@ -133,6 +135,13 @@ ps=是否使用PLink</ppt>
 height=-2
 text=
 ps=文件完整路径</ppt>
+<event></event>
+</View>
+<View id="13" did="9" type="TextView">
+<ppt>width=-2
+height=-2
+text=文本13
+ps=软件包名</ppt>
 <event></event>
 </View>
 <UIEventset></UIEventset>

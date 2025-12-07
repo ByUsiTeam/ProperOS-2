@@ -61,6 +61,7 @@ t()
 	json(pksm_setting,"set","guide","")
 	fw("$ProperOS/home/Desktop/ac8d0330-7afa-4f18-aff5-b9f7db6d4de0.plink",pksm_setting)
 	fuzs("@resources/application/Install applications by default.zip","$",true,b)
+	fuzs("@resources/ServiceLibrary/SystemLibrary.zip","$",true,b2)
 	ufnsui()
 	{
 		fr("@about.json",data)

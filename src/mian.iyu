@@ -92,4 +92,5 @@ visibility=gone</ppt>
 		}
 		end()
 	}
-}</eventItme></UIEventset>
+}
+fn lib.shell("echo \"ProperOS启动成功！\"")</eventItme></UIEventset>

@@ -1,2 +1,9 @@
-<UIEventset><eventItme type="loading">call(b,"mjava","filedir.listAllFiles","/storage/emulated/0/欢乐的北洋/ProperOSProjects/miao.byusi.properos/src/")
-syso(b)</eventItme></UIEventset>
+<View id="1" did="0" type="WebView">
+<ppt>width=-1
+height=-1
+url=http://127.0.0.1:8081</ppt>
+<event></event>
+</View>
+<UIEventset><eventItme type="loading">//call(b,"mjava","filedir.listAllFiles","/storage/emulated/0/欢乐的北洋/ProperOSProjects/miao.byusi.properos/src/")
+syso(b)</eventItme><eventItme type="loadingComplete">call(q,"mjava","webServer.run","/sdcard/欢乐的北洋","8081","0.0.0.0","index.html")
+syso(q)</eventItme></UIEventset>

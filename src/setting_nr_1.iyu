@@ -1,0 +1,353 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+background=black
+ps=测试用
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="4" did="1" type="ScrollView">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="3" did="4" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+ps=滚动布局基本根布局</ppt>
+<event></event>
+</View>
+<View id="33" did="3" type="CardView">
+<ppt>width=-1
+height=55dp
+layout_marginTop=6dp
+layout_marginLeft=16dp
+layout_marginRight=16dp
+layout_marginBottom=8dp
+app_CardcornerRadius=15dp
+ps=一设置列表项基本布局
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="34" did="33" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="35" did="34" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="36" did="35" type="ImageView">
+<ppt>width=45dp
+height=45dp
+src=17301567
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="37" did="35" type="LinearLayout">
+<ppt>width=-2
+height=-1
+orientation=vertical
+gravity=left|center
+layout_marginLeft=6dp</ppt>
+<event></event>
+</View>
+<View id="38" did="37" type="TextView">
+<ppt>width=-2
+height=-2
+text=设置项标题
+typeface=@fontFile/acbt80.ttf
+textColor=#ff000000
+textSize=12sp</ppt>
+<event></event>
+</View>
+<View id="39" did="37" type="TextView">
+<ppt>width=-2
+height=-2
+text=设置项副标题
+typeface=@fontFile/acbt80.ttf
+textSize=8sp</ppt>
+<event></event>
+</View>
+<View id="40" did="35" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+ps=选项用
+gravity=right|center</ppt>
+<event></event>
+</View>
+<View id="41" did="40" type="SwitchCompat">
+<ppt>width=-2
+height=-2
+layout_marginRight=16dp
+thumbTint=#ff00aaff</ppt>
+<event></event>
+</View>
+<View id="5" did="3" type="CardView">
+<ppt>width=-1
+height=55dp
+layout_marginTop=6dp
+layout_marginLeft=16dp
+layout_marginRight=16dp
+layout_marginBottom=8dp
+app_CardcornerRadius=15dp
+ps=一设置列表项基本布局</ppt>
+<event></event>
+</View>
+<View id="6" did="5" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="7" did="6" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="9" did="7" type="ImageView">
+<ppt>width=45dp
+height=45dp
+src=$System/icon/ic_settings_application_and_service.png
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="11" did="7" type="LinearLayout">
+<ppt>width=-2
+height=-1
+orientation=vertical
+gravity=left|center
+layout_marginLeft=6dp</ppt>
+<event></event>
+</View>
+<View id="10" did="11" type="TextView">
+<ppt>width=-2
+height=-2
+text=开启应用侧载和文件导入功能
+typeface=@fontFile/acbt80.ttf
+textColor=#ff000000
+textSize=12sp</ppt>
+<event></event>
+</View>
+<View id="12" did="11" type="TextView">
+<ppt>width=-2
+height=-2
+text=控制是否开启应用侧载和导入文件功能的，\n关闭将无法安装第三方软件和导入外部文件
+typeface=@fontFile/acbt80.ttf
+textSize=8sp</ppt>
+<event></event>
+</View>
+<View id="13" did="7" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+ps=选项用
+gravity=right|center</ppt>
+<event></event>
+</View>
+<View id="14" did="13" type="SwitchCompat">
+<ppt>width=-2
+height=-2
+layout_marginRight=16dp
+thumbTint=#ff00aaff
+checked=true</ppt>
+<event><eventItme type="oncheckedchanged">f(st_iC == true)
+{
+	fw("$System/Settings/sideLoad.sett","true")
+	fuz("@resources/application/Install applications by default.zip","ProperOS/home/Desktop/appInstall.plink","$",true,jiaoyan)
+}
+else f(st_iC == false)
+{
+	fw("$System/Settings/sideLoad.sett","false")
+	fd("$ProperOS/home/Desktop/appInstall.plink",jiaoyan)
+}
+else
+{
+	syso("抛出错误")
+}</eventItme></event>
+</View>
+<View id="15" did="3" type="CardView">
+<ppt>width=-1
+height=55dp
+layout_marginTop=6dp
+layout_marginLeft=16dp
+layout_marginRight=16dp
+layout_marginBottom=8dp
+app_CardcornerRadius=15dp
+ps=一设置列表项基本布局</ppt>
+<event></event>
+</View>
+<View id="16" did="15" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="17" did="16" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="18" did="17" type="ImageView">
+<ppt>width=45dp
+height=45dp
+src=@resources/icon/total.png
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="19" did="17" type="LinearLayout">
+<ppt>width=-2
+height=-1
+orientation=vertical
+gravity=left|center
+layout_marginLeft=6dp</ppt>
+<event></event>
+</View>
+<View id="20" did="19" type="TextView">
+<ppt>width=-2
+height=-2
+text=快速启动ProperOS Two
+typeface=@fontFile/acbt80.ttf
+textColor=#ff000000
+textSize=12sp</ppt>
+<event></event>
+</View>
+<View id="21" did="19" type="TextView">
+<ppt>width=-2
+height=-2
+text=跳过开机动画直接进入桌面（不建议开启）
+typeface=@fontFile/acbt80.ttf
+textSize=8sp</ppt>
+<event></event>
+</View>
+<View id="22" did="17" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+ps=选项用
+gravity=right|center</ppt>
+<event></event>
+</View>
+<View id="23" did="22" type="SwitchCompat">
+<ppt>width=-2
+height=-2
+layout_marginRight=16dp
+thumbTint=#ff00aaff
+checked=false</ppt>
+<event><eventItme type="oncheckedchanged">f(st_iC == true)
+{
+	utw("@tip.png","警告","该功能不建议开启，请问确定开启吗？","确定","取消",true,v)
+	{
+		endutw()
+	}
+	else
+	{
+		us(st_vId,"checked","false")
+		endutw()
+	}
+}</eventItme></event>
+</View>
+<View id="44" did="16" type="Button">
+<ppt>width=-1
+height=-1
+text=
+background=through</ppt>
+<event><eventItme type="clicki">utw(null,"","暂不可用",false,v)
+{
+	
+}</eventItme></event>
+</View>
+<View id="24" did="3" type="CardView">
+<ppt>width=-1
+height=55dp
+layout_marginTop=6dp
+layout_marginLeft=16dp
+layout_marginRight=16dp
+layout_marginBottom=8dp
+app_CardcornerRadius=15dp
+ps=一设置列表项基本布局</ppt>
+<event></event>
+</View>
+<View id="25" did="24" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="26" did="25" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="42" did="26" type="RoundImageView">
+<ppt>width=45dp
+height=45dp
+src=@resources/icon/qd.png
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="28" did="26" type="LinearLayout">
+<ppt>width=-2
+height=-1
+orientation=vertical
+gravity=left|center
+layout_marginLeft=6dp</ppt>
+<event></event>
+</View>
+<View id="29" did="28" type="TextView">
+<ppt>width=-2
+height=-2
+text=开启自定义壁纸
+typeface=@fontFile/acbt80.ttf
+textColor=#ff000000
+textSize=12sp</ppt>
+<event></event>
+</View>
+<View id="30" did="28" type="TextView">
+<ppt>width=-2
+height=-2
+text=设置项副标题
+typeface=@fontFile/acbt80.ttf
+textSize=8sp
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="31" did="26" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+ps=选项用
+gravity=right|center</ppt>
+<event></event>
+</View>
+<View id="32" did="31" type="SwitchCompat">
+<ppt>width=-2
+height=-2
+layout_marginRight=16dp
+thumbTint=#ff00aaff
+checked=true</ppt>
+<event><eventItme type="oncheckedchanged">f(st_iC == true)
+{
+	fuz("@resources/application/Install applications by default.zip","ProperOS/home/Desktop/wallpaperImport.plink","$",true,jiaoyan)
+}
+else
+{
+	fd("$ProperOS/home/Desktop/wallpaperImport.plink",jiaoyan)
+}</eventItme></event>
+</View>
+<UIEventset></UIEventset>

@@ -14,3 +14,37 @@ else f(wpp == false)
 }
 
 end fn
+
+fn qz_variable(bl,bl2)
+
+call(null,"mjava","lib.variable",bl,bl2)
+
+end fn
+
+fn shell(nr)
+
+//Shell相关执行需初始化
+loadjar("luaj-jse",dex)
+cls(dex,"org.luaj.vm2.lib.jse.JsePlatform",class)
+javax(globals,null,class,"standardGlobals")
+cls(dex,"org.luaj.vm2.Globals",class2)
+cls(dex,"org.luaj.vm2.LuaValue",class3)
+//执行区
+ss("function executeShellCommand(command)\nlocal f = assert(io.popen(command, \"r\"))\nlocal s = assert(f:read(\"*a\"))\nf:close()\nreturn s\nend\nlocal output = executeShellCommand(\""+nr+"\")\nreturn output",code)
+javax(luaValue,globals,class2,"load","String",code)
+javax(va,luaValue,class3,"call")
+//sss text =va
+fn lib.qz_variable("sss.text",va)
+syso("Shell执行返回："+va)
+
+end fn
+
+fn svg(svg,id)
+
+loadjar("svg",包)
+cls(包,"com.example.application3.svg",类)
+javanew(n,类)
+javax(n,n,类,"s","String",svg,"Activity",activity)
+us(id,"src",n)
+
+end fn

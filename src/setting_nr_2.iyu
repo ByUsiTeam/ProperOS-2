@@ -1,0 +1,31 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+background=white
+ps=测试用
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="3" did="2" type="ImageView">
+<ppt>width=-2
+height=-2
+src=@fail.png</ppt>
+<event></event>
+</View>
+<View id="4" did="2" type="TextView">
+<ppt>width=-2
+height=-2
+text=抱歉该功能还在开发中
+textColor=#ffff0000
+typeface=@fontFile/acbt80.ttf
+textSize=15sp
+gravity=center</ppt>
+<event></event>
+</View>
+<UIEventset></UIEventset>

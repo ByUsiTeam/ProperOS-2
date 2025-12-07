@@ -27,12 +27,39 @@ layout_marginTop=6dp
 layout_marginRight=6dp</ppt>
 <event></event>
 </View>
+<View id="9" did="5" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="10" did="9" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical</ppt>
+<event></event>
+</View>
+<View id="11" did="10" type="Toolbar">
+<ppt>width=-1
+height=-1
+app_title=ProperOS 2
+BackgroundColor=#fff4e6e6</ppt>
+<event></event>
+</View>
 <View id="7" did="3" type="SwipeRefreshLayout">
 <ppt>width=-1
 height=-1
 ColorSchemecolors=#ffff0000|#ff0088ff|#ffeaff00|#ff00ff55
 Refreshing=true</ppt>
-<event><eventItme type="onrefresh">fn homeLib.list()</eventItme></event>
+<event><eventItme type="onrefresh">utw(null,"","确定刷新桌面吗？","确定","取消",true,v)
+{
+	endutw()
+	fn homeLib.list()
+}
+else
+{
+	us(7,"refreshing","false")
+	endutw()
+}</eventItme></event>
 </View>
 <View id="6" did="7" type="GridView">
 <ppt>width=-1
@@ -42,4 +69,25 @@ columnWidth=75dp</ppt>
 </View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
-fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn homeLib.list()</eventItme></UIEventset>
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn homeLib.list()
+utb(11)</eventItme><eventItme type="menu">case 重启软件:
+
+utw(null,"","确定重启吗？","重启","取消",true,v)
+{
+	call(null,"mjava","restart.st",activity)
+}
+else
+{
+	endutw()
+}
+
+break
+
+case index:
+
+utw(null,"","没有用",false,v)
+{
+	
+}
+
+break</eventItme></UIEventset>

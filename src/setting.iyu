@@ -16,7 +16,8 @@ visibility=gone</ppt>
 height=-1
 orientation=vertical
 gravity=center
-ps=开发中提示</ppt>
+ps=开发中提示
+visibility=gone</ppt>
 <event></event>
 </View>
 <View id="5" did="3" type="ImageView">
@@ -35,6 +36,84 @@ gravity=center
 textSize=25sp</ppt>
 <event></event>
 </View>
+<View id="6" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=top|center
+ps=设置界面主界面</ppt>
+<event></event>
+</View>
+<View id="7" did="6" type="CardView">
+<ppt>width=-1
+height=55dp
+app_CardcornerRadius=25dp
+layout_marginLeft=10dp
+layout_marginTop=8dp
+layout_marginRight=10dp
+layout_marginBottom=5dp</ppt>
+<event></event>
+</View>
+<View id="8" did="7" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="9" did="8" type="Toolbar">
+<ppt>width=-1
+height=-1
+app_title=ProperOS Two 设置</ppt>
+<event></event>
+</View>
+<View id="15" did="6" type="CardView">
+<ppt>width=-2
+height=45dp
+app_CardcornerRadius=12dp
+ps=标签基本布局界面控制件
+app_CardBackgroundColor=#6e6387fe</ppt>
+<event></event>
+</View>
+<View id="12" did="15" type="TabLayout">
+<ppt>width=-1
+height=45dp
+app_tabList=主要设置| 用户个人中心 
+app_tabIndicatorColor=#ff00aaff
+app_tabIndicatorHeight=45dp
+app_tabGravity=1
+app_tabMode=0
+app_tabTextColor=#ffb6b6b6|#ffffffff</ppt>
+<event><eventItme type="ontabselected">us(13,"currentitem",st_pN)</eventItme></event>
+</View>
+<View id="13" did="6" type="ViewPager">
+<ppt>width=-1
+height=-1</ppt>
+<event><eventItme type="onpageselected">us(12,"tabselect",st_pN)</eventItme></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
-fn lib.wp(2)</eventItme></UIEventset>
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">addv(13,"setting_nr_1.iyu|setting_nr_2.iyu",ss.hdlist)
+//入场动画
+//标题栏
+swh("w",w)
+dha(dh,true,false)
+dh(dh,"duration",1500)
+dht(dh2,0,0,"-"+w,0)
+dh(dh2, "duration", 500)
+dhset(dhlist,false,dh1,dh2)
+us(7,"dh",dhlist)
+//主内容栏
+dht(dh2,0,0,w,0)
+dh(dh2, "duration", 500)
+dhset(dhlist,false,dh1,dh2)
+us(13,"dh",dhlist)
+//标签栏
+swh("hh",h)
+dht(dh2,"-"+h,0,0,0)
+dh(dh2, "duration", 500)
+dhset(dhlist,false,dh1,dh2)
+us(15,"dh",dhlist)
+//设置状态检察
+fe("$ProperOS/home/Desktop/appInstall.plink",appinstall)
+us(setting_nr_1.14,"checked",appinstall)
+fe("$ProperOS/home/Desktop/wallpaperImport.plink",wallpaperImport)
+us(setting_nr_1.32,"checked",wallpaperImport)</eventItme></UIEventset>

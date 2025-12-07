@@ -1,0 +1,398 @@
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.FileInputStream;
+import java.io.File;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.StringTokenizer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.HashMap;
+import java.util.Map;
+
+private static ServerSocket serverSocket = null;
+private static ExecutorService threadPool = null;
+private static boolean isRunning = false;
+private static String defaultDocument = "index.html";
+
+public static void run(String rootPath, String portStr, String host, String defaultDoc) {
+	try {
+		stopServer();
+		
+		if (defaultDoc != null && !defaultDoc.trim().isEmpty()) {
+			defaultDocument = defaultDoc.trim();
+		}
+		
+		int port = 8080;
+		try {
+			port = Integer.parseInt(portStr);
+		} catch (NumberFormatException e) {
+		}
+		
+		if (host == null || host.trim().isEmpty()) {
+			host = "0.0.0.0";
+		}
+		
+		final File rootDir = new File(rootPath);
+		if (!rootDir.exists() || !rootDir.isDirectory()) {
+			System.err.println("Error: Root directory does not exist: " + rootPath);
+			return;
+		}
+		
+		serverSocket = new ServerSocket(port, 50, java.net.InetAddress.getByName(host));
+		threadPool = Executors.newFixedThreadPool(10);
+		isRunning = true;
+		
+		System.out.println("Web server started at http://" + host + ":" + port);
+		System.out.println("Serving files from: " + rootDir.getAbsolutePath());
+		System.out.println("Default document: " + defaultDocument);
+		
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					while (isRunning) {
+						final Socket clientSocket = serverSocket.accept();
+						
+						threadPool.execute(new Runnable() {
+							public void run() {
+								handleClientRequest(clientSocket, rootDir);
+							}
+						});
+					}
+				} catch (IOException e) {
+					if (isRunning) {
+						System.err.println("Server error: " + e.getMessage());
+					}
+				} finally {
+					if (threadPool != null) {
+						threadPool.shutdown();
+					}
+				}
+			}
+		}).start();
+		
+	} catch (Exception e) {
+		System.err.println("Error starting web server: " + e.getMessage());
+		isRunning = false;
+	}
+}
+
+public static void stopServer() {
+	isRunning = false;
+	if (threadPool != null) {
+		threadPool.shutdown();
+		threadPool = null;
+	}
+	if (serverSocket != null) {
+		try {
+			serverSocket.close();
+		} catch (IOException e) {
+		}
+		serverSocket = null;
+	}
+	System.out.println("Web server stopped");
+}
+
+public static boolean isRunning() {
+	return isRunning;
+}
+
+public static String getServerInfo() {
+	if (isRunning && serverSocket != null) {
+		return "Server is running on port: " + serverSocket.getLocalPort();
+	}
+	return "Server is not running";
+}
+
+private static void handleClientRequest(Socket clientSocket, File rootDir) {
+	InputStream input = null;
+	OutputStream output = null;
+	
+	try {
+		input = clientSocket.getInputStream();
+		output = clientSocket.getOutputStream();
+		
+		byte[] buffer = new byte[8192];
+		int bytesRead = input.read(buffer);
+		if (bytesRead <= 0) {
+			return;
+		}
+		
+		String request = new String(buffer, 0, bytesRead, "UTF-8");
+		StringTokenizer st = new StringTokenizer(request);
+		
+		if (!st.hasMoreTokens()) {
+			sendError(output, 400, "Bad Request");
+			return;
+		}
+		
+		String method = st.nextToken();
+		if (!st.hasMoreTokens()) {
+			sendError(output, 400, "Bad Request");
+			return;
+		}
+		
+		String uri = st.nextToken();
+		
+		Map headers = new HashMap();
+		String line;
+		while (true) {
+			line = readLine(input);
+			if (line == null || line.isEmpty()) {
+				break;
+			}
+			int idx = line.indexOf(':');
+			if (idx > 0) {
+				String key = line.substring(0, idx).trim();
+				String value = line.substring(idx + 1).trim();
+				headers.put(key, value);
+			}
+		}
+		
+		if ("GET".equals(method)) {
+			serveFile(output, uri, headers, rootDir);
+		} else if ("POST".equals(method)) {
+			servePost(output, uri, headers, input);
+		} else if ("HEAD".equals(method)) {
+			serveHead(output, uri, headers, rootDir);
+		} else {
+			sendError(output, 501, "Not Implemented: " + method);
+		}
+		
+	} catch (Exception e) {
+		System.err.println("Request error: " + e.getMessage());
+	} finally {
+		try {
+			if (input != null) input.close();
+			if (output != null) output.close();
+			clientSocket.close();
+		} catch (IOException e) {
+		}
+	}
+}
+
+private static String readLine(InputStream input) throws IOException {
+	StringBuilder line = new StringBuilder();
+	int c;
+	while ((c = input.read()) != -1) {
+		if (c == '\r') {
+			continue;
+		}
+		if (c == '\n') {
+			break;
+		}
+		line.append((char) c);
+	}
+	if (c == -1 && line.length() == 0) {
+		return null;
+	}
+	return line.toString();
+}
+
+private static void serveFile(OutputStream output, String uri, Map headers, File rootDir) throws IOException {
+	FileInputStream fis = null;
+	try {
+		if (uri.equals("/") || uri.isEmpty()) {
+			uri = "/" + defaultDocument;
+		}
+		
+		if (uri.contains("..") || uri.contains("//")) {
+			sendError(output, 403, "Forbidden");
+			return;
+		}
+		
+		File file = new File(rootDir, uri);
+		
+		if (!file.exists() || !file.isFile()) {
+			File notFoundFile = new File(rootDir, "/404.html");
+			if (notFoundFile.exists() && notFoundFile.isFile()) {
+				sendFile(output, notFoundFile, false);
+				return;
+			}
+			sendError(output, 404, "Not Found: " + uri);
+			return;
+		}
+		
+		if (!file.getCanonicalPath().startsWith(rootDir.getCanonicalPath())) {
+			sendError(output, 403, "Forbidden");
+			return;
+		}
+		
+		sendFile(output, file, false);
+		
+	} catch (IOException e) {
+		sendError(output, 500, "Internal Server Error: " + e.getMessage());
+	} finally {
+		if (fis != null) {
+			try {
+				fis.close();
+			} catch (IOException e) {
+			}
+		}
+	}
+}
+
+private static void serveHead(OutputStream output, String uri, Map headers, File rootDir) throws IOException {
+	try {
+		if (uri.equals("/") || uri.isEmpty()) {
+			uri = "/" + defaultDocument;
+		}
+		
+		if (uri.contains("..") || uri.contains("//")) {
+			sendError(output, 403, "Forbidden");
+			return;
+		}
+		
+		File file = new File(rootDir, uri);
+		
+		if (!file.exists() || !file.isFile()) {
+			File notFoundFile = new File(rootDir, "/404.html");
+			if (notFoundFile.exists() && notFoundFile.isFile()) {
+				sendFile(output, notFoundFile, true);
+				return;
+			}
+			sendError(output, 404, "Not Found: " + uri);
+			return;
+		}
+		
+		if (!file.getCanonicalPath().startsWith(rootDir.getCanonicalPath())) {
+			sendError(output, 403, "Forbidden");
+			return;
+		}
+		
+		sendFile(output, file, true);
+		
+	} catch (IOException e) {
+		sendError(output, 500, "Internal Server Error: " + e.getMessage());
+	}
+}
+
+private static void servePost(OutputStream output, String uri, Map headers, InputStream input) throws IOException {
+	int contentLength = 0;
+	try {
+		String cl = (String) headers.get("Content-Length");
+		if (cl != null) {
+			contentLength = Integer.parseInt(cl);
+		}
+	} catch (NumberFormatException e) {
+	}
+	
+	byte[] postData = new byte[contentLength];
+	if (contentLength > 0) {
+		int totalRead = 0;
+		while (totalRead < contentLength) {
+			int read = input.read(postData, totalRead, contentLength - totalRead);
+			if (read <= 0) break;
+			totalRead += read;
+		}
+	}
+	
+	String response = "HTTP/1.1 200 OK\r\n" +
+					"Content-Type: application/json; charset=utf-8\r\n" +
+					"Connection: close\r\n" +
+					"\r\n" +
+					"{\"status\":\"success\",\"method\":\"POST\",\"uri\":\"" + uri + "\"}";
+	
+	output.write(response.getBytes("UTF-8"));
+	output.flush();
+}
+
+private static void sendFile(OutputStream output, File file, boolean headOnly) throws IOException {
+	FileInputStream fis = null;
+	try {
+		fis = new FileInputStream(file);
+		long fileSize = file.length();
+		
+		String fileName = file.getName();
+		String contentType = "application/octet-stream";
+		int dotIndex = fileName.lastIndexOf('.');
+		if (dotIndex > 0) {
+			String ext = fileName.substring(dotIndex).toLowerCase();
+			if (ext.equals(".html") || ext.equals(".htm")) {
+				contentType = "text/html; charset=utf-8";
+			} else if (ext.equals(".css")) {
+				contentType = "text/css; charset=utf-8";
+			} else if (ext.equals(".js")) {
+				contentType = "application/javascript; charset=utf-8";
+			} else if (ext.equals(".json")) {
+				contentType = "application/json; charset=utf-8";
+			} else if (ext.equals(".txt")) {
+				contentType = "text/plain; charset=utf-8";
+			} else if (ext.equals(".xml")) {
+				contentType = "application/xml; charset=utf-8";
+			} else if (ext.equals(".png")) {
+				contentType = "image/png";
+			} else if (ext.equals(".jpg") || ext.equals(".jpeg")) {
+				contentType = "image/jpeg";
+			} else if (ext.equals(".gif")) {
+				contentType = "image/gif";
+			} else if (ext.equals(".svg")) {
+				contentType = "image/svg+xml";
+			} else if (ext.equals(".ico")) {
+				contentType = "image/x-icon";
+			} else if (ext.equals(".pdf")) {
+				contentType = "application/pdf";
+			} else if (ext.equals(".zip")) {
+				contentType = "application/zip";
+			} else if (ext.equals(".mp3")) {
+				contentType = "audio/mpeg";
+			} else if (ext.equals(".mp4")) {
+				contentType = "video/mp4";
+			}
+		}
+		
+		String header = "HTTP/1.1 200 OK\r\n" +
+					  "Content-Type: " + contentType + "\r\n" +
+					  "Content-Length: " + fileSize + "\r\n" +
+					  "Connection: close\r\n" +
+					  "\r\n";
+		
+		output.write(header.getBytes("UTF-8"));
+		
+		if (!headOnly) {
+			byte[] buffer = new byte[8192];
+			int bytesRead;
+			while ((bytesRead = fis.read(buffer)) != -1) {
+				output.write(buffer, 0, bytesRead);
+			}
+		}
+		output.flush();
+		
+	} finally {
+		if (fis != null) {
+			try {
+				fis.close();
+			} catch (IOException e) {
+			}
+		}
+	}
+}
+
+private static void sendError(OutputStream output, int statusCode, String message) throws IOException {
+	String statusText = getStatusText(statusCode);
+	String html = "<html><head><title>" + statusCode + " " + statusText + "</title></head>" +
+				 "<body><h1>" + statusCode + " " + statusText + "</h1>" +
+				 "<p>" + message + "</p></body></html>";
+	
+	String response = "HTTP/1.1 " + statusCode + " " + statusText + "\r\n" +
+					"Content-Type: text/html; charset=utf-8\r\n" +
+					"Content-Length: " + html.length() + "\r\n" +
+					"Connection: close\r\n" +
+					"\r\n" + html;
+	
+	output.write(response.getBytes("UTF-8"));
+	output.flush();
+}
+
+private static String getStatusText(int statusCode) {
+	switch (statusCode) {
+		case 200: return "OK";
+		case 400: return "Bad Request";
+		case 403: return "Forbidden";
+		case 404: return "Not Found";
+		case 500: return "Internal Server Error";
+		case 501: return "Not Implemented";
+		default: return "Unknown";
+	}
+}

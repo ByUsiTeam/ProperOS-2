@@ -14,20 +14,187 @@ visibility=gone</ppt>
 <View id="3" did="1" type="WebView">
 <ppt>width=-1
 height=-1</ppt>
-<event></event>
-</View>
-<UIEventset><eventItme type="loading">fn byusi.ztl()
-fn byusi.uycl()
-fn lib.wp(2)</eventItme><eventItme type="loadingComplete">f(sss.url != null && sss.url != "")
+<event><eventItme type="onprogresschanged">hsas(st_vId,true)
+f(st_nS != 100)
 {
-	us(3,"url",sss.url)
+	us(4,"visibility","visible")
+    us(5,"progress",st_nS)
 }
 else
 {
-	utw("@fail.png","错误","并没有传入参数","确定",true,v)
-	{
-		endutw()
-	}
+	us(4,"visibility","gone")
+}</eventItme><eventItme type="onpagefinished">//has(3,"(function(){var e=document.getElementById(\"dark-mode-filter\");if(e)return;var t=document.createElement(\"style\");t.id=\"dark-mode-filter\",t.textContent=\"html.dark-mode{filter:invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1)}html.dark-mode img,html.dark-mode video,html.dark-mode picture,html.dark-mode svg,html.dark-mode canvas{filter:invert(1) hue-rotate(180deg)}\",document.head.appendChild(t),document.documentElement.classList.add(\"dark-mode\");var n=new MutationObserver(function(){document.documentElement.classList.contains(\"dark-mode\")||document.documentElement.classList.add(\"dark-mode\")});n.observe(document.documentElement,{attributes:true,childList:true,subtree:true})})();")
+us(8,"visibility","gone")
+syso("被加载的URL："+st_url)</eventItme><eventItme type="shouldoverrideurlloading">f(st_url ?* "http")
+{
+	us(st_vId,"url",st_url)
+}
+else f(st_url ?* "file://")
+{
+	us(st_vId,"url",st_url)
+}
+else
+{
+	hws(st_url)
+}</eventItme><eventItme type="onreceivederror">us(8,"visibility","visible")
+/.
+fn Lottie.loaddex()
+fr("@resources/Lottie/error.json",data)
+fn Lottie.setImageLottie(9,data,0,true)
+./
+//错误信息配置
+f(st_url ?* "http")
+{
+	sss Root_Interlinkage =st_url
+	syso(sss.Root_Interlinkage)
+	ss("在加载该链接时发生了错误\n错误代码："+st_dN+"\n报错的加载链接：ProperOS_Two:Root_Interlinkage",ii)
+}
+else
+{
+	fdir("$",root_file)
+	ss("file://"+root_file,root_file)
+	stobm(root_file,"utf-8",root_file)
+	sr(st_url,root_file,"ProperOS_Two:Root_Files/",root)
+	ss("错误代码："+st_dN+"\n在加载该链接时发生了错误："+root,ii)
+}
+us(12,"text",ii)</eventItme><eventItme type="ondownloadstart">hws(st_url)</eventItme></event>
+</View>
+<View id="4" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=top|center
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="5" did="4" type="ProgressBar">
+<ppt>width=-1
+height=-2
+max=100
+progress=0</ppt>
+<event></event>
+</View>
+<View id="6" did="4" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="7" did="6" type="ProgressBar">
+<ppt>width=-1
+height=24dp
+layout_marginLeft=45dp
+layout_marginRight=45dp</ppt>
+<event></event>
+</View>
+<View id="8" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center
+background=white
+visibility=visible</ppt>
+<event></event>
+</View>
+<View id="9" did="8" type="ImageView">
+<ppt>width=240dp
+height=240dp
+src=@fail.png</ppt>
+<event></event>
+</View>
+<View id="10" did="8" type="ScrollView">
+<ppt>width=-1
+height=120dp</ppt>
+<event></event>
+</View>
+<View id="11" did="10" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=left|top</ppt>
+<event></event>
+</View>
+<View id="12" did="11" type="TextView">
+<ppt>width=-2
+height=-2
+text=ID：12
+layout_marginLeft=10dp
+textColor=#ff000000
+typeface=@fontFile/acbt80.ttf
+textSize=16sp</ppt>
+<event></event>
+</View>
+<View id="13" did="8" type="LinearLayout">
+<ppt>width=-1
+height=75dp
+orientation=horizontal
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="14" did="13" type="CardView">
+<ppt>width=75dp
+height=55dp
+app_CardcornerRadius=25dp</ppt>
+<event></event>
+</View>
+<View id="15" did="14" type="Button">
+<ppt>width=-1
+height=-1
+text=关闭软件
+textColor=#ffffffff
+typeface=@fontFile/acbt80.ttf
+background=#ffff0000</ppt>
+<event><eventItme type="clicki">end()</eventItme></event>
+</View>
+<View id="16" did="13" type="CardView">
+<ppt>width=75dp
+height=55dp
+app_CardcornerRadius=25dp
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="17" did="16" type="Button">
+<ppt>width=-1
+height=-1
+text=刷新
+textColor=#ffffffff
+typeface=@fontFile/acbt80.ttf
+background=#ff00aaff</ppt>
+<event><eventItme type="clicki">ug(3,"url",url)
+us(3,"url",url)
+us(8,"visibility","gone")</eventItme></event>
+</View>
+<UIEventset><eventItme type="loading">fn byusi.ztl()
+fn byusi.uycl()
+fn lib.wp(2)
+fn core.loading(7)
+fr("$System/icon/search_no_result.svg",svg)
+fn lib.svg(svg,9)</eventItme><eventItme type="loadingComplete">f(sss.catalogue == null)
+{
+	f(sss.url != null && sss.url != "")
+    {
+    	us(3,"url",sss.url)
+    }
+    else
+    {
+    	utw("@fail.png","错误","并没有传入参数","确定",true,v)
+        {
+        	endutw()
+        }
+    }
+}
+else
+{
+	fdir(sss.catalogue,catalogue)
+    syso(catalogue)
+    fdir("$System/ServiceLibrary",serviceLibrary)
+    ss(serviceLibrary+"/httpserver",hsr)
+    syso(hsr)
+	ss("chmod 777 "+hsr+" && "+hsr+" -d "+catalogue+" -h 0.0.0.0 -p 8081",shell)
+	call(null,"mlua","cmd.shell",shell)
+    us(3,"url","http://127.0.0.1:8081")
+    sss catalogue =null
 }</eventItme><eventItme type="downkey">f(st_kC == 4)
 {
 	ug(3,"cangoback",cangoback)

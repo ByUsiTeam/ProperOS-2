@@ -1,0 +1,167 @@
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public static Object call(Object homeListJsom, String mlua, String methodPath, Object data) {
+	try {
+		// 分离类名和方法名
+		String[] parts = methodPath.split("\\.");
+		String className = parts[0];
+		String methodName = parts[1];
+		
+		// 获取类
+		Class targetClass = Class.forName(className);
+		
+		// 准备参数
+		Object[] params = {data};
+		
+		// 查找并调用方法
+		Method method = targetClass.getDeclaredMethod(methodName, Object.class);
+		return method.invoke(null, params);
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+		return null;
+	}
+}
+
+public static Object change(Object inputData) {
+	try {
+		// 将输入数据转换为字符串
+		String inputStr = String.valueOf(inputData);
+		
+		// 验证输入格式
+		if (!inputStr.startsWith("[{") || !inputStr.endsWith("}]")) {
+			return "[]";
+		}
+		
+		// 移除外层的中括号
+		String content = inputStr.substring(1, inputStr.length() - 1);
+		
+		// 分割每个对象
+		List<Map> resultList = new ArrayList();
+		
+		int start = 0;
+		int braceCount = 0;
+		boolean inObject = false;
+		
+		for (int i = 0; i < content.length(); i++) {
+			char c = content.charAt(i);
+			
+			if (c == '{') {
+				braceCount++;
+				if (braceCount == 1) {
+					start = i;
+					inObject = true;
+				}
+			} else if (c == '}') {
+				braceCount--;
+				if (braceCount == 0 && inObject) {
+					// 提取一个完整的对象字符串
+					String objStr = content.substring(start + 1, i);
+					processObjectString(objStr, resultList);
+					inObject = false;
+				}
+			}
+		}
+		
+		// 构建JSON数组
+		JSONArray jsonArray = new JSONArray();
+		
+		for (int i = 0; i < resultList.size(); i++) {
+			Map map = resultList.get(i);
+			JSONObject jsonObj = new JSONObject();
+			
+			// 遍历Map中的所有键值对
+			for (Object keyObj : map.keySet()) {
+				String key = String.valueOf(keyObj);
+				Object value = map.get(keyObj);
+				
+				if (value == null) {
+					jsonObj.put(key, JSONObject.NULL);
+				} else if (value instanceof Boolean) {
+					jsonObj.put(key, (Boolean) value);
+				} else if (value instanceof Integer) {
+					jsonObj.put(key, (Integer) value);
+				} else {
+					jsonObj.put(key, String.valueOf(value));
+				}
+			}
+			
+			jsonArray.put(jsonObj);
+		}
+		
+		return jsonArray.toString();
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+		return "[]";
+	}
+}
+
+private static void processObjectString(String objStr, List resultList) {
+	try {
+		Map map = new HashMap();
+		
+		// 分割键值对
+		String[] pairs = objStr.split(", ");
+		
+		for (int i = 0; i < pairs.length; i++) {
+			String pair = pairs[i];
+			
+			// 分割键和值
+			int equalsIndex = pair.indexOf('=');
+			if (equalsIndex > 0) {
+				String key = pair.substring(0, equalsIndex).trim();
+				String valueStr = pair.substring(equalsIndex + 1).trim();
+				
+				Object value = null;
+				
+				// 处理null值
+				if (valueStr.equals("null")) {
+					value = null;
+				}
+				// 处理布尔值
+				else if (valueStr.equals("true")) {
+					value = true;
+				}
+				else if (valueStr.equals("false")) {
+					value = false;
+				}
+				// 尝试转换为整数
+				else {
+					try {
+						// 检查是否可能是数字
+						boolean isNumber = true;
+						for (int j = 0; j < valueStr.length(); j++) {
+							char c = valueStr.charAt(j);
+							if (!Character.isDigit(c) && c != '-' && c != '+') {
+								isNumber = false;
+								break;
+							}
+						}
+						
+						if (isNumber && valueStr.length() > 0) {
+							value = Integer.parseInt(valueStr);
+						} else {
+							value = valueStr;
+						}
+					} catch (Exception e) {
+						value = valueStr;
+					}
+				}
+				
+				map.put(key, value);
+			}
+		}
+		
+		resultList.add(map);
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}

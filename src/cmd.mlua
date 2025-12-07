@@ -1,0 +1,32 @@
+function shell(cmd)
+local sh = io.popen(cmd)
+local rs = sh:read("*all")
+sh:close()
+return rs
+end
+
+function sh(cmd)
+	local sh = io.popen(cmd)
+	local rs = sh:read("*all")
+	sh:close()
+	
+	-- 日志输出
+	local log_dir = "$Logs/Runtime"
+	local log_file = log_dir .. "/Web service.log"
+	
+	-- 确保日志目录存在
+	os.execute("mkdir -p " .. log_dir)
+	
+	-- 写入日志
+	local log_fh = io.open(log_file, "a")
+	if log_fh then
+		local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+		log_fh:write(string.format("[%s] Command: %s\n", timestamp, cmd))
+		log_fh:write(string.format("[%s] Output: %s\n", timestamp, rs))
+		log_fh:write(string.format("[%s] Exit code: %s\n", timestamp, sh:close() and "0" or "non-zero"))
+		log_fh:write("--------------------------------------------------\n")
+		log_fh:close()
+	end
+	
+	-- 不返回任何值
+end
