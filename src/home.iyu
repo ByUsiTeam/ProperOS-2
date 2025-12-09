@@ -91,24 +91,12 @@ else
 
 break
 
-case 动态更新系统自带软件:
+case 动态获取云端信息:
 
 t()
 {
 	hs("https://code.properos.cn/",code)
-	f(code != null)
-	{
-		fn system.code(code,12)
-	}
-	else
-	{
-		ufnsui()
-		{
-			utw(null,"","抱歉无法连接互联网，不可以更新信息",false,v)
-			{
-			}
-		}
-	}
+    fn system.code(code,12)
 }
 
 break</eventItme></UIEventset>

@@ -91,7 +91,9 @@ height=-1</ppt>
 </View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
-fn lib.wp(2)</eventItme><eventItme type="loadingComplete">addv(13,"setting_nr_1.iyu|setting_nr_2.iyu",ss.hdlist)
+fn lib.wp(2)
+//界面UI
+addv(13,"setting_nr_1.iyu|setting_nr_2.iyu",ss.hdlist)
 //入场动画
 //标题栏
 swh("w",w)
@@ -111,9 +113,7 @@ swh("hh",h)
 dht(dh2,"-"+h,0,0,0)
 dh(dh2, "duration", 500)
 dhset(dhlist,false,dh1,dh2)
-us(15,"dh",dhlist)
-//设置状态检察
-fe("$ProperOS/home/Desktop/appInstall.plink",appinstall)
+us(15,"dh",dhlist)</eventItme><eventItme type="loadingComplete">fe("$ProperOS/home/Desktop/appInstall.plink",appinstall)
 us(setting_nr_1.14,"checked",appinstall)
 fe("$ProperOS/home/Desktop/wallpaperImport.plink",wallpaperImport)
 us(setting_nr_1.32,"checked",wallpaperImport)</eventItme></UIEventset>

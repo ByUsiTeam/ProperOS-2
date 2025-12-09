@@ -1,5 +1,7 @@
 fn list()
 
+//首先进行基本清除操作
+ula(ss.homeList,null)
 s dir ="$ProperOS/home/Desktop/"
 t()
 {
@@ -44,18 +46,25 @@ t()
 				}
 			}
 		}
-		else f(houyi *? ".mp3" || content *? ".flac" || content *? ".ogg")
+		else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg" || houyi *? ".m4a")
 		{
 			s plink =false
 			s icon ="@resources/icon/6e.png"
 			sbp(icon,icon)
 			s appName =content
 		}
+        else f(houyi *? ".pdf")
+        {
+        	s plink =false
+            s icon ="@resources/icon/wE.png"
+            sbp(icon,icon)
+            s appName =content
+        }
 		else f(houyi *? ".mp4")
 		{
 			s plink =false
 			fdir("$ProperOS/home/Desktop/"+content,videoFileDir)
-			call(mpi,"mjava","videoCover.get",videoFileDir,"2")
+			call(mpi,"mjava","videoCover.get",videoFileDir,"0")
 			sbp(mpi,icon)
 			s appName =content
 		}
@@ -69,22 +78,32 @@ t()
 		//数据变量集合化
 		f(plink == true)
 		{
-			ula(homeList,5=icon,8=appName,10=plink_uuid,11="true",12=fileDir,13=sss.package)
+			ula(ss.homeList,5=icon,8=appName,10=plink_uuid,11="true",12=fileDir,13=sss.package)
+            ufnsui()
+            {
+            	uls(6,ss.homeList,"appList.iyu",-2,-2)
+            }
 		}
 		else
 		{
-			ula(homeList,5=icon,8=appName,11="false",12=fileDir)
+			ula(ss.homeList,5=icon,8=appName,11="false",12=fileDir)
+            ufnsui()
+            {
+            	uls(6,ss.homeList,"appList.iyu",-2,-2)
+            }
 		}
 	}
 	ufnsui()
 	{
-		uls(6,homeList,"appList.iyu",-2,-2)
 		us(7,"refreshing",false)
 		fn lib.wp(2)
-		ula(homeList,"list",homeList)
+		ula(ss.homeList,"list",homeList)
 		sss homeList =homeList
-		call(json,"mjava","homeJson.change",homeJson)
+        //下面这个玩意会报错，所以暂时不提供支持
+		/.
+        call(json,"mjava","homeJson.change",homeJson)
 		syso(json)
+        ./
 		syso("主桌面列表："+sss.homeList)
 	}
 }
