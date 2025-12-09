@@ -1,0 +1,147 @@
+/.
+With ui 版本v1.2.4
+欢迎大家使用with ui组件
+
+建议使用with ui组件前
+iyu界面底部布局(根布局)采用相对布局
+
+with ui含有一些常用的组件
+提高了开发效率高,节约了时间,代码量少
+
+开发者:会沉
+官方QQ交流群:452246403
+请保留该信息,不会对代码有影响
+注:有部分是通过收集来改成组件
+
+为了方便使用,打包安装开源的WithUI组件
+./
+
+/.
+事件模块
+./
+
+//top导航栏(code=控件n,api=标识)
+fn V_top(code,api)
+syso(api)
+f(code==1)
+{
+	//图片控件1点击事件
+	syso("图片控件1点击事件")
+}
+f(code==2)
+{
+	//图片控件2点击事件
+	syso("图片控件2点击事件")
+}
+end fn
+
+
+//单按钮弹窗-在线程中需要用上ufnsui,api=标识
+fn A_oneUtw(api,fid,yid,uycls)
+syso(api)
+
+//关闭弹窗
+fn with_ui.N_ender(1,fid,yid,uycls)
+syso("按钮点击事件")
+end fn
+
+
+//双按钮弹窗-在线程中需要用上ufnsui,api=标识
+fn A_twoUtw(api,fid,yid,uycls,code)
+syso(api)
+
+f(code==1)
+{
+	//按钮1点击事件
+	syso("按钮1点击事件")
+}
+f(code==2)
+{
+	//按钮2点击事件
+	syso("按钮2点击事件")
+}
+
+//关闭弹窗
+fn with_ui.N_ender(2,fid,yid,uycls)
+end fn
+
+
+//下载进度条(url=文件路径)
+fn prb_jsj_upds(url)
+syso(url)
+
+//比如直接打开文件
+fo(url)
+end fn
+
+
+//侧滑打开
+fn side_open()
+syso("打开侧滑")
+end fn
+
+//侧滑关闭
+fn side_end()
+syso("关闭侧滑")
+end fn
+
+
+//滑动窗体选项卡(option=选项,api=标识)
+fn top_tab(option,api)
+f(api=="首页选项卡")
+{
+	//窗体滑动第一个界面执行的操作,option从0开始
+	f(option==0)
+	{
+		syso("当前滑动窗体是：实用软件")
+	}
+	f(option==1)
+	{
+		syso("当前滑动窗体是：绿色软件")
+	}
+	f(option==2)
+	{
+		syso("当前滑动窗体是：技术分享")
+	}
+	f(option==3)
+	{
+		syso("当前滑动窗体是：精品")
+	}
+	f(option==4)
+	{
+		syso("当前滑动窗体是：英雄联盟")
+	}
+	f(option==5)
+	{
+		syso("当前滑动窗体是：WithUI")
+	}
+}
+end fn
+
+
+//下拉菜单(option=选项n,text=选项名,api=标识)
+fn drop_menu(option,text,api)
+f(api=="测试")
+{
+	f(option==1)
+	{
+		syso(text)
+	}
+	f(option==2)
+	{
+		syso(text)
+	}
+	f(option==3)
+	{
+		syso(text)
+	}
+	f(option==4)
+	{
+		syso(text)
+	}
+	f(option==5)
+	{
+		syso(text)
+	}
+}
+end fn

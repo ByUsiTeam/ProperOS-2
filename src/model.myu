@@ -1,0 +1,139 @@
+fn 设置代码(控件,方法名,代码)
+java(类,控件,"Object.getClass")
+java(类名,类,"java.lang.Class.getName")
+f(类名*?"String" || 类名*?"Integer")
+{
+	gvs(控件,控件)
+}
+java(tag,控件,"android.view.View.getTag")
+sgsz(tag,2,原代码)
+ss("&lt;eventItme type=""+方法名+""&gt;\n",头部)
+s 尾部="\n&lt;/eventItme&gt;\n"
+f(原代码?头部)
+{
+	sj(原代码,头部,尾部,旧代码)
+	ss(头部+旧代码+尾部,旧代码)
+	ss(头部+代码+尾部,代码)
+	sr(原代码,旧代码,代码,代码)
+}
+else
+{
+	ss(原代码+头部+代码+尾部,代码)
+	ssj(控件,方法名)
+	{
+	}
+}
+sssz(tag,2,代码)
+java(null,控件,"android.view.View.setTag","Object",tag)
+end fn
+
+
+fn 点击控件(控件)
+java(类,控件,"Object.getClass")
+java(类名,类,"java.lang.Class.getName")
+f(类名*?"String" || 类名*?"Integer")
+{
+	gvs(控件,控件)
+}
+java(null,控件,"android.view.View.performClick")
+end fn
+
+fn 格式化代码(code,indentation)
+s ind=indentation
+f(code=="")
+{
+	ufnsui()
+	{
+		tw("错误-您未输入任何代码")
+	}
+	endcode
+}
+s slz="\n"
+s answer=""
+sl(code,slz,slxz)
+for(dm;slxz)
+{
+	f(dm?*" ")
+	{
+		s mdui=0
+		w(mdui==0)
+		{
+			slg(dm,dmcd)
+			ssg(dm,1,dmcd,dm)
+			f(dm?*" ")
+			{
+				
+			}
+			else
+			{
+				s mdui=1
+			}
+		}
+	}
+	ss(answer+"\n"+dm,answer)
+}
+ssg(answer,1,code)
+s q=0
+s answer=""
+sl(code,"\n",code)
+for(dm;code)
+{
+	f(dm?*"{")
+	{
+		f(q==0)
+		{
+			s(q+1,q)
+		}
+		else
+		{
+			s(q*ind,wrr)
+			s yrx=""
+			for(1;wrr)
+			{
+				ss(yrx+" ",yrx)
+			}
+			ss(yrx+dm,dm)
+			s(q+1,q)
+		}
+	}
+	else f(dm?*"}")
+	{
+		f(q==1)
+		{
+			s(q-1,q)
+		}
+		else f(q&gt;1)
+		{
+			s(q-1,q)
+			s(q*ind,kgl)
+			s lji=""
+			for(1;kgl)
+			{
+				ss(lji+" ",lji)
+			}
+			ss(lji+dm,dm)
+		}
+	}
+	else
+	{
+		f(q&gt;0)
+		{
+			s(q*ind,kgm)
+			s lfb=""
+			for(1;kgm)
+			{
+				ss(lfb+" ",lfb)
+			}
+			ss(lfb+dm,dm)
+		}
+	}
+	
+	ss(answer+"\n"+dm,answer)
+}
+ssg(answer,1,answer)
+sss Code=answer
+ufnsui()
+{
+	us(sss.id,"text",sss.Code)
+}
+end fn

@@ -1,0 +1,101 @@
+/.
+With ui 版本v1.2.4
+欢迎大家使用with ui组件
+
+建议使用with ui组件前
+iyu界面底部布局(根布局)采用相对布局
+
+with ui含有一些常用的组件
+提高了开发效率高,节约了时间,代码量少
+
+开发者:会沉
+官方QQ交流群:452246403
+请保留该信息,不会对代码有影响
+注:有部分是通过收集来改成组件
+
+为了方便使用,打包安装开源的WithUI组件
+./
+
+//QQ加群
+fn qq_group(qun)
+ss("mqqapi://card/show_pslcard?src_type=internal&version=1&uin="+qun+"&card_type=group&source=qrcode",joinqq)
+sit(a,"action", "android.intent.action.VIEW")
+sit(a,"data",joinqq)
+uit(a, "chooser", "QQ群窗口")
+end fn
+
+//QQ加好友
+fn qq_friend(qq)
+ss("mqqwpa://im/chat?chat_type=wpa&uin="+qq+"&version=1",urlqq)
+sit(a,"action", "android.intent.action.VIEW")
+sit(a,"data",urlqq)
+uit(a, "chooser", "选择QQ")
+end fn
+
+//分享文本
+fn have_text(text)
+sit(a, "action", "android.intent.action.SEND")
+sit(a, "type", "text/plain")
+sit(a, "extra", "android.intent.extra.SUBJECT", "分享软件")
+sit(a, "extra", "android.intent.extra.TEXT", text)
+sit(a, "flags", 1)
+uit(a, "chooser", "分享事例")
+end fn
+
+//调整当前屏幕亮度0-1
+fn lux(value)
+java(window,activity,"android.app.Activity.getWindow")
+java(lp,window,"android.view.Window.getAttributes")
+javass(nu,lp,"android.view.WindowManager$LayoutParams","screenBrightness",value)
+javax(null,window,"android.view.Window","setAttributes","android.view.WindowManager$LayoutParams",lp)
+
+end fn
+
+//控件透明度0-1 
+fn tran(id,value)
+gvs(id,k)
+java(null,k,"android.view.View.setAlpha","float",value)
+end fn
+
+//修改图片颜色
+fn prc_color(id,color)
+gvs(id,view)
+java(c,null,"android.graphics.Color.parseColor","String",color)
+javags(mode,null,"android.graphics.PorterDuff$Mode","SRC_ATOP")
+java(null,view,"android.widget.ImageView.setColorFilter","int",c,"android.graphics.PorterDuff$Mode",mode)
+end fn
+
+//禁止截图
+fn ban_scr()
+java(a,activity,"android.app.Activity.getWindow")
+java(null,a,"android.view.Window.addFlags","int",8192)
+end fn
+
+//隐藏浏览器缩放大小按钮
+fn hide_btn(id)
+gvs(id,wv)
+java(ws,wv,"android.webkit.WebView.getSettings")
+java(null,ws,"android.webkit.WebSettings.setBuiltInZoomControls","boolean",true)
+java(null,ws,"android.webkit.WebSettings.setDisplayZoomControls","boolean",false)
+end fn
+
+//倒计时,文本id,总时长,每次减少时间,倒计时完后文本的内容
+fn cown(id,tim,ms,text)
+t()
+{
+	s d=tim
+	w(d&gt;0)
+	{
+		s-(1,d)
+		ufnsui()
+		{
+			us(id,"text",d)
+			f(d==0)
+			{
+				us(id,"text",text)
+			}
+		}
+		stop(ms)
+	}
+}
+end fn

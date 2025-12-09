@@ -67,6 +67,14 @@ height=-1
 columnWidth=75dp</ppt>
 <event></event>
 </View>
+<View id="12" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮12
+visibility=gone
+ps=无用的代码执行区域</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
 fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn homeLib.list()
@@ -83,11 +91,24 @@ else
 
 break
 
-case index:
+case 动态更新系统自带软件:
 
-utw(null,"","没有用",false,v)
+t()
 {
-	
+	hs("https://code.properos.cn/",code)
+	f(code != null)
+	{
+		fn system.code(code,12)
+	}
+	else
+	{
+		ufnsui()
+		{
+			utw(null,"","抱歉无法连接互联网，不可以更新信息",false,v)
+			{
+			}
+		}
+	}
 }
 
 break</eventItme></UIEventset>

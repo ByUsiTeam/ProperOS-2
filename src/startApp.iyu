@@ -57,7 +57,7 @@ else
 	sr(st_url,root_file,"ProperOS_Two:Root_Files/",root)
 	ss("错误代码："+st_dN+"\n在加载该链接时发生了错误："+root,ii)
 }
-us(12,"text",ii)</eventItme><eventItme type="ondownloadstart">hws(st_url)</eventItme></event>
+us(12,"text",ii)</eventItme><eventItme type="ondownloadstart">hws(st_url)</eventItme><eventItme type="onpagestarted">us(8,"visibility","gone")</eventItme></event>
 </View>
 <View id="4" did="1" type="LinearLayout">
 <ppt>width=-1

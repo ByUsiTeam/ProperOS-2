@@ -1,0 +1,88 @@
+/*
+请勿触碰
+*/
+
+//处理代码中的注释
+public static String removeComments(String code) {
+	StringBuilder result = new StringBuilder();
+	boolean inSingleLineComment = false;
+	boolean inMultiLineComment = false;
+	boolean inQuotes = false;
+	boolean inCharLiteral = false;
+	int i = 0;
+	
+	while (i < code.length()) {
+		char c = code.charAt(i);
+		
+		if (inSingleLineComment) {
+			if (c == '\n') {
+				inSingleLineComment = false;
+				result.append("\n");
+			}
+		} else if (inMultiLineComment) {
+			if (c == '.' && i < code.length() - 1 && code.charAt(i + 1) == '/') {
+				inMultiLineComment = false;
+				i++; // Skip '*'
+			}
+		} else if (inQuotes) {
+			if (c == '"') {
+				inQuotes = false;
+			}
+			result.append(c);
+		} else if (inCharLiteral) {
+			if (c == '\'') {
+				inCharLiteral = false;
+			}
+			result.append(c);
+		} else {
+			if (c == '"' && (i == 0 || code.charAt(i - 1) != '\\')) {
+				inQuotes = true;
+				result.append(c);
+			} else if (c == '\'' && (i == 0 || code.charAt(i - 1) != '\\')) {
+				inCharLiteral = true;
+				result.append(c);
+			} else if (c == '/' && i < code.length() - 1 && code.charAt(i + 1) == '/') {
+				inSingleLineComment = true;
+				i++; // Skip '/'
+			} else if (c == '/' && i < code.length() - 1 && code.charAt(i + 1) == '.') {
+				inMultiLineComment = true;
+				i++; // Skip '/'
+			} else {
+				result.append(c);
+			}
+		}
+		
+		i++;
+	}
+	
+	return result.toString();
+}
+
+//处理每行代码中的空格
+private static String processCode(String code) {
+	// 按行分割代码
+	String[] lines = code.split("\n");
+	
+	// 处理每一行代码
+	StringBuilder processedCode = new StringBuilder();
+	for (String line : lines) {
+		// 清除开头的空格
+		String processedLine = line.trim();
+		
+		// 添加到处理结果中
+		processedCode.append(processedLine).append("\n");
+	}
+	
+	// 移除最后一个换行符
+	processedCode.deleteCharAt(processedCode.length() - 1);
+	
+	// 返回处理结果
+	return processedCode.toString();
+}
+
+//集成程序
+private static String Process(String code) {
+	String 注释 = removeComments(code);
+	String 空格 = processCode(注释);
+	return 空格;
+}
