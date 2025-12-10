@@ -75,6 +75,22 @@ visibility=gone
 ps=无用的代码执行区域</ppt>
 <event></event>
 </View>
+<View id="13" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center
+ps=刷新界面
+visibility=gone</ppt>
+<event><eventItme type="clicki">syso(" ")</eventItme></event>
+</View>
+<View id="14" did="13" type="ProgressBar">
+<ppt>width=-1
+height=55dp
+layout_marginLeft=24dp
+layout_marginRight=24dp</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
 fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn homeLib.list()
@@ -96,7 +112,23 @@ case 动态获取云端信息:
 t()
 {
 	hs("https://code.properos.cn/",code)
-    fn system.code(code,12)
+	fn system.code(code,12)
 }
 
-break</eventItme></UIEventset>
+break
+
+case 关闭ProperOS:
+
+utw(null,"","确定关闭 ProperOS 吗？","确定","取消",false,v)
+{
+	end()
+}
+else
+{
+	endutw()
+}
+
+break</eventItme><eventItme type="downkey">f(st_kC == 4)
+{
+	
+}</eventItme></UIEventset>

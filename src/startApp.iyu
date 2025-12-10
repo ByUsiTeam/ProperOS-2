@@ -18,7 +18,7 @@ height=-1</ppt>
 f(st_nS != 100)
 {
 	us(4,"visibility","visible")
-    us(5,"progress",st_nS)
+	us(5,"progress",st_nS)
 }
 else
 {
@@ -118,7 +118,7 @@ gravity=left|top</ppt>
 <View id="12" did="11" type="TextView">
 <ppt>width=-2
 height=-2
-text=ID：12
+text=错误信息代码（ID：12）
 layout_marginLeft=10dp
 textColor=#ff000000
 typeface=@fontFile/acbt80.ttf
@@ -173,28 +173,28 @@ fr("$System/icon/search_no_result.svg",svg)
 fn lib.svg(svg,9)</eventItme><eventItme type="loadingComplete">f(sss.catalogue == null)
 {
 	f(sss.url != null && sss.url != "")
-    {
-    	us(3,"url",sss.url)
-    }
-    else
-    {
-    	utw("@fail.png","错误","并没有传入参数","确定",true,v)
-        {
-        	endutw()
-        }
-    }
+	{
+		us(3,"url",sss.url)
+	}
+	else
+	{
+		utw("@fail.png","错误","并没有传入参数","确定",true,v)
+		{
+			endutw()
+		}
+	}
 }
 else
 {
 	fdir(sss.catalogue,catalogue)
-    syso(catalogue)
-    fdir("$System/ServiceLibrary",serviceLibrary)
-    ss(serviceLibrary+"/httpserver",hsr)
-    syso(hsr)
+	syso(catalogue)
+	fdir("$System/ServiceLibrary",serviceLibrary)
+	ss(serviceLibrary+"/httpserver",hsr)
+	syso(hsr)
 	ss("chmod 777 "+hsr+" && "+hsr+" -d "+catalogue+" -h 0.0.0.0 -p 8081",shell)
 	call(null,"mlua","cmd.shell",shell)
-    us(3,"url","http://127.0.0.1:8081")
-    sss catalogue =null
+	us(3,"url","http://127.0.0.1:8081")
+	sss catalogue =null
 }</eventItme><eventItme type="downkey">f(st_kC == 4)
 {
 	ug(3,"cangoback",cangoback)

@@ -1,5 +1,8 @@
 fn list()
 
+//刷新处理区
+fn core.loading(14)
+us(13,"visibility","visible")
 //首先进行基本清除操作
 ula(ss.homeList,null)
 s dir ="$ProperOS/home/Desktop/"
@@ -53,13 +56,13 @@ t()
 			sbp(icon,icon)
 			s appName =content
 		}
-        else f(houyi *? ".pdf")
-        {
-        	s plink =false
-            s icon ="@resources/icon/wE.png"
-            sbp(icon,icon)
-            s appName =content
-        }
+		else f(houyi *? ".pdf")
+		{
+			s plink =false
+			s icon ="@resources/icon/wE.png"
+			sbp(icon,icon)
+			s appName =content
+		}
 		else f(houyi *? ".mp4")
 		{
 			s plink =false
@@ -79,18 +82,18 @@ t()
 		f(plink == true)
 		{
 			ula(ss.homeList,5=icon,8=appName,10=plink_uuid,11="true",12=fileDir,13=sss.package)
-            ufnsui()
-            {
-            	uls(6,ss.homeList,"appList.iyu",-2,-2)
-            }
+			ufnsui()
+			{
+				uls(6,ss.homeList,"appList.iyu",-2,-2)
+			}
 		}
 		else
 		{
 			ula(ss.homeList,5=icon,8=appName,11="false",12=fileDir)
-            ufnsui()
-            {
-            	uls(6,ss.homeList,"appList.iyu",-2,-2)
-            }
+			ufnsui()
+			{
+				uls(6,ss.homeList,"appList.iyu",-2,-2)
+			}
 		}
 	}
 	ufnsui()
@@ -99,11 +102,12 @@ t()
 		fn lib.wp(2)
 		ula(ss.homeList,"list",homeList)
 		sss homeList =homeList
-        //下面这个玩意会报错，所以暂时不提供支持
+		us(13,"visibility","gone")
+		//下面这个玩意会报错，所以暂时不提供支持
 		/.
-        call(json,"mjava","homeJson.change",homeJson)
+		call(json,"mjava","homeJson.change",homeJson)
 		syso(json)
-        ./
+		./
 		syso("主桌面列表："+sss.homeList)
 	}
 }

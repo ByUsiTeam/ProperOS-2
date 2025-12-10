@@ -86,6 +86,59 @@ else
 	{
 		endutw()
 	}
+}</eventItme><eventItme type="press">ulag(st_vW,8,name)
+ulag(st_vW,11,plink)
+ulag(st_vW,12,file)
+ulag(st_vW,13,package)
+//核心代码
+t()
+{
+	f(plink == true)
+	{
+		ufnsui()
+		{
+			utw(null,"","是否删除软件 \""+name+"\" 吗？","确定","取消",false,v)
+			{
+				ss("$user/data/software/"+package,package_dir)
+				fdir(package_dir,del_package_dir)
+				tws(v,"删除中...",0)
+				call(a,"mjava","deledir.delete",del_package_dir)
+				f(a == true)
+				{
+					fd(file,del_file)
+					tws(v,"删除软件 \""+name+"\" 成功",0)
+				}
+				else
+				{
+					tws(v,"删除成功",0)
+					fn tw.tw("请刷新桌面")
+				}
+			}
+			else
+			{
+				endutw()
+			}
+		}
+	}
+	else
+	{
+		ufnsui()
+		{
+			utw(null,"","确定删除文件 \""+file+"\" 成功","确定","取消",true,v)
+			{
+				fd(file,del)
+				f(del == true)
+				{
+					tws(v,"删除文件 "+file+" 成功",0)
+					fn tw.tw("请刷新桌面")
+				}
+			}
+			else
+			{
+				endutw()
+			}
+		}
+	}
 }</eventItme></event>
 </View>
 <View id="7" did="1" type="LinearLayout">
@@ -144,4 +197,13 @@ text=文本13
 ps=软件包名</ppt>
 <event></event>
 </View>
-<UIEventset></UIEventset>
+<UIEventset><eventItme type="loading">dhas(dh, st_vW, "scaleX", 0.5, 1)
+dh(dh, "duration", 500)
+dh(dh, "start")
+
+dhas(dh1, st_vW, "scaleY", 0.5, 1)
+dh(dh1, "duration", 500)
+dh(dh1, "start")
+dhas(dh2, st_vW, "alpha", 0,1)
+dh(dh2, "duration", 1000)
+dh(dh2, "start")</eventItme></UIEventset>

@@ -21,7 +21,7 @@ else f(sdk&gt;=13)
 	java(null,get,"android.view.View.setSystemUiVisibility","int",-1)
 	java(null,window,"android.view.Window.setSoftInputMode","int",-1)
 }
-else f(sdk==11||sdk==12)
+else f(sdk == 11||sdk == 12)
 {
 	java(win, activity, "android.app.Activity.getWindow")
 	java(winn, win, "android.view.Window.getDecorView")
