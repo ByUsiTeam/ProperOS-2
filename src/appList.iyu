@@ -82,9 +82,13 @@ else f(houyi *? ".mp4")
 }
 else
 {
-	utw("@fail.png","提醒","[ERROR] 无法打开文件 \""+fileDir+"\" 请检查\n\n\n点击 \"确定\" 关闭","确定",true,v)
+	utw("@fail.png","提醒","[ERROR] 无法打开文件 \""+fileDir+"\" 请检查\n\n点击 \"确定\" 关闭","确定","安卓打开",true,v)
 	{
 		endutw()
+	}
+	else
+	{
+		fo(fileDir)
 	}
 }</eventItme><eventItme type="press">ulag(st_vW,8,name)
 ulag(st_vW,11,plink)
