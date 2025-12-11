@@ -50,7 +50,8 @@ BackgroundColor=#fff4e6e6</ppt>
 height=-1
 ColorSchemecolors=#ffff0000|#ff0088ff|#ffeaff00|#ff00ff55
 Refreshing=true</ppt>
-<event><eventItme type="onrefresh">utw(null,"","确定刷新桌面吗？","确定","取消",true,v)
+<event><eventItme type="onrefresh">us(7,"refreshing","false")
+utw(null,"","确定刷新桌面吗？","确定","取消",true,v)
 {
 	endutw()
 	fn homeLib.list()

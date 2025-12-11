@@ -201,7 +201,8 @@ text=文本13
 ps=软件包名</ppt>
 <event></event>
 </View>
-<UIEventset><eventItme type="loading">dhas(dh, st_vW, "scaleX", 0.5, 1)
+<UIEventset><eventItme type="loading">/.
+dhas(dh, st_vW, "scaleX", 0.5, 1)
 dh(dh, "duration", 500)
 dh(dh, "start")
 
@@ -210,4 +211,5 @@ dh(dh1, "duration", 500)
 dh(dh1, "start")
 dhas(dh2, st_vW, "alpha", 0,1)
 dh(dh2, "duration", 1000)
-dh(dh2, "start")</eventItme></UIEventset>
+dh(dh2, "start")
+./</eventItme></UIEventset>

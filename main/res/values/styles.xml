@@ -2,7 +2,7 @@
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorAccent">#FF4081</item>
+        <item name="colorAccent">#1162FF</item>
         <item name="colorControlNormal">#ffffff</item>
     </style>
 </resources>
