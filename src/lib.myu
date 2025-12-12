@@ -48,3 +48,22 @@ javax(n,n,类,"s","String",svg,"Activity",activity)
 us(id,"src",n)
 
 end fn
+
+fn loading()
+
+utw(null,"","loading.iyu",true,v)
+{
+}
+
+end fn
+
+fn loading(text)
+
+utw(null,"","loading.iyu",true,v)
+{
+}
+gvs(v,6,loading)
+syso(loading)
+us(loading,"text",text)
+
+end fn

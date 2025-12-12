@@ -1,0 +1,45 @@
+<View id="3" did="0" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="2" did="3" type="CardView">
+<ppt>width=-1
+height=80dp
+app_CardcornerRadius=35dp</ppt>
+<event></event>
+</View>
+<View id="4" did="2" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="1" did="4" type="ProgressBar">
+<ppt>width=75dp
+height=75dp
+style=16842874
+background=through
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="5" did="4" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=center</ppt>
+<event></event>
+</View>
+<View id="6" did="5" type="TextView">
+<ppt>width=-2
+height=-2
+text=加载中...
+textColor=#ff000000
+typeface=@fontFile/acbt80.ttf
+textSize=18sp</ppt>
+<event></event>
+</View>
+<UIEventset></UIEventset>

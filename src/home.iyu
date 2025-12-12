@@ -94,7 +94,16 @@ layout_marginRight=24dp</ppt>
 </View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
-fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn homeLib.list()
+fn lib.wp(2)
+call(fh,"mjava","Permission.pd",activity)
+f(fh == true || fh == "true")
+{
+	
+}
+else
+{
+	fn tw.tw(fh)
+}</eventItme><eventItme type="loadingComplete">fn homeLib.list()
 utb(11)</eventItme><eventItme type="menu">case 重启软件:
 
 utw(null,"","确定重启吗？","重启","取消",true,v)

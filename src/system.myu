@@ -18,8 +18,16 @@ f(jspk != null)
 			json(byusi_user_system,"get","email",email)
 			t()
 			{
+				ufnsui()
+				{
+					fn lib.loading("请求开发者信息中...")
+				}
 				hs("https://api.www.cdifit.cn/user/query.php","action=query_username&uuid="+uuid,"utf-8",name1)
 				hs("https://api.www.cdifit.cn/user/query.php","action=query_username&email="+email,"utf-8",name2)
+				ufnsui()
+				{
+					endutw()
+				}
 				json(name1,name1)
 				json(name2,name2)
 				f(name1 != null && name2 != null)
@@ -34,7 +42,12 @@ f(jspk != null)
 						f(yzfc == true)
 						{
 							json(json,"get","package",package)
+							ufnsui()
+							{
+								fn lib.loading("安装应用中...")
+							}
 							fuzs(jspk,"$user/data/software/"+package,true,fuzs)
+							endutw()
 							f(yzfc == true && fuzs == true)
 							{
 								ufnsui()
@@ -73,7 +86,15 @@ f(jspk != null)
 				json(user_byusi,"get","uuid",byusi_uuid)
 				t()
 				{
+					ufnsui()
+					{
+						fn lib.loading("请求开发者信息中...")
+					}
 					hs("https://api.www.cdifit.cn/user/query.php","action=query_username&uuid="+byusi_uuid,"utf-8",hd)
+					ufnsui()
+					{
+						endutw()
+					}
 					json(hd,hdd)
 					f(hdd != null)
 					{
@@ -86,9 +107,7 @@ f(jspk != null)
 								utw(null,"","应用名："+app_name+"\n包名："+app_package+"\n开发者："+username+"\n\n确定安装该应用吗？","确定","取消",true,v)
 								{
 									endutw()
-									utw(null,"","安装中...",true,vv)
-									{
-									}
+									fn lib.loading("安装应用中...")
 									fc("$temp/"+time+"/MainIndex.json","$ProperOS/home/Desktop/"+app_uuid+".plink",true,yzfc)
 									fuzs(jspk,"$user/data/software/"+app_package,true,fuzs)
 									endutw()

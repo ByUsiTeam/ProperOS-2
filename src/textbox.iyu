@@ -1,0 +1,17 @@
+<View id="1" did="0" type="TextInputLayout">
+<ppt>width=-1
+height=65dp
+app_CounterEnabled=true</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="EditText">
+<ppt>width=-1
+height=-1
+text=
+background=
+hint=文本内容
+typeface=@fontFile/ProductSans-Regular.ttf
+singleLine=true</ppt>
+<event></event>
+</View>
+<UIEventset></UIEventset>

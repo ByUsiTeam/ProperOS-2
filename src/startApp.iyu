@@ -24,7 +24,7 @@ else
 {
 	us(4,"visibility","gone")
 }</eventItme><eventItme type="onpagefinished">//has(3,"(function(){var e=document.getElementById(\"dark-mode-filter\");if(e)return;var t=document.createElement(\"style\");t.id=\"dark-mode-filter\",t.textContent=\"html.dark-mode{filter:invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1)}html.dark-mode img,html.dark-mode video,html.dark-mode picture,html.dark-mode svg,html.dark-mode canvas{filter:invert(1) hue-rotate(180deg)}\",document.head.appendChild(t),document.documentElement.classList.add(\"dark-mode\");var n=new MutationObserver(function(){document.documentElement.classList.contains(\"dark-mode\")||document.documentElement.classList.add(\"dark-mode\")});n.observe(document.documentElement,{attributes:true,childList:true,subtree:true})})();")
-us(8,"visibility","gone")
+//us(8,"visibility","gone")
 syso("被加载的URL："+st_url)</eventItme><eventItme type="shouldoverrideurlloading">f(st_url ?* "http")
 {
 	us(st_vId,"url",st_url)
@@ -36,8 +36,7 @@ else f(st_url ?* "file://")
 else
 {
 	hws(st_url)
-}</eventItme><eventItme type="onreceivederror">us(8,"visibility","visible")
-/.
+}</eventItme><eventItme type="onreceivederror">/.
 fn Lottie.loaddex()
 fr("@resources/Lottie/error.json",data)
 fn Lottie.setImageLottie(9,data,0,true)
@@ -45,19 +44,58 @@ fn Lottie.setImageLottie(9,data,0,true)
 //错误信息配置
 f(st_url ?* "http")
 {
+	us(8,"visibility","visible")
 	sss Root_Interlinkage =st_url
 	syso(sss.Root_Interlinkage)
 	ss("在加载该链接时发生了错误\n错误代码："+st_dN+"\n报错的加载链接：ProperOS_Two:Root_Interlinkage",ii)
+	us(12,"text",ii)
 }
 else
 {
+	us(8,"visibility","visible")
 	fdir("$",root_file)
 	ss("file://"+root_file,root_file)
 	stobm(root_file,"utf-8",root_file)
 	sr(st_url,root_file,"ProperOS_Two:Root_Files/",root)
 	ss("错误代码："+st_dN+"\n在加载该链接时发生了错误："+root,ii)
+	us(12,"text",ii)
+}</eventItme><eventItme type="ondownloadstart">sj(st_cN,';filename="','"',name_impurity)
+
+f(st_cH &gt; "1024")
+{
+	sn(st_cH / "1024",cdu)
+	f(cdu &gt; "1024")
+	{
+		sn(cdu / "1024",cdu)
+		f(cdu &gt; "1024")
+		{
+			sn(cdu / "1024",cdu)
+			ss(cdu+"TB",cddw)
+		}
+		else
+		{
+			ss(cdu+"MB",cddw)
+		}
+	}
+	else
+	{
+		ss(cdu+"KB",cddw)
+	}
 }
-us(12,"text",ii)</eventItme><eventItme type="ondownloadstart">hws(st_url)</eventItme><eventItme type="onpagestarted">us(8,"visibility","gone")</eventItme></event>
+else
+{
+	ss(st_cH+"K",cddw)
+}
+ss("被下载文件大小："+cddw+"\n文件名："+name_impurity+"\n被下载文件下载链接："+st_url,tsc)
+utw(null,"发现文件下载事件",tsc,"下载","取消",false,v)
+{
+	endutw()
+	hws(st_url)
+}
+else
+{
+	endutw()
+}</eventItme><eventItme type="onpagestarted">us(8,"visibility","gone")</eventItme></event>
 </View>
 <View id="4" did="1" type="LinearLayout">
 <ppt>width=-1
