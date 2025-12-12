@@ -1,0 +1,31 @@
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.app.Activity;
+import io.github.lumyuan.ux.bottomnavigationview.widget.BottomNavigationView;
+import androidx.viewpager.widget.ViewPager;
+import com.lydbdh.V3.R;
+
+
+public static void dbdh(Activity activity,LinearLayout linearlayout,ViewPager viewpager)
+{
+	LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+	LinearLayout.LayoutParams.MATCH_PARENT,
+	LinearLayout.LayoutParams.WRAP_CONTENT
+	);
+	BottomNavigationView bottomnavigation = new BottomNavigationView(activity);
+	BottomNavigationView.ItemView sy = bottomnavigation.newItemView();
+	sy.setText("首页");
+	sy.setImageResource(R.drawable.a);
+	bottomnavigation.addItemView(sy);
+	BottomNavigationView.ItemView yx = bottomnavigation.newItemView();
+	yx.setText("邮箱");
+	yx.setImageResource(R.drawable.b);
+	bottomnavigation.addItemView(yx);
+	BottomNavigationView.ItemView wd = bottomnavigation.newItemView();
+	wd.setText("我的");
+	wd.setImageResource(R.drawable.c);
+	bottomnavigation.addItemView(wd);
+	bottomnavigation.setupViewpager(viewpager);
+	bottomnavigation.setLayoutParams(layoutParams);
+	linearlayout.addView(bottomnavigation);
+}

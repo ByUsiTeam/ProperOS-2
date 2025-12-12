@@ -42,6 +42,16 @@ f(fileDir *? ".plink")
 {
 	fr(fileDir,plinkData)
 	json(plinkData,data)
+    json(data,"get","sign",sign)
+    json(sign,"get","uuid",uuid)
+    f(uuid == "properos.app.store")
+    {
+    	sss type ="properos.app.store"
+    }
+    else
+    {
+    	sss type =null
+    }
 	json(data,"get","startUrl",startUrl)
 	json(startUrl,"get","qiyue",startUrl_qiyue)
 	json(data,"get","systemUi",systemUi)

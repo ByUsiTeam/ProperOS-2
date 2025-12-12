@@ -23,8 +23,7 @@ f(st_nS != 100)
 else
 {
 	us(4,"visibility","gone")
-}</eventItme><eventItme type="onpagefinished">//has(3,"(function(){var e=document.getElementById(\"dark-mode-filter\");if(e)return;var t=document.createElement(\"style\");t.id=\"dark-mode-filter\",t.textContent=\"html.dark-mode{filter:invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1)}html.dark-mode img,html.dark-mode video,html.dark-mode picture,html.dark-mode svg,html.dark-mode canvas{filter:invert(1) hue-rotate(180deg)}\",document.head.appendChild(t),document.documentElement.classList.add(\"dark-mode\");var n=new MutationObserver(function(){document.documentElement.classList.contains(\"dark-mode\")||document.documentElement.classList.add(\"dark-mode\")});n.observe(document.documentElement,{attributes:true,childList:true,subtree:true})})();")
-//us(8,"visibility","gone")
+}</eventItme><eventItme type="onpagefinished">//us(8,"visibility","gone")
 syso("被加载的URL："+st_url)</eventItme><eventItme type="shouldoverrideurlloading">f(st_url ?* "http")
 {
 	us(st_vId,"url",st_url)
@@ -208,31 +207,21 @@ fn byusi.uycl()
 fn lib.wp(2)
 fn core.loading(7)
 fr("$System/icon/search_no_result.svg",svg)
-fn lib.svg(svg,9)</eventItme><eventItme type="loadingComplete">f(sss.catalogue == null)
+fn lib.svg(svg,9)</eventItme><eventItme type="loadingComplete">f(sss.url != null && sss.url != "")
 {
-	f(sss.url != null && sss.url != "")
-	{
-		us(3,"url",sss.url)
-	}
-	else
-	{
-		utw("@fail.png","错误","并没有传入参数","确定",true,v)
-		{
-			endutw()
-		}
-	}
+	us(3,"url",sss.url)
 }
 else
 {
-	fdir(sss.catalogue,catalogue)
-	syso(catalogue)
-	fdir("$System/ServiceLibrary",serviceLibrary)
-	ss(serviceLibrary+"/httpserver",hsr)
-	syso(hsr)
-	ss("chmod 777 "+hsr+" && "+hsr+" -d "+catalogue+" -h 0.0.0.0 -p 8081",shell)
-	call(null,"mlua","cmd.shell",shell)
-	us(3,"url","http://127.0.0.1:8081")
-	sss catalogue =null
+	utw("@fail.png","错误","并没有传入参数","确定",true,v)
+	{
+		endutw()
+	}
+}
+
+f(sss.type == "properos.app.store")
+{
+	
 }</eventItme><eventItme type="downkey">f(st_kC == 4)
 {
 	ug(3,"cangoback",cangoback)

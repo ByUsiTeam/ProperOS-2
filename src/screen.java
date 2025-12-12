@@ -1,4 +1,4 @@
-package com.i86ded3606d9fc228;
+package miao.byusi.properos.two;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -15,8 +15,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import com.zx.zpush.DeviceDisplay;
-import com.zx.zpush.MyUpnpService;
+import miao.byusi.properos.two.DeviceDisplay;
+import miao.byusi.properos.two.MyUpnpService;
 import org.teleal.cling.android.AndroidUpnpService;
 import org.teleal.cling.controlpoint.ActionCallback;
 import org.teleal.cling.model.action.ActionInvocation;

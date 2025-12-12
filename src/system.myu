@@ -168,3 +168,12 @@ fn model.设置代码(id,"clicki",代码)
 fn model.点击控件(id)
 
 end fn
+
+
+fn bottomColumn(id,id2)
+
+gvs(id,id)
+gvs(id2,view)
+call(return,"mjava","dbdh.dbdh",activity,id,view)
+
+end fn

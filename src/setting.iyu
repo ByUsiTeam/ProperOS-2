@@ -91,6 +91,13 @@ layout_marginRight=25dp</ppt>
 height=-1</ppt>
 <event><eventItme type="onpageselected">us(12,"tabselect",st_pN)</eventItme></event>
 </View>
+<View id="16" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-2
+orientation=vertical
+ut_alignParentBottom=true</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
 fn lib.wp(2)
@@ -115,7 +122,7 @@ swh("hh",h)
 dht(dh2,"-"+h,0,0,0)
 dh(dh2, "duration", 500)
 dhset(dhlist,false,dh1,dh2)
-us(15,"dh",dhlist)
+us(12,"dh",dhlist)
 //美化
 loadjar("lansy-1.0.0", sss.LansyLibrary)
 loadjar("pulsus", sss.PulsusLibrary)
@@ -139,7 +146,18 @@ javax(null, drawable, sss.RealtimeBlurDrawable, "setOverlayColor", "int", color)
 //设置圆角
 javax(null, drawable, sss.RealtimeBlurDrawable, "setCornerRadius", "float", 25)
 gvs(12, v)
-java(null, v, "android.view.View.setBackgroundDrawable", "android.graphics.drawable.Drawable", drawable)</eventItme><eventItme type="loadingComplete">fe("$ProperOS/home/Desktop/appInstall.plink",appinstall)
+java(null, v, "android.view.View.setBackgroundDrawable", "android.graphics.drawable.Drawable", drawable)
+
+fn system.bottomColumn(13,16)</eventItme><eventItme type="loadingComplete">fe("$ProperOS/home/Desktop/appInstall.plink",appinstall)
 us(setting_nr_1.14,"checked",appinstall)
 fe("$ProperOS/home/Desktop/wallpaperImport.plink",wallpaperImport)
-us(setting_nr_1.32,"checked",wallpaperImport)</eventItme></UIEventset>
+us(setting_nr_1.32,"checked",wallpaperImport)
+fe("$System/Settings/backgrounds.sett",wp_sett)
+f(wp_sett == true)
+{
+	us(setting_nr_1.55,"visibility","visible")
+}
+else
+{
+	us(setting_nr_1.55,"visibility","gone")
+}</eventItme></UIEventset>

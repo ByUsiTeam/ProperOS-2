@@ -92,18 +92,66 @@ layout_marginLeft=24dp
 layout_marginRight=24dp</ppt>
 <event></event>
 </View>
+<View id="15" did="1" type="FrameLayout">
+<ppt>width=-2
+height=-2
+visibility=gone</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
 fn lib.wp(2)
 call(fh,"mjava","Permission.pd",activity)
 f(fh == true || fh == "true")
 {
-	
 }
 else
 {
 	fn tw.tw(fh)
-}</eventItme><eventItme type="loadingComplete">fn homeLib.list()
+}
+
+javags(SDK_INT,null,"android.os.Build$VERSION","SDK_INT")
+f(SDK_INT &lt; 23)
+{
+	fn tw.tw2("警告：系统版本过低，部分功能不会开启",1)
+}
+java(appInfo,activity,"android.content.Context.getApplicationInfo")
+javags(targetSdkVersion,appInfo,"android.content.pm.ApplicationInfo","targetSdkVersion")
+f(targetSdkVersion &lt; 23)
+{
+	fn tw.tw2("请将targetSdkVersion提升至23！",1)
+}
+loadjar("permissions",sss.dex)
+java(appClassLoader,activity,"android.content.Context.getClassLoader")
+javass(fixup,sss.dex,"java.lang.ClassLoader","parent",appClassLoader)
+f(!fixup) {
+  fn tw.tw2("无法更改ClassLoader的parent",1)
+  end()
+  endcode
+  }
+
+cls(sss.dex,"com.canyie.permissions.PermissionHandlerFragment",testClass)
+f(testClass == null) {
+  fn tw.tw2("拿不到Fragment类(&gt;﹏&lt;)",1)
+  end()
+  endcode
+  }
+
+cls(sss.dex,"com.canyie.permissions.PermissionsHelper",sss.klass)
+f(sss.klass == null) {
+  fn tw.tw2("拿不到Helper类(&gt;﹏&lt;)",1)
+  end()
+  endcode
+  }
+javanew(ss.permissionsHelper,sss.klass,"androidx.fragment.app.FragmentActivity",activity)
+//ps：每个要用的界面都需要创建一个PermissionsHelper
+f(ss.permissionsHelper == null) {
+  fn tw.tw2("创建不了helper(&gt;﹏&lt;)",1)
+  end()
+  endcode
+  }
+javax(null,ss.permissionsHelper,sss.klass,"attach","int",15)
+//2是那个空白布局的id</eventItme><eventItme type="loadingComplete">fn homeLib.list()
 utb(11)</eventItme><eventItme type="menu">case 重启软件:
 
 utw(null,"","确定重启吗？","重启","取消",true,v)

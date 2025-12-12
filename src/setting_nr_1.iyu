@@ -179,6 +179,111 @@ else
 	syso("抛出错误")
 }</eventItme></event>
 </View>
+<View id="55" did="3" type="CardView">
+<ppt>width=-1
+height=55dp
+layout_marginTop=6dp
+layout_marginLeft=16dp
+layout_marginRight=16dp
+layout_marginBottom=8dp
+app_CardcornerRadius=15dp
+ps=一设置列表项基本布局</ppt>
+<event></event>
+</View>
+<View id="56" did="55" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="57" did="56" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="64" did="57" type="RoundImageView">
+<ppt>width=45dp
+height=45dp
+src=@resources/icon/qd.png
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="59" did="57" type="LinearLayout">
+<ppt>width=-2
+height=-1
+orientation=vertical
+gravity=left|center
+layout_marginLeft=6dp</ppt>
+<event></event>
+</View>
+<View id="60" did="59" type="TextView">
+<ppt>width=-2
+height=-2
+text=删除自定义壁纸
+typeface=@fontFile/acbt80.ttf
+textColor=#ff000000
+textSize=12sp</ppt>
+<event></event>
+</View>
+<View id="61" did="59" type="TextView">
+<ppt>width=-2
+height=-2
+text=控制是否开启应用侧载和导入文件功能的，\n关闭将无法安装第三方软件和导入外部文件
+typeface=@fontFile/acbt80.ttf
+textSize=8sp
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="62" did="57" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+ps=选项用
+gravity=right|center
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="63" did="62" type="SwitchCompat">
+<ppt>width=-2
+height=-2
+layout_marginRight=16dp
+thumbTint=#ff00aaff
+checked=true</ppt>
+<event><eventItme type="oncheckedchanged">f(st_iC == true)
+{
+	fw("$System/Settings/sideLoad.sett","true")
+	fuz("@resources/application/Install applications by default.zip","ProperOS/home/Desktop/appInstall.plink","$",true,jiaoyan)
+}
+else f(st_iC == false)
+{
+	fw("$System/Settings/sideLoad.sett","false")
+	fd("$ProperOS/home/Desktop/appInstall.plink",jiaoyan)
+}
+else
+{
+	syso("抛出错误")
+}</eventItme></event>
+</View>
+<View id="65" did="56" type="Button">
+<ppt>width=-1
+height=-1
+text=
+background=through</ppt>
+<event><eventItme type="clicki">fd("$System/Settings/backgrounds.sett",del_wp)
+f(del_wp == true)
+{
+	fn tw.tw("删除壁纸成功")
+	utw(null,"","桌面壁纸不会自动刷新，请手动刷新",false,v)
+	{
+	}
+	fn lib.wp(2)
+}
+else
+{
+	fn tw.tw2("删除壁纸失败",1)
+}</eventItme></event>
+</View>
 <View id="15" did="3" type="CardView">
 <ppt>width=-1
 height=55dp
@@ -349,5 +454,156 @@ else
 {
 	fd("$ProperOS/home/Desktop/wallpaperImport.plink",jiaoyan)
 }</eventItme></event>
+</View>
+<View id="45" did="3" type="CardView">
+<ppt>width=-1
+height=55dp
+layout_marginTop=6dp
+layout_marginLeft=16dp
+layout_marginRight=16dp
+layout_marginBottom=8dp
+app_CardcornerRadius=15dp
+ps=一设置列表项基本布局</ppt>
+<event></event>
+</View>
+<View id="46" did="45" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="47" did="46" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="48" did="47" type="ImageView">
+<ppt>width=45dp
+height=45dp
+src=$System/icon/ic_settings_storage.png
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="49" did="47" type="LinearLayout">
+<ppt>width=-2
+height=-1
+orientation=vertical
+gravity=left|center
+layout_marginLeft=6dp</ppt>
+<event></event>
+</View>
+<View id="50" did="49" type="TextView">
+<ppt>width=-2
+height=-2
+text=查看权限授予情况
+typeface=@fontFile/acbt80.ttf
+textColor=#ff000000
+textSize=12sp</ppt>
+<event></event>
+</View>
+<View id="51" did="49" type="TextView">
+<ppt>width=-2
+height=-2
+text=跳过开机动画直接进入桌面（不建议开启）
+typeface=@fontFile/acbt80.ttf
+textSize=8sp
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="52" did="47" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+ps=选项用
+gravity=right|center
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="53" did="52" type="SwitchCompat">
+<ppt>width=-2
+height=-2
+layout_marginRight=16dp
+thumbTint=#ff00aaff
+checked=false</ppt>
+<event><eventItme type="oncheckedchanged">f(st_iC == true)
+{
+	utw("@tip.png","警告","该功能不建议开启，请问确定开启吗？","确定","取消",true,v)
+	{
+		endutw()
+	}
+	else
+	{
+		us(st_vId,"checked","false")
+		endutw()
+	}
+}</eventItme></event>
+</View>
+<View id="54" did="46" type="Button">
+<ppt>width=-1
+height=-1
+text=
+background=through</ppt>
+<event><eventItme type="clicki">cls(sss.dex,"com.canyie.permissions.PermissionsHelper$Callback",callbackClass)
+cls(sss.dex,"com.canyie.permissions.Permission",pClass)
+
+s perms = "android.permission.READ_PHONE_STATE;android.permission.READ_EXTERNAL_STORAGE;android.permission.WRITE_EXTERNAL_STORAGE"
+//需要申请的所有权限
+sl(perms,";",permissions)
+s code = 2333
+//权限的请求码，用于判断
+//建议取值范围1~65534
+
+
+javacb(callback,callbackClass)
+{
+	f(st_mD ? "onPermissionsResult")
+	{
+		sgsz(st_aS,0,requestCode)
+		//请求权限时的code
+		sgsz(st_aS,1,permissions)
+		s grantCount = 0
+		s deniedCount = 0
+		s noNotify = false
+		for(permission;permissions)
+		{
+			javags(name,permission,pClass,"name")
+			//权限名
+			javags(granted,permission,pClass,"granted")
+			//已授予
+			javags(showRationale,permission,pClass,"shouldShowRequestPermissionRationale")
+			//是否应该说明权限用途
+			f(granted)
+			{
+				//权限授予
+				s+(grantCount,1,grantCount)
+			}
+			else
+			{
+				//权限拒绝
+				s+(deniedCount,1,deniedCount)
+				f(!showRationale)
+				{
+					//用户可能勾选了“不再提示”
+					s noNotify = true
+				}
+			}
+		}
+		s state
+		f(noNotify)
+		{
+			s state = "用户勾选了不再提醒"
+		}
+		else
+		{
+			s state = "用户未勾选不再提醒"
+		}
+		ss("允许权限数量：" + grantCount + "\n拒绝权限数量：" + deniedCount + "\n" + state,msg)
+		utw(null,"授权结果",msg,"我知道了",false,v)
+		{
+		}
+	}
+}
+javax(null,ss.permissionsHelper,sss.klass,"requestPermissions","String[]",permissions,"int",code,callbackClass,callback)</eventItme></event>
 </View>
 <UIEventset></UIEventset>

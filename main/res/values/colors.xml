@@ -1,0 +1,6 @@
+<!-- app/src/main/res/values/colors.xml -->
+<resources>
+    <color name="android:color/system_background_dark">#FF121212</color>
+    <color name="android:color/system_primary_dark">#2892FF</color>
+    <color name="android:color/system_error_dark">#2CAAFF</color>
+</resources>

@@ -56,6 +56,14 @@ layout_marginTop=10dp
 visibility=gone</ppt>
 <event></event>
 </View>
+<View id="8" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮8
+visibility=gone
+ps=引导代码执行区</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()</eventItme><eventItme type="loadingComplete">t()
 {
 	stop(2000)
@@ -70,27 +78,17 @@ visibility=gone</ppt>
 	stop(2000)
 	ufnsui()
 	{
-		fr("@about.json",about)
-		json(about,data)
-		json(data,"get","version",version)
-		fe("$System/Config/Initialization.sett",isett)
-		f(isett == true)
-		{
-			fr("$System/Config/Initialization.sett",iisett)
-			f(iisett == version)
-			{
-				fn core.uigo("home.iyu")
-			}
-			else
-			{
-				fn core.uigo("initialization.iyu")
-			}
-		}
-		else
-		{
-			fn core.uigo("initialization.iyu")
-		}
-		end()
+		fe("$System/guide.cuk",dmzt)
+        f(dmzt == false)
+        {
+        	fn core.uigo("initialization.iyu")
+            end()
+        }
+        else
+        {
+        	fr("$System/guide.cuk",dm)
+            fn system.code(dm,8)
+        }
 	}
 }
 fn lib.shell("echo \"ProperOS启动成功！\"")</eventItme></UIEventset>
