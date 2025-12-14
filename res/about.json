@@ -3,5 +3,9 @@
   "developer": "北",
   "version": "beta2.1.9",
   "defaultColor": "#ff399cff",
-  "packageName": "miao.byusi.properos.two"
+  "packageName": "miao.byusi.properos.two",
+  "updateConfig": "https://api.properos.cn",
+  "defaultCuk": {
+    "version": "2.0.1"
+  }
 }

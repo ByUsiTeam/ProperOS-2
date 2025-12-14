@@ -76,13 +76,13 @@ ps=引导代码执行区</ppt>
 f(exist == false)
 {
 	fr("@System/boot.sboot",sboot)
-    fw("$System/boot/boot.sboot",sboot)
-    fn system.code(sboot,8)
+	fw("$System/boot/boot.sboot",sboot)
+	fn system.code(sboot,8)
 }
 else
 {
 	fr("$System/boot/boot.sboot",boot)
-    fn system.code(boot,8)
+	fn system.code(boot,8)
 }</eventItme><eventItme type="downkey">f(st_kC == 4)
 {
 	

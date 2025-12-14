@@ -67,10 +67,17 @@ t()
 	{
 		fc("@System/guide.cuk","$System/guide.cuk",st)
 	}
+	fr("@about.json",data)
+	json(data,data)
+	json(data,"get","defaultCuk",defaultCuk)
+	json(defaultCuk,"get","version",cukv)
+	fe("$System/scv/version.json",scv)
+	f(scv == false)
+	{
+		fw("$System/scv/version.json","{\"version\": \""+cukv+"\"}")
+	}
 	ufnsui()
 	{
-		fr("@about.json",data)
-		json(data,data)
 		json(data,"get","version",version)
 		fw("$System/Config/Initialization.sett",version)
 		fn core.uigo("home.iyu")
