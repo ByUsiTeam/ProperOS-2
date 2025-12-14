@@ -606,4 +606,119 @@ javacb(callback,callbackClass)
 }
 javax(null,ss.permissionsHelper,sss.klass,"requestPermissions","String[]",permissions,"int",code,callbackClass,callback)</eventItme></event>
 </View>
+<View id="66" did="3" type="CardView">
+<ppt>width=-1
+height=55dp
+layout_marginTop=6dp
+layout_marginLeft=16dp
+layout_marginRight=16dp
+layout_marginBottom=8dp
+app_CardcornerRadius=15dp
+ps=一设置列表项基本布局</ppt>
+<event></event>
+</View>
+<View id="67" did="66" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="68" did="67" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="69" did="68" type="ImageView">
+<ppt>width=45dp
+height=45dp
+src=@tip.png
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="70" did="68" type="LinearLayout">
+<ppt>width=-2
+height=-1
+orientation=vertical
+gravity=left|center
+layout_marginLeft=6dp</ppt>
+<event></event>
+</View>
+<View id="71" did="70" type="TextView">
+<ppt>width=-2
+height=-2
+text=检察引导更新
+typeface=@fontFile/acbt80.ttf
+textColor=#ff000000
+textSize=12sp</ppt>
+<event></event>
+</View>
+<View id="72" did="70" type="TextView">
+<ppt>width=-2
+height=-2
+text=用于动态更新本地的引导代码
+typeface=@fontFile/acbt80.ttf
+textSize=8sp</ppt>
+<event></event>
+</View>
+<View id="73" did="68" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+ps=选项用
+gravity=right|center
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="74" did="73" type="SwitchCompat">
+<ppt>width=-2
+height=-2
+layout_marginRight=16dp
+thumbTint=#ff00aaff
+checked=false</ppt>
+<event><eventItme type="oncheckedchanged">f(st_iC == true)
+{
+	utw("@tip.png","警告","该功能不建议开启，请问确定开启吗？","确定","取消",true,v)
+	{
+		endutw()
+	}
+	else
+	{
+		us(st_vId,"checked","false")
+		endutw()
+	}
+}</eventItme></event>
+</View>
+<View id="75" did="67" type="Button">
+<ppt>width=-1
+height=-1
+text=
+background=through</ppt>
+<event><eventItme type="clicki">t()
+{
+	fr("@about.json",data)
+	json(data,data)
+	json(data,"get","updateConfig",updateUrl)
+	ufnsui()
+	{
+		fn lib.loading("请求服务器端获取数据中...")
+	}
+	hs(updateUrl,qqsj)
+	json(qqsj,data2)
+	endutw()
+	f(qqsj != null && data2 != null)
+	{
+		ufnsui()
+		{
+			utw(null,"",qqsj,"还没有写更新方面的逻辑代码",false,v)
+			{
+			}
+		}
+	}
+	else
+	{
+		fn tw.tw2("服务端错误或未链接网络",1)
+	}
+}</eventItme></event>
+</View>
 <UIEventset></UIEventset>
