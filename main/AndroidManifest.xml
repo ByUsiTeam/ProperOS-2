@@ -47,7 +47,7 @@
         <meta-data android:name="i_app_autoPermission" android:value="shi"/>
         <meta-data android:name="i_app_logOutput" android:value="shi"/>
         <meta-data android:name="i_app_errLogOutput" android:value="shi"/>
-       <service android:name="com.zx.zpush.MyUpnpService"/>
+       <service android:name="miao.byusi.properos.two.MyUpnpService"/>
         <service
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"

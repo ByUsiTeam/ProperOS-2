@@ -36,7 +36,8 @@ orientation=vertical
 gravity=center
 visibility=gone
 ps=ProperOS Logo 展示
-background=#1F6BFF</ppt>
+//background=#1F6BFF
+background=#81D0C9</ppt>
 <event></event>
 </View>
 <View id="6" did="5" type="RoundImageView">

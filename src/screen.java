@@ -50,7 +50,7 @@ public class screen {
 	private ServiceConnection serviceConnection;
 	private String s = "AVTransport";
 	private String s1 = "ConnectionManager";
-	String url = "http://gcqq450f71eywn6bv7u.exp.bcevod.com/mda-hbqagik5sfq1jsai/mda-hbqagik5sfq1jsai.mp4";
+    String url ="https://www.cdifit.cn/f/8L8C9/%E3%80%90%E5%8A%A8%E6%80%81%E6%AD%8C%E8%AF%8D%E3%80%9199%25%20-%20Jin%E3%80%81%E5%A4%A7%E6%9F%AF%20%E7%88%B1%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%88%86%E5%85%B3%E4%BA%8E%E4%BD%A0%EF%BC%8C%E5%89%A9%E4%B8%8B%E6%8A%8A%E6%88%91%E5%BD%93%E4%BD%9C%E5%94%AF%E4%B8%80.mp4";
 	private int deviceIndex = 0;
 
 
