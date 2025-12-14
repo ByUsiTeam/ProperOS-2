@@ -36,14 +36,21 @@ orientation=vertical
 gravity=center
 visibility=gone
 ps=ProperOS Logo 展示
-//background=#1F6BFF
-background=#81D0C9</ppt>
+background=#1F6BFF
+//background=#81D0C9</ppt>
 <event></event>
 </View>
 <View id="6" did="5" type="RoundImageView">
 <ppt>width=-2
 height=-2
 src=@logo/properos.png</ppt>
+<event></event>
+</View>
+<View id="9" did="5" type="RoundImageView">
+<ppt>width=-2
+height=-2
+src=@logo/properos2.png
+visibility=gone</ppt>
 <event></event>
 </View>
 <View id="7" did="5" type="TextView">
@@ -65,31 +72,18 @@ visibility=gone
 ps=引导代码执行区</ppt>
 <event></event>
 </View>
-<UIEventset><eventItme type="loading">fn byusi.ztl()</eventItme><eventItme type="loadingComplete">t()
+<UIEventset><eventItme type="loading">fn byusi.ztl()</eventItme><eventItme type="loadingComplete">fe("$System/boot/boot.sboot",exist)
+f(exist == false)
 {
-	stop(2000)
-	ufnsui()
-	{
-		us(2,"visibility","gone")
-		dha(dh,false,true)
-		dh(dh, "duration",500)
-		us(5,"dh",dh)
-		us(5,"visibility","visible")
-	}
-	stop(2000)
-	ufnsui()
-	{
-		fe("$System/guide.cuk",dmzt)
-        f(dmzt == false)
-        {
-        	fn core.uigo("initialization.iyu")
-            end()
-        }
-        else
-        {
-        	fr("$System/guide.cuk",dm)
-            fn system.code(dm,8)
-        }
-	}
+	fr("@System/boot.sboot",sboot)
+    fw("$System/boot/boot.sboot",sboot)
+    fn system.code(sboot,8)
 }
-fn lib.shell("echo \"ProperOS启动成功！\"")</eventItme></UIEventset>
+else
+{
+	fr("$System/boot/boot.sboot",boot)
+    fn system.code(boot,8)
+}</eventItme><eventItme type="downkey">f(st_kC == 4)
+{
+	
+}</eventItme></UIEventset>

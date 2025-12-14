@@ -124,6 +124,7 @@ dh(dh2, "duration", 500)
 dhset(dhlist,false,dh1,dh2)
 us(12,"dh",dhlist)
 //美化
+/. //注销对部分影响性能的内容
 loadjar("lansy-1.0.0", sss.LansyLibrary)
 loadjar("pulsus", sss.PulsusLibrary)
 cls(sss.LansyLibrary, "io.lansy.widget.RealtimeBlurView", sss.RealtimeBlurView)
@@ -148,7 +149,8 @@ javax(null, drawable, sss.RealtimeBlurDrawable, "setCornerRadius", "float", 25)
 gvs(12, v)
 java(null, v, "android.view.View.setBackgroundDrawable", "android.graphics.drawable.Drawable", drawable)
 
-fn system.bottomColumn(13,16)</eventItme><eventItme type="loadingComplete">fe("$ProperOS/home/Desktop/appInstall.plink",appinstall)
+fn system.bottomColumn(13,16)
+ ./</eventItme><eventItme type="loadingComplete">fe("$ProperOS/home/Desktop/appInstall.plink",appinstall)
 us(setting_nr_1.14,"checked",appinstall)
 fe("$ProperOS/home/Desktop/wallpaperImport.plink",wallpaperImport)
 us(setting_nr_1.32,"checked",wallpaperImport)

@@ -1,5 +1,5 @@
 {
-    name: ["JiYU 2",".jiyu", ".iyu", ".myu", ".jush", ".tps", ".cuk", ".service"]
+    name: ["JiYU 2",".jiyu", ".iyu", ".myu", ".jush", ".tps", ".cuk", ".service", ".sboot"]
     ignoreCase: true
     comment: {startsWith: "//"}
     comment: {startsWith: "/.", endsWith: "./"}
