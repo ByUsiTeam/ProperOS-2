@@ -46,7 +46,7 @@ f(st_url ?* "http")
 	us(8,"visibility","visible")
 	sss Root_Interlinkage =st_url
 	syso(sss.Root_Interlinkage)
-	ss("在加载该链接时发生了错误\n错误代码："+st_dN+"\n报错的加载链接：ProperOS_Two:Root_Interlinkage",ii)
+	ss("(html)&lt;p&gt;在加载该链接时发生了错误&lt;br&gt;错误代码：&lt;a href=\"https://cn.bing.com/search?q="+st_dN+"\"&gt;"+st_dN+"&lt;/a&gt;\n报错的加载链接：ProperOS_Two:Root_Interlinkage&lt;/p&gt;",ii)
 	us(12,"text",ii)
 }
 else
@@ -56,9 +56,16 @@ else
 	ss("file://"+root_file,root_file)
 	stobm(root_file,"utf-8",root_file)
 	sr(st_url,root_file,"ProperOS_Two:Root_Files/",root)
-	ss("错误代码："+st_dN+"\n在加载该链接时发生了错误："+root,ii)
+	ss("(html)&lt;p&gt;错误代码：&lt;a href=\"https://cn.bing.com/search?q="+st_dN+"\"&gt;"+st_dN+"&lt;/a&gt;&lt;br&gt;在加载该链接时发生了错误："+root+"&lt;/p&gt;",ii)
 	us(12,"text",ii)
-}</eventItme><eventItme type="ondownloadstart">sj(st_cN,';filename="','"',name_impurity)
+}
+call(v,"mjava","ExpandableTextView.createExpandableTextView",ii)
+nvw(v,11)
+//获取控件,添加控件
+us(v,"textcolor","#ff000000")
+us(v,"textsize","16sp")
+us(v,"layout_marginLeft","10dp")
+us(v,"typeface","@fontFile/acbt80.ttf")</eventItme><eventItme type="ondownloadstart">sj(st_cN,';filename="','"',name_impurity)
 
 f(st_cH &gt; "1024")
 {
@@ -159,7 +166,9 @@ text=错误信息代码（ID：12）
 layout_marginLeft=10dp
 textColor=#ff000000
 typeface=@fontFile/acbt80.ttf
-textSize=16sp</ppt>
+textSize=16sp
+linksClickable=true
+autoLink=web</ppt>
 <event></event>
 </View>
 <View id="13" did="8" type="LinearLayout">
@@ -207,7 +216,8 @@ fn byusi.uycl()
 fn lib.wp(2)
 fn core.loading(7)
 fr("$System/icon/search_no_result.svg",svg)
-fn lib.svg(svg,9)</eventItme><eventItme type="loadingComplete">f(sss.url != null && sss.url != "")
+fn lib.svg(svg,9)</eventItme><eventItme type="loadingComplete">hsas(3,true)
+f(sss.url != null && sss.url != "")
 {
 	us(3,"url",sss.url)
 }

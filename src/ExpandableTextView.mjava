@@ -1,0 +1,7 @@
+import cn.carbs.android.expandabletextview.library.ExpandableTextView;
+
+public static ExpandableTextView createExpandableTextView(String nr) {
+	ExpandableTextView expandableTextView = new ExpandableTextView(activity);
+	expandableTextView.setText(nr);
+	return expandableTextView;
+}

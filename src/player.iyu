@@ -43,19 +43,24 @@ background=#f1f1f1</ppt>
 </View>
 <View id="2" did="5" type="CardView">
 <ppt>width=-1
-height=-2
+height=-1
 app_CardcornerRadius=10dp
 layout_margin=5dp
 app_CardElevation=0
 layout_marginTop=15dp</ppt>
 <event></event>
 </View>
-<View id="1" did="2" type="WebView">
+<View id="32" did="2" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="1" did="32" type="WebView">
 <ppt>width=-1
 height=300dp
 layout_margin=5dp
 url=$System/VideoPlayer2/index.htm</ppt>
-<event></event>
+<event><eventItme type="onpagefinished">us(33,"visibility","gone")</eventItme><eventItme type="onpagestarted">us(33,"visibility","visible")</eventItme></event>
 </View>
 <View id="8" did="5" type="LinearLayout">
 <ppt>width=-1
@@ -63,7 +68,9 @@ height=-2
 orientation=vertical
 layout_marginLeft=5dp
 layout_marginRight=5dp
-layout_marginTop=5dp</ppt>
+layout_marginTop=5dp
+ps=视频地址输入区
+visibility=gone</ppt>
 <event></event>
 </View>
 <View id="6" did="8" type="CardView">
@@ -109,7 +116,9 @@ height=55dp
 orientation=vertical
 layout_marginTop=20dp
 layout_marginLeft=20dp
-layout_marginRight=20dp</ppt>
+layout_marginRight=20dp
+visibility=gone
+ps=视频地址传入播放器按钮区</ppt>
 <event></event>
 </View>
 <View id="11" did="13" type="CardView">
@@ -289,30 +298,62 @@ textColor=#ffffffff
 textSize=16sp</ppt>
 <event></event>
 </View>
-<View id="24" did="23" type="LinearLayout">
+<View id="36" did="5" type="LinearLayout">
 <ppt>width=-1
-height=-1
+height=-2
 orientation=vertical
-background=#6DFFFFFF
-gravity=center
-clickable=true
+ps=其他信息展示区域
 visibility=gone</ppt>
 <event></event>
 </View>
-<View id="26" did="24" type="ProgressBar">
+<View id="37" did="36" type="CardView">
+<ppt>width=-1
+height=-2
+padding=10dp
+layout_margin=10dp
+app_CardcornerRadius=25dp</ppt>
+<event></event>
+</View>
+<View id="38" did="37" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="39" did="38" type="LinearLayout">
+<ppt>width=-1
+height=-2
+orientation=vertical</ppt>
+<event></event>
+</View>
+<View id="40" did="39" type="TextView">
 <ppt>width=-2
 height=-2
+text=文本40</ppt>
+<event></event>
+</View>
+<View id="33" did="23" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center
+background=#7c4b4b4b
+ps=加载时显示的界面</ppt>
+<event><eventItme type="clicki">syso("[ERROR] 点击事件拦截")</eventItme></event>
+</View>
+<View id="35" did="33" type="ProgressBar">
+<ppt>width=95dp
+height=95dp
 style=16842874</ppt>
 <event></event>
 </View>
-<View id="27" did="24" type="TextView">
+<View id="34" did="33" type="TextView">
 <ppt>width=-2
 height=-2
-text=正在进行解析...
-textColor=#222222
-textStyle=bold
-typeface=normal
-textSize=17sp</ppt>
+text=Loading...
+textColor=#ff000000
+typeface=@fontFile/ProductSans-Regular.ttf
+textSize=25sp
+layout_marginTop=1dp</ppt>
 <event></event>
 </View>
 <View id="22" did="0" type="WebView">
