@@ -14,7 +14,7 @@ ps=图标显示区</ppt>
 <View id="3" did="2" type="CardView">
 <ppt>width=55dp
 height=55dp
-app_CardcornerRadius=15dp</ppt>
+app_CardcornerRadius=22dp</ppt>
 <event></event>
 </View>
 <View id="4" did="3" type="RelativeLayout">
@@ -42,16 +42,16 @@ f(fileDir *? ".plink")
 {
 	fr(fileDir,plinkData)
 	json(plinkData,data)
-    json(data,"get","sign",sign)
-    json(sign,"get","uuid",uuid)
-    f(uuid == "properos.app.store")
-    {
-    	sss type ="properos.app.store"
-    }
-    else
-    {
-    	sss type =null
-    }
+	json(data,"get","sign",sign)
+	json(sign,"get","uuid",uuid)
+	f(uuid == "properos.app.store")
+	{
+		sss type ="properos.app.store"
+	}
+	else
+	{
+		sss type =null
+	}
 	json(data,"get","startUrl",startUrl)
 	json(startUrl,"get","qiyue",startUrl_qiyue)
 	json(data,"get","systemUi",systemUi)
@@ -82,7 +82,15 @@ f(fileDir *? ".plink")
 }
 else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg")
 {
-	sss url =fileDir
+	ulag(st_vW,14,name)
+	s dir ="$System/MusicPlayer/index.html"
+	fdir(fileDir,fileDir)
+	fuz("@resources/sdk/MusicPlayer.zip","index.html","$System/MusicPlayer",true,b)
+	fr(dir,mpd)
+	sr(mpd,"[File]",fileDir,mpd)
+	sr(mpd,"[FileName]",name,mpd)
+	fw(dir,mpd)
+	sss url =dir
 	fn core.uigo("startApp.iyu")
 }
 else f(houyi *? ".mp4")
@@ -209,6 +217,13 @@ ps=文件完整路径</ppt>
 height=-2
 text=文本13
 ps=软件包名</ppt>
+<event></event>
+</View>
+<View id="14" did="9" type="TextView">
+<ppt>width=-2
+height=-2
+text=文本14
+ps=文件名</ppt>
 <event></event>
 </View>
 <UIEventset><eventItme type="loading">/.

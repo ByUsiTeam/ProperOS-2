@@ -89,7 +89,7 @@ t()
 		}
 		else
 		{
-			ula(ss.homeList,5=icon,8=appName,11="false",12=fileDir)
+			ula(ss.homeList,5=icon,8=appName,11="false",12=fileDir,14=content)
 			ufnsui()
 			{
 				uls(6,ss.homeList,"appList.iyu",-2,-2)

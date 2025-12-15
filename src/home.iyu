@@ -169,8 +169,14 @@ case 动态获取云端信息:
 
 t()
 {
-	hs("https://code.properos.cn/",code)
-	fn system.code(code,12)
+	ufnsui()
+	{
+		fn lib.loading("获取云端代码中...")
+	}
+	hs("https://code.properos.cn/",cuk)
+	endutw()
+	fn system.code(cuk,12)
+	syso(cuk)
 }
 
 break
