@@ -1,0 +1,221 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1
+background=white</ppt>
+<event></event>
+</View>
+<View id="3" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+ut_below=26
+ut_above=4
+background=#ffe2dede</ppt>
+<event></event>
+</View>
+<View id="4" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-2
+orientation=horizontal
+ut_alignParentBottom=true
+background=white</ppt>
+<event></event>
+</View>
+<View id="5" did="4" type="ImageView">
+<ppt>width=-2
+height=150
+src=@resources/icon/kbhb/ic_undo.png
+layout_weight=6
+padding=40
+</ppt>
+<event><eventItme type="clicki">javax(c,ss.画板,ss.View,"undo")</eventItme></event>
+</View>
+<View id="6" did="4" type="ImageView">
+<ppt>width=-2
+height=150
+src=@resources/icon/kbhb/ic_redo.png
+layout_weight=6
+padding=40
+</ppt>
+<event><eventItme type="clicki">javax(c,ss.画板,ss.View,"redo")</eventItme></event>
+</View>
+<View id="7" did="4" type="ImageView">
+<ppt>width=-2
+height=150
+src=@resources/icon/kbhb/ic_mode_edit.png
+layout_weight=6
+padding=40
+</ppt>
+<event><eventItme type="clicki">javax(c,ss.画板,ss.View,"setPenRawSize","int",ss.Dh)
+javax(c,ss.画板,ss.View,"setPenAlpha","int",255)
+.us(7,"background","#509E9E9E")
+.us(8,"background","")</eventItme></event>
+</View>
+<View id="8" did="4" type="ImageView">
+<ppt>width=-2
+height=150
+src=@resources/icon/kbhb/xpc.png
+layout_weight=6
+padding=40</ppt>
+<event><eventItme type="clicki">javax(c,ss.画板,ss.View,"setPenRawSize","int",ss.Dx)
+javax(c,ss.画板,ss.View,"setPenAlpha","int",0)
+
+//javax(c,ss.画板,ss.View,"setMode", ss.Mo,"DRAW")
+</eventItme></event>
+</View>
+<View id="9" did="4" type="ImageView">
+<ppt>width=-2
+height=150
+src=@resources/icon/kbhb/clear.png
+layout_weight=6
+padding=40
+</ppt>
+<event><eventItme type="clicki">javax(c,ss.画板,ss.View,"clear")
+us(3,"backgroundcolor","#ffe2dede")</eventItme></event>
+</View>
+<View id="21" did="4" type="ImageView">
+<ppt>width=-2
+height=150
+src=17301505
+layout_weight=6
+padding=40
+BackgroundRipple=#9E9E9E
+visibility=gone</ppt>
+<event><eventItme type="clicki">t()
+{
+hws("http://bsyy.hz.cz/")
+}</eventItme></event>
+</View>
+<View id="23" did="1" type="LinearLayout">
+<ppt>width=-1
+height=68dp
+orientation=horizontal
+background=white
+gravity=bottom</ppt>
+<event></event>
+</View>
+<View id="24" did="23" type="ImageButton">
+<ppt>width=45dp
+height=45dp
+src=@resources/icon/ic_arrow_back_black_24dp.png
+background=white
+BackgroundRipple=#ffece2e2</ppt>
+<event><eventItme type="clicki">end()</eventItme></event>
+</View>
+<View id="25" did="23" type="TextView">
+<ppt>width=-2
+height=45dp
+text=画板
+gravity=center_vertical
+background=white
+textSize=16sp
+textStyle=bold
+typeface=@fontFile/acbt80.ttf</ppt>
+<event></event>
+</View>
+<View id="27" did="23" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="28" did="27" type="ImageView">
+<ppt>width=22dp
+height=22dp
+src=@resources/icon/a272bf70667315c5162a8519757aa8c1.jpg
+ut_alignParentRight=true
+layout_marginRight=25dp
+ut_alignParentBottom=true
+layout_marginBottom=8dp</ppt>
+<event><eventItme type="clicki">javanew(对象,"android.app.ProgressDialog", "Context", activity)
+cls("android.app.ProgressDialog", 类)
+javax(对象, 对象, 类, "show", "Context", activity, "CharSequence", "", "CharSequence", "加载中", "boolean", false, "boolean", false, "android.content.DialogInterface$OnCancelListener", 返回事件)
+
+t()
+{
+	//开始保存图片
+	stop(500)
+	ufnsui()
+	{
+		gvs(3,控件)
+		java(宽,控件,"android.view.View.getWidth")
+		java(高,控件,"android.view.View.getHeight")
+		javags(config,null,"android.graphics.Bitmap$Config","ARGB_8888")
+		java(sss.图片,null,"android.graphics.Bitmap.createBitmap","int",宽,"int",高,"android.graphics.Bitmap$Config",config)
+		f(sss.图片 == null)
+		{
+			tws(null,"似乎出现问题了",0)
+			java(null, 对象, "android.app.Dialog.cancel")
+			endcode
+		}
+		javanew(画板,"android.graphics.Canvas","android.graphics.Bitmap",sss.图片)
+		java(null,控件,"android.view.View.draw","android.graphics.Canvas",画板)
+		sran(1, 99999, g)
+		ss("/storage/emulated/0/Pictures/QQ/"+g+".png",gg)
+		bfs(sss.图片, 1,gg)
+		//关闭弹窗
+		java(null, 对象, "android.app.Dialog.cancel")
+		tws(null,"图片已保存至"+gg,0)
+		fdir(gg,jdpath)
+		ss("file://"+jdpath,uri)
+		java(uri,null,"android.net.Uri.parse","String",uri)
+		javanew(意图,"android.content.Intent","String","android.intent.action.MEDIA_SCANNER_SCAN_FILE","android.net.Uri",uri)
+		java(null,activity,"android.content.Context.sendBroadcast","android.content.Intent",意图)
+	}
+}</eventItme></event>
+</View>
+<View id="29" did="27" type="ImageView">
+<ppt>width=32dp
+height=32dp
+src=@resources/icon/m4399_png_setting_permissions_fast.png
+ut_alignParentRight=true
+layout_marginRight=65dp
+ut_alignParentBottom=true
+layout_marginBottom=5dp</ppt>
+<event><eventItme type="clicki">
+javacb(事件,ss.事件类)
+{
+sgsz(st_aS,0,颜色值)
+javax(c,ss.画板,ss.View,"setPenColor","int",颜色值)
+}
+javanew(控件,ss.类,"Context",activity,"int","-1","String","标题",ss.事件类,事件)
+javax(null,控件,"android.app.Dialog","show")</eventItme></event>
+</View>
+<View id="30" did="27" type="ImageView">
+<ppt>width=20dp
+height=20dp
+src=@resources/icon/ms_fuzhi.png
+ut_alignParentRight=true
+layout_marginRight=120dp
+ut_alignParentBottom=true
+layout_marginBottom=8dp</ppt>
+<event><eventItme type="clicki">utw("","","dx.iyu","确认",false,v)
+{
+javax(c,ss.画板,ss.View,"setPenRawSize","int",ss.Dh)
+}
+gvs(v,2,a)
+gvs(v,3,ss.Hd)
+us(a,"progress",ss.Dh)</eventItme></event>
+</View>
+<View id="26" did="1" type="LinearLayout">
+<ppt>width=-1
+height=0.5dp
+orientation=vertical
+background=#ffe2dede
+ut_below=23</ppt>
+<event></event>
+</View>
+<UIEventset><eventItme type="loading">fn byusi.ztl()
+fn byusi.uycl()
+loadjar("Picture",包)
+cls(包,"com.beyondsw.palette.PaletteView",ss.View)
+
+javanew(ss.画板,ss.View,"Context",activity)
+nvw(ss.画板,3)
+utb(2)
+
+ss Dh = 10
+ss Dx = 20
+javax(c,ss.画板,ss.View,"setPenRawSize","int",ss.Dh)
+</eventItme><eventItme type="loadingComplete">loadjar("Picture",包)
+cls(包,"com.dwood.paintdemo.ColorPickerDialog",ss.类)
+cls(包,"com.dwood.paintdemo.ColorPickerDialog$OnColorChangedListener",ss.事件类)</eventItme></UIEventset>
