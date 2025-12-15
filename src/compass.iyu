@@ -1,0 +1,27 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="ImageView">
+<ppt>width=-1
+height=-1
+src=17301567
+scaleType=centercrop
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="3" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center</ppt>
+<event></event>
+</View>
+<UIEventset><eventItme type="loading">fn byusi.ztl()
+fn byusi.uycl()
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">loadjar("compass",a)
+cls(a,"com.Mus.compass.MainActivity",b)
+gvs(3,mLa)
+s 指南针宽度=1200
+javax(null,null,b,"add","Context",activity,"int",指南针宽度,"android.widget.LinearLayout",mLa)</eventItme></UIEventset>

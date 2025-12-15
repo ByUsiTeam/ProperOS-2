@@ -1,0 +1,118 @@
+{
+    name: ["JiYU", ".jiyu", ".iyu", ".myu", ".jush", ".tps", ".cuk", ".service", ".sboot"]
+    ignoreCase: true
+    hide: false
+
+    comment: {startsWith: "//"}
+    comment: {startsWith: "/.", endsWith: "./"}
+    comment: {startsWith: "<!--", endsWith: "-->"}
+
+    styles: [
+        "g", #FF51A9, #9876AA
+        "t", #FF0000, #CC7832
+        "arf", #60E2FF, #60E2FF
+        "tagNameDef", #4D00FF, #E8BF6A
+        "operator", #CC7832, #CC7832
+        "brilliant_blue", #3872FF, #3872FF
+        "atf", #E8F5E8, #1E2C3C
+    ]
+
+    defines: [
+        "colorMatcher": {match: /(?<![;&])#([a-fA-F0-9]{3,8})\b/, 0: "parseColor(auto,1,HEX)"}
+        
+        "xmlAttrValue": [
+            {
+                group: link
+                contains: [
+                    {match: /=\s*/, 0: "operator"}
+                    {
+                        match: /(?s)(["'])(.*?)\1/
+                        0: "string"
+                        2: {include: "colorMatcher"}
+                    }
+                ]
+            }
+        ]
+        
+        "xmlTagContent": [
+            {match: /(?s)<!--.*?(-->|$)/, 0: "comment"}
+            {match: /(xmlns:)([^='"\s]+)/, 1: "attrName", 2: "namespace"}
+            {match: /(?:([^='"<\/>\s]+)(:))?([^='"<\/>\s]+)/, 1: "namespace", 2: "operator", 3: "attrName"}
+            {include: "xmlAttrValue"}
+        ]
+    ]
+
+    // 修正：lineBackground的正确语法
+    lineBackground: {match: /\s*\bfn\b/, styleName: "atf"}
+
+    contains: [
+        // 运算符
+        {match: /(\|\|\*|\/|%|==|!=|>=|<=|&&|\|\||!|&|\||\^|~)/, 0: "operator"}
+        
+        // 数字
+        {match: /\b\d+\b/, 0: "brilliant_blue"}
+        
+        // 颜色值
+        {match: /(#)([0-9A-Fa-f]{6})\b/, 0: "parseColor(auto,2,HEX,default)"}
+        
+        // 控制流关键字
+        {match: keywordsToRegex("else f end ends t w for fi break endutw endkeyboard"), 0: "t"}
+        {match: /\b(null|true|false)\b/, 0: "t"}
+        
+        // 变量声明
+        {match: /\b(s|ss|sss)\s+([\w$]+)\b/, 1: "g", 2: "tagNameDef"}
+        
+        // 函数定义
+        {match: /\b(fn)\s+([\w$]+)\s*\(/, 1: "arf", 2: "meta"}
+        
+        // 内置函数
+        {match: keywordsToRegex(
+            "bfm bfms bfv bfvs bfvss bfs bly btoo bto"
+            "case cast cls clssm dha dhas dhast dhb dhd dhl dhon dhr dhset dhs dht"
+            "endcode ends f fc fd fe fi fl fn fo for fr fs ft ftz fuz fuzs fw"
+            "git gslist gslistiof gslistis gslistl gslistlof gslistsz gvs"
+            "has hd hda hdd hddgl hdds hddg hdduigo hdfl hdfla hd huf hw hws hs hsas"
+            "java javax javacb javags javanew javass json"
+            "lan loadjar loadso"
+            "ngde nuibs"
+            "otob"
+            "res"
+            "s s2 s+ s- s* s/ s% sbp se shb sj sjxx sl slg slof slower sran sr ss ssg ssj sss sssz sslist sstop stobm strim supper swh sxb sutf8to sz"
+            "sql sqlite sqlsele"
+            "t tcc time tfz tsf tts tzz tot tw tws"
+            "uall uapp uapplist uapplistgo ucall ufnsui ug ugo uht uit ujp uninapp urvw us usg ushsp usjxm usms usx usxh usxq utb utw uxf uycl uzd"
+            "yul"
+            "zdp zj zpd zps zsp"
+            ), 0: "g"
+        }
+        
+        // 双引号字符串
+        {
+            style: "string"
+            start: {match: /"/}
+            end: {match: /(?m)"|$/}
+        }
+        
+        // 单引号数字
+        {
+            style: "number"
+            start: {match: /'/}
+            end: {match: /(?m)'|$/}
+        }
+        
+        // XML开始标签
+        {
+            start: {match: /<(\??)([^/>\s]+)/, 1: "tagNameDef", 2: "tagName"}
+            end: {match: /\??\/?>|$/, 0: "tagNameDef"}
+            contains: [{include: "xmlTagContent"}]
+        }
+        
+        // XML结束标签
+        {match: /<\/\s*([^>\s]+)\s*>/, 1: "tagName"}
+        
+        // 独立颜色值
+        {include: "colorMatcher"}
+    ]
+    
+    codeFormatter: #BUILT_IN_XML_FORMATTER#
+}

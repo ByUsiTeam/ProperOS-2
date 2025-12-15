@@ -3,6 +3,7 @@ fn list()
 //刷新处理区
 fn core.loading(14)
 us(13,"visibility","visible")
+us(7,"refreshing",false)
 //首先进行基本清除操作
 ula(ss.homeList,null)
 s dir ="$ProperOS/home/Desktop/"
