@@ -85,6 +85,7 @@ else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg")
 	ulag(st_vW,14,name)
 	s dir ="$System/MusicPlayer/index.html"
 	fdir(fileDir,fileDir)
+	fd("$System/MusicPlayer/index.html",iuy)
 	fuz("@resources/sdk/MusicPlayer.zip","index.html","$System/MusicPlayer",true,b)
 	fr(dir,mpd)
 	sr(mpd,"[File]",fileDir,mpd)

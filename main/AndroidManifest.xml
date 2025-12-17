@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="miao.byusi.properos.two" android:versionCode="100221" android:versionName="beta2.2.1">
+<?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="miao.byusi.properos.two" android:versionCode="100222" android:versionName="beta2.2.2">
     <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="31"/>
 <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
