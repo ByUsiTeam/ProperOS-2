@@ -162,4 +162,6 @@ f(wp_sett == true)
 else
 {
 	us(setting_nr_1.55,"visibility","gone")
-}</eventItme></UIEventset>
+}
+fe("$System/Config/app_code.cuk",acuk)
+us(setting_nr_1.84,"checked",acuk)</eventItme></UIEventset>

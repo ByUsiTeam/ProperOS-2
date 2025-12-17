@@ -3,6 +3,13 @@
 height=-1</ppt>
 <event></event>
 </View>
+<View id="29" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮29v
+visibility=gone</ppt>
+<event></event>
+</View>
 <View id="2" did="1" type="ImageView">
 <ppt>width=-1
 height=-1
@@ -19,12 +26,38 @@ f(st_nS != 100)
 {
 	us(4,"visibility","visible")
 	us(5,"progress",st_nS)
+	us(28,"app_title","ProperOS Two - 加载中："+st_nS+"%")
 }
 else
 {
 	us(4,"visibility","gone")
 }</eventItme><eventItme type="onpagefinished">//us(8,"visibility","gone")
-syso("被加载的URL："+st_url)</eventItme><eventItme type="shouldoverrideurlloading">f(st_url ?* "http")
+syso("被加载的URL："+st_url)
+t()
+{
+	f(st_url ?* "file://")
+	{
+		sj(st_url,"file://",null,dir)
+		sutf8to(dir,dir)
+		fr(dir,html)
+		sj(html,"&lt;title&gt;","&lt;/title&gt;",title)
+		ufnsui()
+		{
+			us(28,"app_title","ProperOS_Two:AppTitle ➤ "+title)
+            sss AppTitle =title
+		}
+	}
+	else
+	{
+		hs(st_url,url)
+		sj(url,"&lt;title&gt;","&lt;/title",title)
+		ufnsui()
+		{
+			us(28,"app_title","ProperOS_Two:AppTitle ➤ "+title)
+            sss AppTitle =title
+		}
+	}
+}</eventItme><eventItme type="shouldoverrideurlloading">f(st_url ?* "http")
 {
 	us(st_vId,"url",st_url)
 }
@@ -47,6 +80,7 @@ f(st_url ?* "http")
 	sss Root_Interlinkage =st_url
 	syso(sss.Root_Interlinkage)
 	ss("(html)&lt;p&gt;在加载该链接时发生了错误&lt;br&gt;错误代码：&lt;a href=\"https://cn.bing.com/search?q="+st_dN+"\"&gt;"+st_dN+"&lt;/a&gt;\n报错的加载链接：ProperOS_Two:Root_Interlinkage&lt;/p&gt;",ii)
+    sss Root_Interlinkage =st_url
 	us(12,"text",ii)
 }
 else
@@ -59,13 +93,15 @@ else
 	ss("(html)&lt;p&gt;错误代码：&lt;a href=\"https://cn.bing.com/search?q="+st_dN+"\"&gt;"+st_dN+"&lt;/a&gt;&lt;br&gt;在加载该链接时发生了错误："+root+"&lt;/p&gt;",ii)
 	us(12,"text",ii)
 }
+/.
 call(v,"mjava","ExpandableTextView.createExpandableTextView",ii)
 nvw(v,11)
 //获取控件,添加控件
 us(v,"textcolor","#ff000000")
 us(v,"textsize","16sp")
 us(v,"layout_marginLeft","10dp")
-us(v,"typeface","@fontFile/acbt80.ttf")</eventItme><eventItme type="ondownloadstart">sj(st_cN,';filename="','"',name_impurity)
+us(v,"typeface","@fontFile/acbt80.ttf")
+./</eventItme><eventItme type="ondownloadstart">sj(st_cN,';filename="','"',name_impurity)
 
 f(st_cH &gt; "1024")
 {
@@ -135,13 +171,26 @@ layout_marginRight=45dp</ppt>
 <View id="18" did="1" type="LinearLayout">
 <ppt>width=-1
 height=-1
-orientation=horizontal
+orientation=vertical
 gravity=top|center
 ps=控制器
 visibility=gone</ppt>
 <event></event>
 </View>
-<View id="19" did="18" type="CardView">
+<View id="28" did="18" type="Toolbar">
+<ppt>width=-1
+height=55dp
+app_title=ProperOS Two</ppt>
+<event></event>
+</View>
+<View id="27" did="18" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=top|center</ppt>
+<event></event>
+</View>
+<View id="19" did="27" type="CardView">
 <ppt>width=65dp
 height=65dp
 app_CardcornerRadius=15dp</ppt>
@@ -154,7 +203,7 @@ src=17301541
 background=through</ppt>
 <event><eventItme type="clicki">us(3,"gobackorforward",-1)</eventItme></event>
 </View>
-<View id="21" did="18" type="CardView">
+<View id="21" did="27" type="CardView">
 <ppt>width=65dp
 height=65dp
 app_CardcornerRadius=15dp
@@ -284,7 +333,8 @@ fn lib.wp(2)
 fn core.loading(7)
 fr("$System/icon/search_no_result.svg",svg)
 fn lib.svg(svg,9)
-ss xs ="gone"</eventItme><eventItme type="loadingComplete">hsas(3,true)
+ss xs ="gone"
+utb(28)</eventItme><eventItme type="loadingComplete">hsas(3,true)
 f(sss.url != null && sss.url != "")
 {
 	us(3,"url",sss.url)
@@ -311,4 +361,17 @@ f(sss.type == "properos.app.store")
 	{
 		end()
 	}
-}</eventItme></UIEventset>
+}</eventItme><eventItme type="menu">case 查看源代码:
+
+fe("$System/Config/app_code.cuk",cuk)
+f(cuk == true)
+{
+	fr("$System/Config/app_code.cuk",cuk)
+	fn system.code(cuk,29)
+}
+else
+{
+	fn tw.tw2("请先开启开发者模式",1)
+}
+
+break</eventItme></UIEventset>
