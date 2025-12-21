@@ -80,7 +80,7 @@ f(fileDir *? ".plink")
 		fn core.uigo("startApp.iyu")
 	}
 }
-else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg")
+else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg" || houyi *? ".m4a")
 {
 	ulag(st_vW,14,name)
 	s dir ="$System/MusicPlayer/index.html"
