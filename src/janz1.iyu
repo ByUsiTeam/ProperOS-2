@@ -30,7 +30,8 @@ height=-2
 text=提示内容
 textstyle=bold
 textsize=16sp
-textColor=#ffffffff</ppt>
+textColor=#ffffffff
+typeface=@fontFile/acbt80.ttf</ppt>
 <event>
 </event>
 </View>

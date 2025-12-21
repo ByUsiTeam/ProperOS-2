@@ -43,6 +43,19 @@ t()
 	}
 }</eventItme></event>
 </View>
+<View id="6" did="3" type="Button">
+<ppt>width=-2
+height=-2
+text=测试守护进程服务</ppt>
+<event><eventItme type="clicki">fn guardianService.run(7)</eventItme></event>
+</View>
+<View id="7" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮7
+visibility=gone</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
 fn lib.wp(2)</eventItme></UIEventset>
