@@ -43,12 +43,12 @@ t()
 		for(value;output)
 		{
 			ss("$System/DaemonService/"+value,data)
-            syso("搜索到可执行守护进程脚本文件 ➤ "+data)
+			syso("搜索到可执行守护进程脚本文件 ➤ "+data)
 			fr(data,data)
-            ufnsui()
-            {
-            	fn system.code(data,id)
-            }
+			ufnsui()
+			{
+				fn system.code(data,id)
+			}
 		}
 		fr("$System/Config/DaemonServiceOn.sett",dso)
 		stop(1000)
