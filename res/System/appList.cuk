@@ -1,0 +1,72 @@
+slower(sss.fileDir,houyi)
+f(sss.fileDir *? ".plink")
+{
+	fr(sss.fileDir,plinkData)
+	json(plinkData,data)
+	json(data,"get","sign",sign)
+	json(sign,"get","uuid",uuid)
+	f(uuid == "properos.app.store")
+	{
+		sss type ="properos.app.store"
+	}
+	else
+	{
+		sss type =null
+	}
+	json(data,"get","startUrl",startUrl)
+	json(startUrl,"get","qiyue",startUrl_qiyue)
+	json(data,"get","systemUi",systemUi)
+	json(systemUi,"get","qiyue",systemUi_qiyue)
+	f(startUrl_qiyue == true)
+	{
+		json(startUrl,"get","url",url)
+		sss url =url
+		fn core.uigo("startApp.iyu")
+	}
+	else f(systemUi_qiyue == true)
+	{
+		json(systemUi,"get","ui",ui)
+		json(systemUi,"get","variable",variable)
+		fn core.uigo(ui)
+		sss url =variable
+	}
+	else
+	{
+		json(data,"get","package",package)
+		json(data,"get","guide",guide)
+		ss("$user/data/software/"+package+"/src/",catalogue)
+		ss("$user/data/software/"+package+"/src/"+guide,url)
+		//sss catalogue =catalogue
+		sss url =url
+		fn core.uigo("startApp.iyu")
+	}
+}
+else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg" || houyi *? ".m4a")
+{
+	ulag(st_vW,14,name)
+	s dir ="$System/MusicPlayer/index.html"
+	fdir(sss.fileDir,sss.fileDir)
+	fuz("@resources/sdk/MusicPlayer.zip","MusicPlayer/index.html","$System",true,b)
+	fr(dir,mpd)
+	sr(mpd,"[File]",sss.fileDir,mpd)
+	sr(mpd,"[FileName]",name,mpd)
+	fw(dir,mpd)
+	sss url =dir
+	fn core.uigo("startApp.iyu")
+}
+else f(houyi *? ".mp4")
+{
+	sss url =sss.fileDir
+	fn core.uigo("player.iyu")
+}
+else
+{
+	utw("@fail.png","提醒","[ERROR] 无法打开文件 \""+sss.fileDir+"\" 请检查\n\n点击 \"确定\" 关闭","确定","安卓打开",true,v)
+	{
+		endutw()
+	}
+	else
+	{
+		fo(sss.fileDir)
+	}
+}

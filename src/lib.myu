@@ -10,7 +10,8 @@ f(wpp == true)
 else f(wpp == false)
 {
 	us(id,"visibility","visible")
-	us(id,"src","@DefaultWallpaper/1763199229776.png")
+	sran(1,2,sjs)
+	us(id,"src","@DefaultWallpaper/"+sjs+".png")
 }
 
 end fn
@@ -18,6 +19,8 @@ end fn
 fn qz_variable(bl,bl2)
 
 call(null,"mjava","lib.variable",bl,bl2)
+
+end fn
 
 end fn
 
@@ -64,5 +67,15 @@ utw(null,"","loading.iyu",true,v)
 }
 gvs(v,6,loading)
 us(loading,"text",text)
+
+end fn
+
+fn utw_web(url,controller)
+
+utw(null,"","utw_web.iyu",controller,v)
+{
+}
+gvs(v,1,utw_web)
+us(utw_web,"url",url)
 
 end fn

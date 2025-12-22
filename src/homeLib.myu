@@ -1,6 +1,7 @@
 fn list()
 
 //刷新处理区
+fn lib.wp(2)
 fn core.loading(14)
 us(13,"visibility","visible")
 us(7,"refreshing",false)
@@ -100,7 +101,6 @@ t()
 	ufnsui()
 	{
 		us(7,"refreshing",false)
-		fn lib.wp(2)
 		ula(ss.homeList,"list",homeList)
 		sss homeList =homeList
 		us(13,"visibility","gone")

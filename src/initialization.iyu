@@ -42,48 +42,43 @@ layout_marginRight=50dp
 layout_marginTop=10dp</ppt>
 <event></event>
 </View>
+<View id="7" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮7
+visibility=gone
+ps=代码处理区域</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
-fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn core.loading(6)
-t()
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">t()
 {
-	fuzs("@resources/icon.zip","$System/icon/",true,fuzs)
-	fr("@PLink/plink-system.json",pksm)
-	json(pksm,pksm_setting)
-	//初始化设置应用
-	json(pksm_setting,"set","name","设置")
-	json(pksm_setting,"set","package","properos.two.setting")
-	json(pksm_setting,"set","icon","$System/icon/ic_app_icon_settings.png")
-	json(pksm_setting,"get","systemUi",systemUi)
-	json(systemUi,"set","qiyue",true)
-	json(systemUi,"set","ui","setting.iyu")
-	json(pksm_setting,"set","systemUi",systemUi)
-	json(pksm_setting,"set","guide","")
-	fw("$ProperOS/home/Desktop/ac8d0330-7afa-4f18-aff5-b9f7db6d4de0.plink",pksm_setting)
-	fuzs("@resources/application/Install applications by default.zip","$",true,b)
-	fuzs("@resources/ServiceLibrary/SystemLibrary.zip","$",true,b2)
-	fuzs("@resources/sdk/MusicPlayer.zip","$System",true,mp)
-	fe("$System/guide.cuk",bootState)
-	f(bootState == false)
-	{
-		fc("@System/guide.cuk","$System/guide.cuk",st)
-	}
-	fr("@about.json",data)
-	json(data,data)
-	json(data,"get","defaultCuk",defaultCuk)
-	json(defaultCuk,"get","version",cukv)
-	fe("$System/scv/version.json",scv)
-	f(scv == false)
-	{
-		fw("$System/scv/version.json","{\"version\": \""+cukv+"\"}")
-	}
 	ufnsui()
 	{
-		json(data,"get","version",version)
-		fw("$System/Config/Initialization.sett",version)
-		fn core.uigo("home.iyu")
-		end()
+		fn lib.loading("请求云端初始化代码中...")
 	}
+	hs("https://code.properos.cn/initialization/",web_code)
+    ufnsui()
+    {
+    	endutw()
+    }
+    f(web_code != null)
+    {
+    	ufnsui()
+    	{
+    		fn system.code(web_code,7)
+    	}
+    }
+    else
+    {
+    	ufnsui()
+    	{
+    		fn tw.tw2("未链接互联网，使用本地初始化方案",1)
+            fr("@System/initialization_code.cuk",code)
+            fn system.code(code,7)
+    	}
+    }
 }</eventItme><eventItme type="downkey">f(st_kC == 4)
 {
 	//拦截返回操作

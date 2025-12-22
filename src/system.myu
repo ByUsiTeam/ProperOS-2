@@ -163,7 +163,7 @@ end fn
 
 fn code(code,id)
 
-call(代码,"mjava","代码处理器.Process",code)
+call(代码,"mjava","codeProcessor.Process",code)
 fn model.设置代码(id,"clicki",代码)
 fn model.点击控件(id)
 

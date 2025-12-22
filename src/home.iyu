@@ -153,7 +153,13 @@ f(ss.permissionsHelper == null) {
   }
 javax(null,ss.permissionsHelper,sss.klass,"attach","int",15)
 //2是那个空白布局的id</eventItme><eventItme type="loadingComplete">fn homeLib.list()
-utb(11)</eventItme><eventItme type="menu">case 重启软件:
+utb(11)</eventItme><eventItme type="menu">case 守护进程启动:
+
+fn guardianService.start(12)
+
+break
+
+case 重启软件:
 
 fw("$System/Config/DaemonServiceOn.sett","false")
 utw(null,"","确定重启吗？","重启","取消",true,v)
@@ -167,13 +173,13 @@ else
 
 break
 
-case 动态获取云端信息:
+case 获取云端公告信息:
 
 t()
 {
 	ufnsui()
 	{
-		fn lib.loading("获取云端代码中...")
+		fn lib.loading("获取云端公告中...")
 	}
 	hs("https://code.properos.cn/",cuk)
 	endutw()

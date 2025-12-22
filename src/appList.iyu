@@ -35,80 +35,7 @@ height=-1
 text=
 background=through
 ps=点击事件处理处</ppt>
-<event><eventItme type="clicki">ulag(st_vW,11,plink)
-ulag(st_vW,12,fileDir)
-slower(fileDir,houyi)
-f(fileDir *? ".plink")
-{
-	fr(fileDir,plinkData)
-	json(plinkData,data)
-	json(data,"get","sign",sign)
-	json(sign,"get","uuid",uuid)
-	f(uuid == "properos.app.store")
-	{
-		sss type ="properos.app.store"
-	}
-	else
-	{
-		sss type =null
-	}
-	json(data,"get","startUrl",startUrl)
-	json(startUrl,"get","qiyue",startUrl_qiyue)
-	json(data,"get","systemUi",systemUi)
-	json(systemUi,"get","qiyue",systemUi_qiyue)
-	f(startUrl_qiyue == true)
-	{
-		json(startUrl,"get","url",url)
-		sss url =url
-		fn core.uigo("startApp.iyu")
-	}
-	else f(systemUi_qiyue == true)
-	{
-		json(systemUi,"get","ui",ui)
-		json(systemUi,"get","variable",variable)
-		fn core.uigo(ui)
-		sss url =variable
-	}
-	else
-	{
-		json(data,"get","package",package)
-		json(data,"get","guide",guide)
-		ss("$user/data/software/"+package+"/src/",catalogue)
-		ss("$user/data/software/"+package+"/src/"+guide,url)
-		//sss catalogue =catalogue
-		sss url =url
-		fn core.uigo("startApp.iyu")
-	}
-}
-else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg" || houyi *? ".m4a")
-{
-	ulag(st_vW,14,name)
-	s dir ="$System/MusicPlayer/index.html"
-	fdir(fileDir,fileDir)
-	fuz("@resources/sdk/MusicPlayer.zip","MusicPlayer/index.html","$System",true,b)
-	fr(dir,mpd)
-	sr(mpd,"[File]",fileDir,mpd)
-	sr(mpd,"[FileName]",name,mpd)
-	fw(dir,mpd)
-	sss url =dir
-	fn core.uigo("startApp.iyu")
-}
-else f(houyi *? ".mp4")
-{
-	sss url =fileDir
-	fn core.uigo("player.iyu")
-}
-else
-{
-	utw("@fail.png","提醒","[ERROR] 无法打开文件 \""+fileDir+"\" 请检查\n\n点击 \"确定\" 关闭","确定","安卓打开",true,v)
-	{
-		endutw()
-	}
-	else
-	{
-		fo(fileDir)
-	}
-}</eventItme><eventItme type="press">ulag(st_vW,8,name)
+<event><eventItme type="press">ulag(st_vW,8,name)
 ulag(st_vW,11,plink)
 ulag(st_vW,12,file)
 ulag(st_vW,13,package)
@@ -161,6 +88,23 @@ t()
 			}
 		}
 	}
+}</eventItme><eventItme type="clicki">ulag(st_vW,11,plink)
+ulag(st_vW,12,fileDir)
+sss plink =plink
+sss fileDir =fileDir
+
+//代码执行区域
+fe("$System/code/appList.cuk",cuk)
+f(cuk == true)
+{
+	fr("$System/code/appList.cuk",code)
+	fn system.code(code,12)
+}
+else
+{
+	fc("@System/appList.cuk","$System/code/appList.cuk",y)
+	fr("@System/appList.cuk",code)
+	fn system.code(code,12)
 }</eventItme></event>
 </View>
 <View id="7" did="1" type="LinearLayout">
@@ -226,7 +170,8 @@ text=文本14
 ps=文件名</ppt>
 <event></event>
 </View>
-<UIEventset><eventItme type="loading">dhas(dh, st_vW, "scaleX", 0.5, 1)
+<UIEventset><eventItme type="loading">/.
+dhas(dh, st_vW, "scaleX", 0.5, 1)
 dh(dh, "duration", 500)
 dh(dh, "start")
 
@@ -235,4 +180,5 @@ dh(dh1, "duration", 500)
 dh(dh1, "start")
 dhas(dh2, st_vW, "alpha", 0,1)
 dh(dh2, "duration", 1000)
-dh(dh2, "start")</eventItme></UIEventset>
+dh(dh2, "start")
+./</eventItme></UIEventset>
