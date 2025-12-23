@@ -2,8 +2,8 @@
 <title>ProperOS 2</title>
 <icon>icon.png</icon>
 <packageName>miao.byusi.properos.two</packageName>
-<versionName>beta2.2.2</versionName>
-<versionint>222</versionint>
+<versionName>beta2.2.4</versionName>
+<versionint>224</versionint>
 <sdk>26</sdk>
 <yuv>3</yuv>
 
@@ -23,7 +23,9 @@ android.hardware.camera
 android.hardware.camera2
 android.hardware.camera.front
 android.hardware.camera.autofocus
-android.permission.FLASHLIGHT</Permissions>
+android.permission.FLASHLIGHT
+android.permission.INTERNET
+android.permission.WRITE_EXTERNAL_STORAGE</Permissions>
 <createTime>2025-11-16 20:48:02</createTime>
 <upTime>2025-11-16 20:48:02</upTime><manifest>&lt;uses-sdk android:minSdkVersion="15" android:targetSdkVersion="26"/&gt;
 

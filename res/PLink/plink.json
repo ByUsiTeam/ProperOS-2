@@ -26,5 +26,6 @@
     "qiyue": false,
     "file": ""
   },
-  "guide": "index.html"
+  "guide": "index.html",
+  "port": 24000
 }

@@ -20,5 +20,6 @@
       "email": "177828525@qq.com"
     }
   },
-  "guide": "index.html"
+  "guide": "index.html",
+  "port": 34560
 }

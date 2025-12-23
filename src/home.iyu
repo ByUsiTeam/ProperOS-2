@@ -101,7 +101,7 @@ visibility=gone</ppt>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
 fn lib.wp(2)
-fn guardianService.run(12)
+//fn guardianService.run(12)
 call(fh,"mjava","Permission.pd",activity)
 f(fh == true || fh == "true")
 {
@@ -126,34 +126,51 @@ loadjar("permissions",sss.dex)
 java(appClassLoader,activity,"android.content.Context.getClassLoader")
 javass(fixup,sss.dex,"java.lang.ClassLoader","parent",appClassLoader)
 f(!fixup) {
-  fn tw.tw2("无法更改ClassLoader的parent",1)
-  end()
-  endcode
-  }
+	fn tw.tw2("无法更改ClassLoader的parent",1)
+	end()
+	endcode
+	}
 
 cls(sss.dex,"com.canyie.permissions.PermissionHandlerFragment",testClass)
 f(testClass == null) {
-  fn tw.tw2("拿不到Fragment类(&gt;﹏&lt;)",1)
-  end()
-  endcode
-  }
+	fn tw.tw2("拿不到Fragment类(&gt;﹏&lt;)",1)
+	end()
+	endcode
+	}
 
 cls(sss.dex,"com.canyie.permissions.PermissionsHelper",sss.klass)
 f(sss.klass == null) {
-  fn tw.tw2("拿不到Helper类(&gt;﹏&lt;)",1)
-  end()
-  endcode
-  }
+	fn tw.tw2("拿不到Helper类(&gt;﹏&lt;)",1)
+	end()
+	endcode
+	}
 javanew(ss.permissionsHelper,sss.klass,"androidx.fragment.app.FragmentActivity",activity)
 //ps：每个要用的界面都需要创建一个PermissionsHelper
 f(ss.permissionsHelper == null) {
-  fn tw.tw2("创建不了helper(&gt;﹏&lt;)",1)
-  end()
-  endcode
-  }
+	fn tw.tw2("创建不了helper(&gt;﹏&lt;)",1)
+	end()
+	endcode
+	}
 javax(null,ss.permissionsHelper,sss.klass,"attach","int",15)
 //2是那个空白布局的id</eventItme><eventItme type="loadingComplete">fn homeLib.list()
-utb(11)</eventItme><eventItme type="menu">case 守护进程启动:
+utb(11)
+//
+t()
+{
+	hs("https://code.properos.cn/start",url)
+	f(url != null)
+	{
+		ufnsui()
+		{
+			fn system.code(url,12)
+		}
+	}
+	else
+	{
+		syso("未链接网络")
+	}
+}
+//</eventItme><eventItme type="menu">case 守护进程启动:
 
 fn guardianService.start(12)
 

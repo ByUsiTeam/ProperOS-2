@@ -34,9 +34,26 @@ f(sss.fileDir *? ".plink")
 	{
 		json(data,"get","package",package)
 		json(data,"get","guide",guide)
+		json(data,"get","port",port)
 		ss("$user/data/software/"+package+"/src/",catalogue)
 		ss("$user/data/software/"+package+"/src/"+guide,url)
 		//sss catalogue =catalogue
+		/.
+		f(port != null || port != "")
+		{
+			call(drt,"mjava","server.webRun","0.0.0.0",port,catalogue,guide)
+			syso(drt)
+			ss("http://127.0.0.1:"+port+"/"+guide,url)
+		}
+		else
+		{
+			syso("[ERROR] 端口配置不存在")
+			syso("使用默认配置进行运行")
+			call(drt,"mjava","server.webRun","0.0.0.0","1280",catalogue,guide)
+			syso(drt)
+			ss("http://127.0.0.1:1280/"+guide,url)
+		}
+		./
 		sss url =url
 		fn core.uigo("startApp.iyu")
 	}

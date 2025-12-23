@@ -1,0 +1,42 @@
+import miao.byusi.properos.two.PopUpAssembly.HttpServerManager;
+
+private static HttpServerManager manager;
+
+public String webRun(String host, int port, String webRoot, String defaultDocument) {
+	if (host == null || host.isEmpty() || 
+		port <= 0 || port > 65535 ||
+		webRoot == null || webRoot.isEmpty() ||
+		defaultDocument == null || defaultDocument.isEmpty()) {
+		return "Invalid parameters";
+	}
+	
+	if (manager != null) {
+		return "Server already running";
+	}
+	
+	manager = new HttpServerManager()
+		.setHost(host)
+		.setPort(port)
+		.setWebRoot(webRoot)
+		.setDefaultDocument(defaultDocument);
+
+	boolean started = manager.start(context);
+	
+	if (started) {
+		return "Server started successfully on " + host + ":" + port;
+	} else {
+		manager = null;
+		return "Failed to start server";
+	}
+}
+
+public String stopRun() {
+	if (manager == null) {
+		return "No server is running";
+	}
+	
+	manager.stop();
+	manager = null;
+	
+	return "Server stopped successfully";
+}
