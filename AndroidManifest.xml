@@ -7,7 +7,7 @@
 <sdk>26</sdk>
 <yuv>3</yuv>
 
-<remark></remark>
+<remark>一个使用 iApp v3 开发的模拟操作系统应用，源 ProperOS 已在 Gitee 上开源，本版本亦是如此</remark>
 <Permissions>android.permission.REQUEST_INSTALL_PACKAGES
 android.permission.READ_EXTERNAL_STORAGE
 android.permission.WRITE_EXTERNAL_STORAGE
