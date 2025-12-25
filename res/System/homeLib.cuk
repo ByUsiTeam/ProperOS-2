@@ -73,6 +73,12 @@ t()
 			sbp(mpi,icon)
 			s appName =content
 		}
+		else f(houyi *? ".tps" || houyi *? ".cuk" || houyi *? ".jush")
+		{
+			s plink =false
+			sbp("$System/icon/ic_settings_voice_assistant.png",icon)
+			s appName =content
+		}
 		else
 		{
 			s plink =false

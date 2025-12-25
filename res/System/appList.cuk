@@ -8,10 +8,12 @@ f(sss.fileDir *? ".plink")
 	f(uuid == "properos.app.store")
 	{
 		sss type ="properos.app.store"
+		sss script =null
 	}
 	else
 	{
 		sss type =null
+		sss script =null
 	}
 	json(data,"get","startUrl",startUrl)
 	json(startUrl,"get","qiyue",startUrl_qiyue)
@@ -58,6 +60,11 @@ else f(houyi *? ".mp4")
 {
 	sss url =sss.fileDir
 	fn core.uigo("player.iyu")
+}
+else f(houyi *? ".tps" || houyi *? ".cuk" || houyi *? ".jush")
+{
+	sss script =sss.fileDir
+	fn core.uigo("terminal.iyu")
 }
 else
 {

@@ -1,0 +1,111 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="ImageView">
+<ppt>width=-1
+height=-1
+src=17301567
+scaleType=centercrop
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="3" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=center
+background=black</ppt>
+<event></event>
+</View>
+<View id="4" did="3" type="CardView">
+<ppt>width=-1
+height=85dp
+layout_marginLeft=10dp
+layout_marginRight=10dp
+layout_marginBottom=10dp
+app_CardcornerRadius=15dp</ppt>
+<event></event>
+</View>
+<View id="7" did="4" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+gravity=bottom|center</ppt>
+<event></event>
+</View>
+<View id="9" did="7" type="Button">
+<ppt>width=-1
+height=45dp
+text=➤
+textColor=#ff000000
+typeface=@fontFile/acbt80.ttf
+ps=发送命令区域
+background=through</ppt>
+<event><eventItme type="clicki">fe("$System/code/terminal.cuk",ter)
+f(ter == true)
+{
+	fr("$System/code/terminal.cuk",code)
+	fn system.code(code,11)
+}
+else
+{
+	fr("@System/terminalParser.cuk",code)
+	fw("$System/code/terminal.cuk",code)
+	fn system.code(code,11)
+}</eventItme></event>
+</View>
+<View id="8" did="7" type="EditText">
+<ppt>width=-1
+height=-1
+text=
+background=
+typeface=@fontFile/ProductSans-Regular.ttf
+textColor=#ff000000
+hint=ProperOS_Two@CodeML:~/
+singleLine=true
+imeOptions=actionsend
+ps=命令编辑框</ppt>
+<event><eventItme type="editormonitor">f(st_aI != 0)
+{
+	fn model.点击控件(9)
+}</eventItme></event>
+</View>
+<View id="5" did="3" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical</ppt>
+<event></event>
+</View>
+<View id="6" did="5" type="RecyclerView">
+<ppt>width=-1
+height=-2
+ps=终端列表</ppt>
+<event></event>
+</View>
+<View id="10" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮10
+ps=代码执行区域，不可以删除
+visibility=gone</ppt>
+<event></event>
+</View>
+<View id="11" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮11
+ps=终端代码解析器解析执行区域
+visibility=gone</ppt>
+<event></event>
+</View>
+<UIEventset><eventItme type="loading">fn byusi.ztl()
+fn byusi.uycl()
+fn lib.wp(2)</eventItme><eventItme type="loadingComplete">fn terminalLib.echo("欢迎使用 ProperOS 2 Terminal",clear)
+f(sss.script != null)
+{
+	us(4,"visibility","gone")
+	fr(sss.script,code)
+	fn system.code(code,10)
+}</eventItme></UIEventset>

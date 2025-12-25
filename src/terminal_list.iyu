@@ -1,0 +1,38 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=-2</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-2
+orientation=horizontal</ppt>
+<event><eventItme type="clicki">ulag(st_vW,4,text)
+utw(null,"是否复制一下内容？",text,"复制","取消",false,v)
+{
+	sxb(text)
+}
+else
+{
+	endutw()
+}</eventItme></event>
+</View>
+<View id="3" did="2" type="TextView">
+<ppt>width=-2
+height=-2
+text=ProperOS_Two@CodeML:[Time]$ ~/
+textColor=#ffffffff
+typeface=@fontFile/ProductSans-Regular.ttf</ppt>
+<event></event>
+</View>
+<View id="4" did="2" type="TextView">
+<ppt>width=-2
+height=-2
+text=文本内容（ID：4）
+textColor=#ffffffff
+typeface=@fontFile/ProductSans-Regular.ttf
+layout_marginLeft=5dp
+layout_gravity=center</ppt>
+<event></event>
+</View>
+<UIEventset></UIEventset>

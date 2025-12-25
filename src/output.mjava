@@ -1,0 +1,6 @@
+public static void awayroll(recycleview){
+	position=recycleview.getAdapter().getItemCount()-1;
+	recycleview.scrollToPosition(position);
+	mLayoutManager = recycleview.getLayoutManager();
+	mLayoutManager.scrollToPositionWithOffset(position, 0);
+}
