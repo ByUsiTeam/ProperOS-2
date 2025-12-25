@@ -1,0 +1,22 @@
+fn lib.loading("获取待安装代码中，请稍后...")
+t()
+{
+	hs(sss.url,code)
+	f(code != null && code != "")
+	{
+		ufnsui()
+		{
+			endutw()
+			fw(sss.filedir,code)
+			fn tw.tw("安装成功")
+		}
+	}
+	else
+	{
+		ufnsui()
+		{
+			endutw()
+		}
+		fn tw.tw2("请检查网络连接",1)
+	}
+}

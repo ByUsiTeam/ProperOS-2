@@ -1,0 +1,63 @@
+<View id="1" did="0" type="RelativeLayout">
+<ppt>width=-1
+height=55dp</ppt>
+<event></event>
+</View>
+<View id="2" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=horizontal
+gravity=left|center</ppt>
+<event></event>
+</View>
+<View id="3" did="2" type="RoundImageView">
+<ppt>width=45dp
+height=45dp
+src=17301567
+layout_marginLeft=10dp</ppt>
+<event></event>
+</View>
+<View id="5" did="2" type="TextView">
+<ppt>width=-2
+height=-2
+text=文本（ID：5）
+typeface=@fontFile/acbt80.ttf
+textSize=15sp
+layout_marginLeft=5dp</ppt>
+<event></event>
+</View>
+<View id="6" did="1" type="Button">
+<ppt>width=-1
+height=-1
+text=
+background=through</ppt>
+<event><eventItme type="clicki">ulag(st_vW,8,url)
+ulag(st_vW,9,filedir)
+sss url =url
+sss filedir =filedir
+fr("@System/system_update.cuk",code)
+fn system.code(code,17)</eventItme></event>
+</View>
+<View id="7" did="1" type="LinearLayout">
+<ppt>width=-1
+height=-1
+orientation=vertical
+visibility=gone
+ps=隐藏文本布局</ppt>
+<event></event>
+</View>
+<View id="8" did="7" type="TextView">
+<ppt>width=-2
+height=-2
+text=
+ps=获取链接</ppt>
+<event></event>
+</View>
+<View id="9" did="7" type="TextView">
+<ppt>width=-2
+height=-2
+text=文本9
+ps=路径</ppt>
+<event></event>
+</View>
+<UIEventset></UIEventset>

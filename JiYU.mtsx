@@ -1,11 +1,10 @@
 {
-    name: ["JiYU",".jiyu", ".iyu", ".myu", ".jush", ".tps", ".cuk", ".service", ".sboot"]
+    name: ["JiYU", ".jiyu", ".iyu", ".myu", ".jush", ".tps", ".cuk", ".service", ".sboot"]
     ignoreCase: true
     comment: {startsWith: "//"}
     comment: {startsWith: "/.", endsWith: "./"}
     comment: {startsWith: "<!--", endsWith: "-->"}
     hide: false
-    ignoreCase: true
     styles: [
         "g", #FF51A9, #9876AA
         "t", #FF0000, #CC7832
@@ -13,6 +12,7 @@
         "tagNameDef", #4D00FF, #E8BF6A
         "operator", #CC7832, #CC7832
         "brilliant_blue", #3872FF, #3872FF
+        "strEscape", #0037A6, #CC7832
     ]
     defines: [
         "colorMatcher": {
@@ -34,12 +34,20 @@
         {
             style: "string"
             start: {match: /"/}
-            end: {match: /"/}
+            end: {match: /(?m)"|$/}
+            contains: [
+                {match: /\\./, 0: "strEscape"}
+                <EndMatcher>
+            ]
         }
         {
             style: "number"
             start: {match: /'/}
-            end: {match: /'/}
+            end: {match: /(?m)'|$/}
+            contains: [
+                {match: /\\./, 0: "strEscape"}
+                <EndMatcher>
+            ]
         }
         {
             start: {match: "<\\??([^/>\\s]+)", 0: "tagNameDef", 1: "tagName"}

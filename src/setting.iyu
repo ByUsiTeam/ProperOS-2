@@ -98,6 +98,14 @@ orientation=vertical
 ut_alignParentBottom=true</ppt>
 <event></event>
 </View>
+<View id="17" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮17
+visibility=gone
+ps=代码执行区域</ppt>
+<event></event>
+</View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
 fn lib.wp(2)

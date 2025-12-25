@@ -773,7 +773,14 @@ checked=false</ppt>
 height=-1
 text=
 background=through</ppt>
-<event><eventItme type="clicki">t()
+<event><eventItme type="clicki">utw(null,"","utw_list.iyu",false,v)
+{
+}
+gvs(v,1,utw)
+//
+sbp("@resources/icon/total.png",icon)
+//
+t()
 {
 	fr("@about.json",data)
 	json(data,data)
@@ -787,11 +794,21 @@ background=through</ppt>
 	endutw()
 	f(qqsj != null && data2 != null)
 	{
-		ufnsui()
+		json(data2,"list","beacon",list)
+		json(list,"size",size)
+		s size2 =0
+		w(size2 &lt; size)
 		{
-			utw(null,"",qqsj,"还没有写更新方面的逻辑代码",false,v)
+			json(list,"data",size2,item)
+			json(item,"get","name",name)
+			json(item,"get","url",url)
+			json(item,"get","dir",filedir)
+			ula(ss.utw_list,3=icon,5=name,8=url,9=filedir)
+			ufnsui()
 			{
+				uls(utw,ss.utw_list,"utw_list_list.iyu",-2-2)
 			}
+            s(size2 + 1,size2)
 		}
 	}
 	else
