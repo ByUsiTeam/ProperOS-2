@@ -171,7 +171,13 @@ f(ss.permissionsHelper == null) {
 	endcode
 	}
 javax(null,ss.permissionsHelper,sss.klass,"attach","int",15)
-//2是那个空白布局的id</eventItme><eventItme type="loadingComplete">//桌面刷新逻辑，后续会使用.cuk脚本来写
+//2是那个空白布局的id
+
+//工具栏字体设置
+gvs(11,toolbar)
+java(titleView,toolbar,"android.view.ViewGroup.getChildAt","int",0)
+us(titleView,"typeface","@fontFile/acbt80.ttf")
+us(titleView,"app_TitleColor","#ffffffff")</eventItme><eventItme type="loadingComplete">//桌面刷新逻辑，后续会使用.cuk脚本来写
 fe("$System/code/homeLib.cuk",huk)
 f(huk == true)
 {

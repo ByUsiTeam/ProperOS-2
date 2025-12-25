@@ -131,6 +131,11 @@ dht(dh2,"-"+h,0,0,0)
 dh(dh2, "duration", 500)
 dhset(dhlist,false,dh1,dh2)
 us(12,"dh",dhlist)
+//工具栏字体设置
+gvs(9,toolbar)
+java(titleView,toolbar,"android.view.ViewGroup.getChildAt","int",0)
+us(titleView,"typeface","@fontFile/acbt80.ttf")
+us(titleView,"app_TitleColor","#ffffffff")
 //美化
 /. //注销对部分影响性能的内容
 loadjar("lansy-1.0.0", sss.LansyLibrary)
