@@ -773,7 +773,8 @@ checked=false</ppt>
 height=-1
 text=
 background=through</ppt>
-<event><eventItme type="clicki">utw(null,"","utw_list.iyu",false,v)
+<event><eventItme type="clicki">ula(ss.utw_list,null)
+utw(null,"","utw_list.iyu",false,v)
 {
 }
 gvs(v,1,utw)
