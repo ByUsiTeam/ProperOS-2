@@ -22,6 +22,12 @@ t()
 	{
 		fc("@System/guide.cuk","$System/guide.cuk",st)
 	}
+	fe("$System/code/homeLib.cuk",huk)
+	f(huk == false)
+	{
+		fr("@System/homeLib.cuk",code)
+		fw("$System/code/homeLib.cuk",code)
+	}
 	fr("@about.json",data)
 	json(data,data)
 	json(data,"get","defaultCuk",defaultCuk)

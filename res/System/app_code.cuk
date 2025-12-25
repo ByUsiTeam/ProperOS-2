@@ -1,5 +1,0 @@
-ug(3,"url",url)
-ss("view-source:"+url,url)
-sss url =url
-// fn lib.qz_variable("sss.url",url)
-fn core.uigo("startApp.iyu")

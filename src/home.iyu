@@ -54,7 +54,18 @@ Refreshing=true</ppt>
 utw(null,"","确定刷新桌面吗？","确定","取消",true,v)
 {
 	endutw()
-	fn homeLib.list()
+	fe("$System/code/homeLib.cuk",huk)
+	f(huk == true)
+	{
+		fr("$System/code/homeLib.cuk",code)
+		fn system.code(code,16)
+	}
+	else
+	{
+		fn core.uigo("setting.iyu")
+		fn tw.tw2("请通过更新功能获取并安装最新的桌面刷新解析逻辑",1)
+		end()
+	}
 }
 else
 {
@@ -74,6 +85,14 @@ height=-2
 text=按钮12
 visibility=gone
 ps=无用的代码执行区域</ppt>
+<event></event>
+</View>
+<View id="16" did="1" type="Button">
+<ppt>width=-2
+height=-2
+text=按钮16
+visibility=gone
+ps=桌面刷新逻辑专门使用</ppt>
 <event></event>
 </View>
 <View id="13" did="1" type="LinearLayout">
@@ -152,9 +171,22 @@ f(ss.permissionsHelper == null) {
 	endcode
 	}
 javax(null,ss.permissionsHelper,sss.klass,"attach","int",15)
-//2是那个空白布局的id</eventItme><eventItme type="loadingComplete">fn homeLib.list()
+//2是那个空白布局的id</eventItme><eventItme type="loadingComplete">//桌面刷新逻辑，后续会使用.cuk脚本来写
+fe("$System/code/homeLib.cuk",huk)
+f(huk == true)
+{
+	fr("$System/code/homeLib.cuk",code)
+	fn system.code(code,16)
+}
+else
+{
+	fn core.uigo("setting.iyu")
+	fn tw.tw2("请通过更新功能获取并安装最新的桌面刷新解析逻辑",1)
+	end()
+}
+//工具栏初始化
 utb(11)
-//
+//启动自动执行区域
 t()
 {
 	hs("https://code.properos.cn/start",url)

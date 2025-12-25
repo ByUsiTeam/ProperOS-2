@@ -52,7 +52,8 @@ ps=代码处理区域</ppt>
 </View>
 <UIEventset><eventItme type="loading">fn byusi.ztl()
 fn byusi.uycl()
-fn lib.wp(2)</eventItme><eventItme type="loadingComplete">t()
+fn lib.wp(2)
+fn core.loading(6)</eventItme><eventItme type="loadingComplete">t()
 {
 	ufnsui()
 	{

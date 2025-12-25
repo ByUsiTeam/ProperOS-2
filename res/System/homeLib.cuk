@@ -1,5 +1,3 @@
-fn list()
-
 //刷新处理区
 fn lib.wp(2)
 fn core.loading(14)
@@ -112,5 +110,3 @@ t()
 		syso("主桌面列表："+sss.homeList)
 	}
 }
-
-end fn
