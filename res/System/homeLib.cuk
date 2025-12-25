@@ -1,3 +1,7 @@
+//初始化部分变量图标
+sbp("@resources/icon/6e.png",audio_icon)
+sbp("@resources/icon/wE.png",pdf_icon)
+sbp("@fail.png",error_icon)
 //刷新处理区
 fn lib.wp(2)
 fn core.loading(14)
@@ -52,15 +56,13 @@ t()
 		else f(houyi *? ".mp3" || houyi *? ".flac" || houyi *? ".ogg" || houyi *? ".m4a")
 		{
 			s plink =false
-			s icon ="@resources/icon/6e.png"
-			sbp(icon,icon)
+			s icon =audio_icon
 			s appName =content
 		}
 		else f(houyi *? ".pdf")
 		{
 			s plink =false
-			s icon ="@resources/icon/wE.png"
-			sbp(icon,icon)
+			s icon =pdf_icon
 			s appName =content
 		}
 		else f(houyi *? ".mp4")
@@ -74,8 +76,7 @@ t()
 		else
 		{
 			s plink =false
-			s icon ="@fail.png"
-			sbp(icon,icon)
+			s icon =error_icon
 			s appName ="暂不支持解析该文件"
 		}
 		//数据变量集合化
