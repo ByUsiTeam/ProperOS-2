@@ -13,10 +13,12 @@ t()
 	json(systemUi,"set","ui","setting.iyu")
 	json(pksm_setting,"set","systemUi",systemUi)
 	json(pksm_setting,"set","guide","")
-	fw("$ProperOS/home/Desktop/ac8d0330-7afa-4f18-aff5-b9f7db6d4de0.plink",pksm_setting)
+	fw("$ProperOS/home/Desktop/properos.two.setting.plink",pksm_setting)
 	fuzs("@resources/application/Install applications by default.zip","$",true,b)
+	//初始化其他包
 	fuzs("@resources/ServiceLibrary/SystemLibrary.zip","$",true,b2)
 	fuzs("@resources/sdk/MusicPlayer.zip","$System",true,mp)
+	//引导与重要部分初始化
 	fe("$System/guide.cuk",bootState)
 	f(bootState == false)
 	{
@@ -28,6 +30,9 @@ t()
 		fr("@System/homeLib.cuk",code)
 		fw("$System/code/homeLib.cuk",code)
 	}
+	//卸载
+	fd("$ProperOS/home/Desktop/ac8d0330-7afa-4f18-aff5-b9f7db6d4de0.plink",fd)
+	//版本号更新
 	fr("@about.json",data)
 	json(data,data)
 	json(data,"get","defaultCuk",defaultCuk)
@@ -37,6 +42,7 @@ t()
 	{
 		fw("$System/scv/version.json","{\"version\": \""+cukv+"\"}")
 	}
+	//进入桌面
 	ufnsui()
 	{
 		json(data,"get","version",version)

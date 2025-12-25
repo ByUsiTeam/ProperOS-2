@@ -4,11 +4,24 @@ t()
 	hs(sss.url,code)
 	f(code != null && code != "")
 	{
-		ufnsui()
+		f(code ?* "/.*PromptCode")
 		{
-			endutw()
-			fw(sss.filedir,code)
-			fn tw.tw("安装成功")
+			sj(code,"/.*PromptCode\n","*./",tps_code)
+			ufnsui()
+			{
+				fn system.code(tps_code,17)
+				fw(sss.filedir,code)
+				fn tw.tw("安装成功")
+			}
+		}
+		else
+		{
+			ufnsui()
+			{
+				endutw()
+				fw(sss.filedir,code)
+				fn tw.tw("安装成功")
+			}
 		}
 	}
 	else
