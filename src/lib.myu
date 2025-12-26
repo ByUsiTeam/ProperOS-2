@@ -85,3 +85,11 @@ fn endutw()
 endutw()
 
 end fn
+
+fn aydh(d,i,v)
+
+loadjar("aydh", a)
+cls(a,"com.XiaoMozi.按压动画",ay)
+javax(c,null,ay,"touchEvent","android.view.View",d,"int",i)
+
+end fn

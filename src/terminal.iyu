@@ -11,7 +11,12 @@ scaleType=centercrop
 visibility=gone</ppt>
 <event></event>
 </View>
-<View id="3" did="1" type="LinearLayout">
+<View id="12" did="1" type="RelativeLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="3" did="12" type="LinearLayout">
 <ppt>width=-1
 height=-1
 orientation=vertical
@@ -54,7 +59,8 @@ else
 	fr("@System/terminalParser.cuk",code)
 	fw("$System/code/terminal.cuk",code)
 	fn system.code(code,11)
-}</eventItme></event>
+}
+us(8,"text","")</eventItme><eventItme type="touchmonitor">fn lib.aydh(st_vW,st_eA,st_vId)</eventItme></event>
 </View>
 <View id="8" did="7" type="EditText">
 <ppt>width=-1
