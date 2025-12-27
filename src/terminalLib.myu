@@ -21,7 +21,7 @@ call(null,"mjava","output.awayroll",list)
 
 end fn
 
-fn bin(bin)
+fn bin(bin,list)
 
 ss list_code =null
 sl(bin," ",lx)
@@ -39,6 +39,21 @@ for(output,lx)
 	}
 	ss("\"version\":\"beta0.1.1\",\"codeList\":["+nr+"]",ss.list_code)
 	fw("$temp/variableList",ss.list_code)
+}
+
+end fn
+
+fn bin(bin)
+
+f(bin != null && bin != "")
+{
+	sj(bin," ",null,after)
+	sss term =after
+	fr(bin,code)
+	ufnsui()
+	{
+		fn system.code(code,10)
+	}
 }
 
 end fn
