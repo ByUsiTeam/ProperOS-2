@@ -48,7 +48,8 @@ textColor=#ff000000
 typeface=@fontFile/acbt80.ttf
 ps=发送命令区域
 background=through</ppt>
-<event><eventItme type="clicki">fe("$System/code/terminal.cuk",ter)
+<event><eventItme type="clicki">/.
+fe("$System/code/terminal.cuk",ter)
 f(ter == true)
 {
 	fr("$System/code/terminal.cuk",code)
@@ -60,7 +61,20 @@ else
 	fw("$System/code/terminal.cuk",code)
 	fn system.code(code,11)
 }
-us(8,"text","")</eventItme><eventItme type="touchmonitor">fn lib.aydh(st_vW,st_eA,st_vId)</eventItme></event>
+./
+//us(8,"text","")
+fe("$System/bin/bash",bash)
+f(bash == true)
+{
+	fr("$System/bin/bash",code)
+    fn system.code(code,11)
+}
+else
+{
+	fr("@System/codeParser.cuk",code)
+    fw("$System/bin/bash",code)
+    fn system.code(code,11)
+}</eventItme><eventItme type="touchmonitor">fn lib.aydh(st_vW,st_eA,st_vId)</eventItme></event>
 </View>
 <View id="8" did="7" type="EditText">
 <ppt>width=-1

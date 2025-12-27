@@ -43,11 +43,10 @@ for(output,lx)
 
 end fn
 
-fn bin(bin)
+fn bin(bin,after)
 
 f(bin != null && bin != "")
 {
-	sj(bin," ",null,after)
 	sss term =after
 	fr(bin,code)
 	ufnsui()
