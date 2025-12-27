@@ -26,7 +26,7 @@ background=black</ppt>
 </View>
 <View id="4" did="3" type="CardView">
 <ppt>width=-1
-height=85dp
+height=100dp
 layout_marginLeft=10dp
 layout_marginRight=10dp
 layout_marginBottom=10dp
@@ -76,7 +76,12 @@ else
     fn system.code(code,11)
 }</eventItme><eventItme type="touchmonitor">fn lib.aydh(st_vW,st_eA,st_vId)</eventItme></event>
 </View>
-<View id="8" did="7" type="EditText">
+<View id="13" did="7" type="TextInputLayout">
+<ppt>width=-1
+height=-1</ppt>
+<event></event>
+</View>
+<View id="8" did="13" type="EditText">
 <ppt>width=-1
 height=-1
 text=
@@ -86,7 +91,9 @@ textColor=#ff000000
 hint=ProperOS_Two@CodeML:~/
 singleLine=true
 imeOptions=actionsend
-ps=命令编辑框</ppt>
+ps=命令编辑框
+layout_marginLeft=4dp
+layout_marginRight=4dp</ppt>
 <event><eventItme type="editormonitor">f(st_aI != 0)
 {
 	fn model.点击控件(9)
