@@ -42,3 +42,67 @@ us(文本,"text",内容)
 gvs(fkj,janz1.3,tp)
 us(tp,"src",图片)
 end fn
+
+fn ts(ida,nr,sj)
+
+/.
+
+夜鸳官方交流群：717460653
+联系我们
+QQ：2748299441
+e-mail：H19175306@163.com
+./
+
+t()
+{
+	ufnsui()
+	{
+		//按钮设置
+		us(ida,"ut_centerHorizontal","true")
+		us(ida,"ut_alignParentBottom","true")
+		us(ida,"layout_marginBottom","50dp")
+		us(ida,"background","#fff4f4f4")
+		us(ida,"textColor","#ff8c86ff")
+		us(ida,"textStyle","bold")
+		ngde(30,"#fff4f4f4",ak)
+		us(ida,"background",ak)
+	}
+
+	f(sss.ts==0)
+	{
+		sss ts=1
+
+	//动画显示
+		ufnsui()
+		{
+			us(ida,"text",nr)
+			us(ida,"visibility","visible")
+			//移动动画
+			dhas(dh1, ida, "translationY", -2000, 0,100,0)
+			dh(dh1, "duration", 500)
+			//旋转动画
+			dhas(dh2, ida, "rotation", 0,10,-10,10,-15,0)
+			dh(dh2, "duration", 500)
+			//顺序执行
+			dhast(dhlist, "sequen", dh1, dh2)
+			dh(dhlist, "start")
+		}
+
+		stop(sj)
+
+		//动画退出
+		ufnsui()
+		{
+			dhs(dh, 1, 0, 1, 0, 1, 0.5, 1, 0.5)
+			dh(dh, "duration", 500)
+			us(ida, "dh", dh)
+			us(ida,"visibility","gone")
+		}
+
+		sss ts=0
+
+	}
+}
+
+
+end fn

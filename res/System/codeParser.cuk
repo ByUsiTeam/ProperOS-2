@@ -1,0 +1,31 @@
+ug(8,"text",code_text)
+strim(code_text,code_text)
+f(code_text != null && code_text != "")
+{
+	fe("$System/bin/"+code_text+".cuk",bin)
+	s bin_dir ="$System/bin/"+code_text+".cuk"
+	fe("$System/bin/"+code_text+".tps",bin2)
+	s bin2_dir ="$System/bin/"+code_text+".tps"
+	fe("$System/bin/"+code_text,bin3)
+	s bin3_dir ="$System/bin/"+code_text
+	f(bin == true)
+	{
+		fn terminalLib.bin(bin_dir)
+	}
+	else f(bin2 == true)
+	{
+		fn terminalLib.bin(bin2_dir)
+	}
+	else f(bin3 == true)
+	{
+		fn terminalLib.bin(bin3_dir)
+	}
+	else
+	{
+		fn terminalLib.echo("请检查 \""+code_text+"\" 是否正常.")
+	}
+}
+else
+{
+	fn terminalLib.echo("错误哦~ \n执行错误！")
+}

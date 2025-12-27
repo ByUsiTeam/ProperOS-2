@@ -20,3 +20,25 @@ gvs(6,list)
 call(null,"mjava","output.awayroll",list)
 
 end fn
+
+fn bin(bin)
+
+ss list_code =null
+sl(bin," ",lx)
+s id =0
+s nr =null
+for(output,lx)
+{
+	f(nr == null)
+	{
+		ss("{\"id\":\""+id+"\",\"content\":\""+output+"\"}",nr)
+	}
+	else
+	{
+		ss(",{\"id\":\""+id+"\",\"content\":\""+output+"\"}",nr)
+	}
+	ss("\"version\":\"beta0.1.1\",\"codeList\":["+nr+"]",ss.list_code)
+	fw("$temp/variableList",ss.list_code)
+}
+
+end fn
