@@ -45,6 +45,11 @@ end fn
 
 fn bin(bin,after)
 
+fdir("$",properos_root)
+fdir(bin,bin_dir)
+ss(bin_dir+" "+after,yy)
+sr(yy,properos_root,"ProperOS_Two:File_Root:/",yy)
+fn terminalLib.echo(yy)
 f(bin != null && bin != "")
 {
 	sss term =after
