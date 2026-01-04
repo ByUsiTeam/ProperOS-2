@@ -1,0 +1,68 @@
+//========普通列表========
+
+//滚动到顶部
+public static void scrollTop(listView){
+	listView.setSelection(0);
+}
+
+//滚动到底部
+public static void scrollBottom(listView){
+	listView.setSelection(listView.getBottom());
+}
+
+//平滑滚动到顶部
+public static void smoothScrollTop(listView){
+	listView.post(new Runnable() {
+		public void run() {
+			listView.smoothScrollToPosition(0);
+		}
+	});
+}
+
+//平滑滚动到底部
+public static void smoothScrollBottom(listView){
+	listView.post(new Runnable() {
+		public void run() {
+			listView.smoothScrollToPosition(listView.getBottom());
+		}
+	});
+}
+
+//滚动到指定位置
+public static void scrollAppoint(listView,point){
+	int position=Integer.parseInt(point,10);
+	site=position-1;
+	listView.setSelection(site);
+}
+
+//平滑滚动到指定位置
+public static void smoothScrollAppoint(listView,point){
+	int position=Integer.parseInt(point,10);
+	site=position-1;
+	listView.post(new Runnable() {
+		public void run() {
+			listView.smoothScrollToPosition(site);
+		}
+	});
+}
+
+
+
+
+//========v7列表========
+//v7列表滚动到顶部
+public static void v7scrollTop(recycleview){
+	position=0;
+	recycleview.scrollToPosition(position);
+	mLayoutManager = recycleview.getLayoutManager();
+	mLayoutManager.scrollToPositionWithOffset(position, 0);
+}
+
+//v7列表滚动到底部
+public static void v7scrollBottom(recycleview){
+	position=recycleview.getAdapter().getItemCount()-1;
+	recycleview.scrollToPosition(position);
+	mLayoutManager = recycleview.getLayoutManager();
+	mLayoutManager.scrollToPositionWithOffset(position, 0);
+}
+

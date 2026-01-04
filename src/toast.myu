@@ -1,0 +1,66 @@
+fn MdToast(viewId,type,text)
+/.
+* type: 1成功 0错误
+* text：文本内容
+* viewId: 相对布局ID
+./
+t()
+{
+	ufnsui()
+	{
+		f(sss.layout == null)
+		{
+			sran(10000, 99999, id)
+			nvw(id, viewId, "线性布局", "width=-1\nheight=-1\norientation=vertical\ngravity=center|bottom", v)
+			sss layout = v
+			s x = v
+		} else
+		{
+			s x = sss.layout
+		}
+		sran(10000, 99999, id)
+		nvw(id, x, "卡片", "width=-2\nheight=-2\napp_cardcornerradius=5dp\napp_cardelevation=20dp", v)
+		us(v, "layout_margintop", "-35dp")
+		us(v, "layout_marginbottom", "50dp")
+		us(v, "layout_marginleft", "20dp")
+		us(v, "layout_marginright", "20dp")
+		sran(10000, 99999, id2)
+		nvw(id2, v, "线性布局", "width=-1\nheight=-1\norientation=horizontal\ngravity=center_vertical\npadding=12dp", v2)
+		sran(10000, 99999, id3)
+		nvw(id3, v2, "图像", "width=25dp\nheight=25dp", v3)
+		f(type == 1)
+		{
+			us(v3, "src", "@cg.png")
+		} else
+		{
+			us(v3, "src", "@sb.png")
+		}
+		sran(10000, 99999, id4)
+		nvw(id4, v2, "文本", "width=-2\nheight=-2\ntext=" + text + "\ntextcolor=#ff000000", v4)
+		us(v4, "layout_marginleft", "10dp")
+		s kp = v
+		dha(dh, false, true)
+		dh(dh, "duration", 200)
+		us(kp, "dh", dh)
+		
+		dhas(dh1, kp, "scaleY", 0.9, 1)
+		dh(dh1, "duration", 250)
+		dhas(dh2, kp, "scaleX", 0.9, 1)
+		dh(dh2, "duration", 250)
+		dh(dh1, "start")
+		dh(dh2, "start")
+	}
+	stop(2000)
+	ufnsui()
+	{
+		dha(dhb, true, false)
+		dh(dhb, "duration", 200)
+		us(kp, "dh", dhb)
+	}
+	stop(200)
+	ufnsui()
+	{
+		urvw(kp)
+	}
+}
+end fn

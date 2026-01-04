@@ -726,7 +726,7 @@ layout_marginLeft=6dp</ppt>
 <View id="71" did="70" type="TextView">
 <ppt>width=-2
 height=-2
-text=检察引导更新
+text=获取代码更新
 typeface=@fontFile/acbt80.ttf
 textColor=#ff000000
 textSize=12sp</ppt>
@@ -737,7 +737,8 @@ textSize=12sp</ppt>
 height=-2
 text=用于动态更新本地的引导代码
 typeface=@fontFile/acbt80.ttf
-textSize=8sp</ppt>
+textSize=8sp
+visibility=gone</ppt>
 <event></event>
 </View>
 <View id="73" did="68" type="LinearLayout">

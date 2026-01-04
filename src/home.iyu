@@ -42,7 +42,7 @@ orientation=vertical</ppt>
 <ppt>width=-1
 height=-1
 app_title=ProperOS 2
-BackgroundColor=#fff4e6e6</ppt>
+BackgroundColor=#5b4c4c4c</ppt>
 <event></event>
 </View>
 <View id="7" did="3" type="SwipeRefreshLayout">
@@ -103,6 +103,22 @@ gravity=center
 ps=刷新界面
 visibility=gone</ppt>
 <event><eventItme type="clicki">syso(" ")</eventItme></event>
+</View>
+<View id="17" did="13" type="RoundImageView">
+<ppt>width=-2
+height=-2
+src=@logo/properos2.png</ppt>
+<event></event>
+</View>
+<View id="18" did="13" type="TextView">
+<ppt>width=-2
+height=-2
+text=刷新中，请稍后....
+textColor=#ff000000
+typeface=@fontFile/acbt80.ttf
+textSize=25sp
+layout_marginTop=10dp</ppt>
+<event></event>
 </View>
 <View id="14" did="13" type="ProgressBar">
 <ppt>width=-1
@@ -210,20 +226,9 @@ t()
 }
 //</eventItme><eventItme type="menu">case 守护进程启动:
 
-fn guardianService.start(12)
-
-break
-
-case 重启软件:
-
-fw("$System/Config/DaemonServiceOn.sett","false")
-utw(null,"","确定重启吗？","重启","取消",true,v)
+utw(null,"","暂时被禁止使用了",false,v)
 {
-	call(null,"mjava","restart.st",activity)
-}
-else
-{
-	endutw()
+	fn guardianService.start(12)
 }
 
 break
@@ -243,6 +248,20 @@ t()
 		fn system.code(cuk,12)
 	}
 	syso(cuk)
+}
+
+break
+
+case 重启软件:
+
+fw("$System/Config/DaemonServiceOn.sett","false")
+utw(null,"","确定重启吗？","重启","取消",true,v)
+{
+	call(null,"mjava","restart.st",activity)
+}
+else
+{
+	endutw()
 }
 
 break

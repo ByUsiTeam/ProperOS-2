@@ -79,6 +79,14 @@ t()
 			sbp("$System/icon/ic_settings_voice_assistant.png",icon)
 			s appName =content
 		}
+		/. //正在开发中...
+		else f(houyi *? ".doc" || houyi *? ".docx")
+		{
+			s plink =false
+			sbp("",icon)
+			s appName =content
+		}
+		./
 		else
 		{
 			s plink =false

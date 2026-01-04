@@ -177,3 +177,17 @@ gvs(id2,view)
 call(return,"mjava","dbdh.dbdh",activity,id,view)
 
 end fn
+
+fn rename(bl1,bl2)
+
+call(return,"mjava","rename.renameFile",bl1,bl2)
+f(return == false)
+{
+	fn tw.tw2("操作失败",1)
+}
+else
+{
+	sss url =return
+}
+
+end fn

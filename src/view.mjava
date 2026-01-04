@@ -21,10 +21,10 @@ ViewGroup getViewGroup(View view) {
 	}
 }
 void bindLiquidGlass(View view, ViewGroup viewGroup) {
-    ((LiquidGlassView) view).bind(viewGroup);
+	((LiquidGlassView) view).bind(viewGroup);
 }
 
 
 int parseColorToInt(String colorString) {
-    return Color.parseColor(colorString);
+	return Color.parseColor(colorString);
 }

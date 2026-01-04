@@ -4,3 +4,9 @@ syso("获取到Title元素："+title)
 sss title =title
 
 end fn
+
+fn appWeb()
+
+
+
+end fn
