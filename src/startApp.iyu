@@ -49,13 +49,7 @@ else f(st_url ?* "file://")
 else
 {
 	hws(st_url)
-}</eventItme><eventItme type="onreceivederror">/.
-fn Lottie.loaddex()
-fr("@resources/Lottie/error.json",data)
-fn Lottie.setImageLottie(9,data,0,true)
-./
-//错误信息配置
-f(st_url ?* "http")
+}</eventItme><eventItme type="onreceivederror">f(st_url ?* "http")
 {
 	us(8,"visibility","visible")
 	sss Root_Interlinkage =st_url
@@ -73,16 +67,7 @@ else
 	sr(st_url,root_file,"ProperOS_Two:Root_Files/",root)
 	ss("(html)&lt;p&gt;错误代码：&lt;a href=\"https://cn.bing.com/search?q="+st_dN+"\"&gt;"+st_dN+"&lt;/a&gt;&lt;br&gt;在加载该链接时发生了错误："+root+"&lt;/p&gt;",ii)
 	us(12,"text",ii)
-}
-/.
-call(v,"mjava","ExpandableTextView.createExpandableTextView",ii)
-nvw(v,11)
-//获取控件,添加控件
-us(v,"textcolor","#ff000000")
-us(v,"textsize","16sp")
-us(v,"layout_marginLeft","10dp")
-us(v,"typeface","@fontFile/acbt80.ttf")
-./</eventItme><eventItme type="ondownloadstart">sj(st_cN,';filename="','"',name_impurity)
+}</eventItme><eventItme type="ondownloadstart">sj(st_cN,';filename="','"',name_impurity)
 
 f(st_cH &gt; "1024")
 {
@@ -118,7 +103,7 @@ utw(null,"发现文件下载事件",tsc,"下载","取消",false,v)
 else
 {
 	endutw()
-}</eventItme><eventItme type="onpagestarted">us(8,"visibility","gone")</eventItme></event>
+}</eventItme></event>
 </View>
 <View id="4" did="1" type="LinearLayout">
 <ppt>width=-1
